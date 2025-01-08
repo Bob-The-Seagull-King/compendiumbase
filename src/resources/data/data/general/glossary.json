@@ -1,0 +1,17 @@
+[
+    {
+        "id": "gl_default",
+        "type": "Glossary",
+        "source": "core",
+        "tags": {
+            "category" : "default"
+        },
+        "eventtags": {},
+        "name": "Default",
+        "description":  [{
+            "tags": {"desc_type" : "desc"},
+            "content": "This is a default test item.",
+            "subcontent":   []
+        }]
+    }
+]
