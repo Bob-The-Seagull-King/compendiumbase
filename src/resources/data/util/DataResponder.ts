@@ -1,8 +1,6 @@
 
 // Data File Imports -----------------------------------
-import glossarydata from '../data/general/glossary.json'
-import tabledata from '../data/general/table.json'
-import imagedata from '../data/general/images.json'
+import { DataByLanguageTable, DataSetTC } from "./DataHandler"
 // -----------------------------------------------------
 
 /**
@@ -11,6 +9,7 @@ import imagedata from '../data/general/images.json'
 interface IDataRequest {
     type: string // The data file to search within
     data: []
+    language?: string
 }
 
 /**
@@ -59,19 +58,58 @@ class DataResponder {
      * @param type The type of data to be searched
      * @returns JSON array of data to search
      */
-    private static GetDataType(type: string, data : any[]) {
+    private static GetDataType(type: string, data : any[], language : string | undefined) {
+        let RelevantSet : DataSetTC;
+        if (language != undefined) {
+            RelevantSet = DataByLanguageTable[language]
+        } else {
+            RelevantSet = DataByLanguageTable['ln_english']
+        }
         switch(type) {
             case "glossary": {
-                return glossarydata.concat(data)
+                return RelevantSet.glossarydata.concat(data)
             }
             case "table": {
-                return tabledata.concat(data)
+                return RelevantSet.tabledata.concat(data)
             }
             case "images": {
-                return imagedata.concat(data)
+                return RelevantSet.imagedata.concat(data)
             }
             default: {
                 return data
+            }
+        }
+    }
+
+    
+    /**
+     * Based on the provided search type, performs the appropriate
+     * search using the request.
+     * 
+     * @param request The request object being read
+     * @param search_type the string name of the search type
+     * @returns The data returned by the data repo in response to the request
+     */
+    public static GetResponse(request: any, search_type : string, language_set : string) {
+        request.language = language_set;
+        switch(search_type) {
+            case "id": {
+                return DataResponder.GetSingleEntry(request);
+            }
+            case "file": {
+                return DataResponder.GetFullDataEntry(request);
+            }
+            case "keyvalues": {
+                return DataResponder.GetAllOfKeyInData(request);
+            }
+            case "complex": {
+                return DataResponder.ComplexSearch(request);
+            }
+            case "tags": {
+                return DataResponder.GetAllTagsInData(request);
+            }
+            default: {
+                return []
             }
         }
     }
@@ -82,7 +120,7 @@ class DataResponder {
      * @returns JSON object, either empty or containing the found entry
      */
     public static GetSingleEntry(request: IDataRequestID) {
-        const dataSet = DataResponder.GetDataType(request.type, request.data)
+        const dataSet = DataResponder.GetDataType(request.type, request.data, request.language)
 
         let i = 0;
         for (i = 0; i < dataSet.length; i++) {
@@ -99,7 +137,7 @@ class DataResponder {
      * @returns JSON array of all data in the specified file
      */
     public static GetFullDataEntry(request: IDataRequest) {
-        const dataSet = DataResponder.GetDataType(request.type, request.data)
+        const dataSet = DataResponder.GetDataType(request.type, request.data, request.language)
         return dataSet;
     }
 
@@ -109,7 +147,7 @@ class DataResponder {
      * @returns Array of all values associated with the requested key in the requested file
      */
     public static GetAllOfKeyInData(request: IDataRequestID) {
-        const dataSet = DataResponder.GetDataType(request.type, request.data)
+        const dataSet = DataResponder.GetDataType(request.type, request.data, request.language)
         const valueSet: any = []
 
         let i = 0;
@@ -130,7 +168,7 @@ class DataResponder {
      * @returns Array of string names of tags
      */
     public static GetAllTagsInData(request: IDataRequest) {
-        const dataSet = DataResponder.GetDataType(request.type, request.data)
+        const dataSet = DataResponder.GetDataType(request.type, request.data, request.language)
         const valueSet: any = []
 
         let i = 0;
@@ -157,7 +195,7 @@ class DataResponder {
      * @returns JSON array of entries in a data file that match the criteria
      */
     public static ComplexSearch(search: IDataRequestComplexSearch) {
-        const dataSet = DataResponder.GetDataType(search.type, search.data)
+        const dataSet = DataResponder.GetDataType(search.type, search.data, search.language)
         const dataSelect = []
 
         let i = 0;
