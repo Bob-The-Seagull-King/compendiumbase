@@ -17,6 +17,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons'
 
 // Component
 import PalleteSwap from './components/PalleteSwap';
+import LanguageSwap from './components/LanguageSwap';
 
 const BaseHeader = (prop: any) => {
 
@@ -40,6 +41,8 @@ const BaseHeader = (prop: any) => {
                 </Button>
                 <div className="vr headertext"></div>
                 <PalleteSwap/>
+                <div className="vr headertext"></div>
+                <LanguageSwap/>
                 <div className="vr headertext"></div>
                 <div className="ms-lg-auto ms-md-auto">
                     <h1 className="headertext">

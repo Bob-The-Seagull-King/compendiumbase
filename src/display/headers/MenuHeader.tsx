@@ -5,6 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 // Components
 import PalleteSwap from './components/PalleteSwap';
+import LanguageSwap from './components/LanguageSwap';
 
 const MenuHeader = (prop: any) => {
 
@@ -12,9 +13,15 @@ const MenuHeader = (prop: any) => {
     return (
         
         <ErrorBoundary fallback={<div>Something went wrong with MenuHeader.tsx</div>}>
-            <div className={"floatingButton backgrounddefault"}>
-                <PalleteSwap/>
+            <div style={{display:"flex"}}>
+                <div className={"floatingButton backgrounddefault"}>
+                    <PalleteSwap/>
+                </div>
+                <div className={"floatingButton backgrounddefault"}>
+                    <LanguageSwap/>
+                </div>
             </div>
+            
         </ErrorBoundary>
     )
     // -------------------------------------------
