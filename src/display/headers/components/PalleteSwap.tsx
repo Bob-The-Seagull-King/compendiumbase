@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../resources/styles/_mainstylesource.scss'
 import React from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -58,16 +59,19 @@ const PalleteSwap = (prop: any) => {
     }
       
     return (
-        <Dropdown style={{margin:"0em"}} onSelect={(e,obj) => SetPallete(e? e : "")}>
-            <Dropdown.Toggle bsPrefix="dropdownClean" style={{width:"3em"}} id="dropdown-custom-components">
-                {returnCurrentPallete(theme)}
-            </Dropdown.Toggle>
+        <ErrorBoundary fallback={<div>Something went wrong with PalleteSwap.tsx</div>}>
+            <Dropdown style={{margin:"0em"}} onSelect={(e,obj) => SetPallete(e? e : "")}>
+                <Dropdown.Toggle bsPrefix="dropdownClean" style={{width:"3em"}} id="dropdown-custom-components">
+                    {returnCurrentPallete(theme)}
+                </Dropdown.Toggle>
+            
+                <Dropdown.Menu>
+                    <Dropdown.Item eventKey="light" >Light</Dropdown.Item>
+                    <Dropdown.Item eventKey="dark" >Dark</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+        </ErrorBoundary>
         
-            <Dropdown.Menu>
-                <Dropdown.Item eventKey="light" >Light</Dropdown.Item>
-                <Dropdown.Item eventKey="dark" >Dark</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
       );
 }
 

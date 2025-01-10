@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React, { useEffect, useRef, useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -66,7 +67,8 @@ const SaveItemDisplay = (prop: any) => {
     }, [stateWidth])
 
     return (
-        <>
+        
+        <ErrorBoundary fallback={<div>Something went wrong with SaveItemDisplay.tsx</div>}>
             <div className='' ref={ref} >
                 {stateWidth > 700 &&
                     <div className="contentpackcontainer smallbordersubpurple" >
@@ -137,7 +139,7 @@ const SaveItemDisplay = (prop: any) => {
                     </div>
                 }
             </div>
-        </>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

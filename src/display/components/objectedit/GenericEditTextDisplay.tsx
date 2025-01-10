@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../resources/styles/_mainstylesource.scss'
 import React, { useRef, useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -39,7 +40,9 @@ const GenericEditListDisplay = (props: any) => {
     }
 
     return (
-        <>  <span>
+        
+        <ErrorBoundary fallback={<div>Something went wrong with GenericEditTextDisplay.tsx</div>}>
+            <span>
             { EditStaticType.returnButton(Manager, Item, handleShowTextEdit, SubItem, textValue) }
             </span>
             
@@ -61,7 +64,8 @@ const GenericEditListDisplay = (props: any) => {
                     </div>
                 </Modal.Body>
             </Modal>
-        </>
+        
+        </ErrorBoundary>
     )
 }
 

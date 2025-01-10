@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React, { useState, useRef } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -65,15 +66,17 @@ const FilterTextItem = (prop: any) => {
 
     // Return result -----------------------------
     return (
-        <div className="col">
-            <div className="centerPosition">
-                <InputGroup className="mb-3 borderstyler subborderdefault filtertextinput">
-                    <Form.Control onChange={e => updateName(ItemFilter, e.target.value)} className='' aria-label="Text input with checkbox" defaultValue={ItemFilter.Val}/>
-                    <InputGroup.Text className=''>Exact Match?</InputGroup.Text>
-                    <InputGroup.Checkbox checked={_currentstate}  onChange={e => updateStrict(ItemFilter, returnactivetext)}  className='' aria-label="Checkbox for following text input" ></InputGroup.Checkbox>
-                </InputGroup>
+        <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
+            <div className="col">
+                <div className="centerPosition">
+                    <InputGroup className="mb-3 borderstyler subborderdefault filtertextinput">
+                        <Form.Control onChange={e => updateName(ItemFilter, e.target.value)} className='' aria-label="Text input with checkbox" defaultValue={ItemFilter.Val}/>
+                        <InputGroup.Text className=''>Exact Match?</InputGroup.Text>
+                        <InputGroup.Checkbox checked={_currentstate}  onChange={e => updateStrict(ItemFilter, returnactivetext)}  className='' aria-label="Checkbox for following text input" ></InputGroup.Checkbox>
+                    </InputGroup>
+                </div>
             </div>
-        </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }
@@ -108,6 +111,7 @@ const FilterRangeItem = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="col">
             <div className="centerPosition">
                 
@@ -159,6 +163,7 @@ const FilterRangeItem = (prop: any) => {
             
             </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }
@@ -169,6 +174,7 @@ const FilterTagItem = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="">
             <div className="centerPosition">
                 <div className={"tagBox " + (_currentstate == "" ? "filterobjectdisplay" : _currentstate == "positive" ? "filterobjectdisplaypositive" : "filterobjectdisplaynegative")} style={{minHeight:"2.75em", alignItems: "center"}} >
@@ -187,6 +193,7 @@ const FilterTagItem = (prop: any) => {
                 </div>
             </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }
@@ -198,6 +205,7 @@ const FilterMiscItem = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="col">
             <div className="centerPosition">
                 <div className={"hovermouse " + (_currentstate == "" ? "filterobjectdisplay" : _currentstate == "positive" ? "filterobjectdisplaypositive" : "filterobjectdisplaynegative")} onClick={() => SwitchStates(ItemFilter, returnactivetext)}>
@@ -205,6 +213,7 @@ const FilterMiscItem = (prop: any) => {
                 </div>
             </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

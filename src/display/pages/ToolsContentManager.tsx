@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
 import React, { useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -73,6 +74,8 @@ const ToolsContentManager = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        
+        <ErrorBoundary fallback={<div>Something went wrong with ToolsContentManager.tsx</div>}>
         <div className="container" style={{width:"100%"}}>
              <ToastContainer
             position="top-center"
@@ -134,6 +137,7 @@ const ToolsContentManager = (prop: any) => {
                 </div>
             </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { ErrorBoundary } from "react-error-boundary";
 
 // Resources
 import 'bootstrap/dist/css/bootstrap.css'
@@ -68,7 +69,8 @@ const ContentPackDisplay = (props: any) => {
     }, [stateWidth])
 
     return (
-        <>
+        
+        <ErrorBoundary fallback={<div>Something went wrong with ContentPackDisplay.tsx</div>}>
             <div className='' ref={ref}>
                 {stateWidth > 700 &&
                     <div className="contentpackcontainer smallbordersubdefault" >
@@ -190,7 +192,7 @@ const ContentPackDisplay = (props: any) => {
                 </div>
                 </Modal.Body>
             </Modal>
-        </>
+        </ErrorBoundary>
     )
 }
 

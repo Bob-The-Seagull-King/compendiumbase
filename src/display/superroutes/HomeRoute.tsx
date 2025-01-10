@@ -3,6 +3,7 @@ import '../../resources/styles/_mainstylesource.scss'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
 import { useGlobalState } from './../../utility/globalstate'
@@ -39,6 +40,7 @@ const HomeRoute: React.FC = () => {
     // Return result -----------------------------
     return (
         
+        <ErrorBoundary fallback={<div>Something went wrong with HomeRoute.tsx</div>}>
         <div className="backgroundBaseColour" data-theme={theme}>
         <div>
             <div className="row justify-content-center m-0 p-0">
@@ -88,6 +90,7 @@ const HomeRoute: React.FC = () => {
             </div>
         </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

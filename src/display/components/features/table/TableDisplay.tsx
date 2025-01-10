@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import Table from 'react-bootstrap/Table';
 
@@ -17,6 +18,8 @@ const TableDisplay = (props: any) => {
     const BackgroundClass = DisplayType+"background"+getColour(DisplayColour)
 
     return (
+        
+        <ErrorBoundary fallback={<div>Something went wrong with TableDisplay.tsx</div>}>
             <Table style={{width:"100%",margin:"0em"}} className={BackgroundClass}>                
                 <thead className={"tableTitle " + BackgroundClass} >
                     <tr className={BackgroundClass}>
@@ -43,6 +46,7 @@ const TableDisplay = (props: any) => {
                     ))}
                 </tbody>
             </Table >
+        </ErrorBoundary>
     )
 }
 

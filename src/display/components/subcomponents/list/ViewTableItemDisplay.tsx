@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React, { useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
 import { ViewTableItem } from '../../../../classes/viewmodel/collections/ViewTableItem'
@@ -27,6 +28,7 @@ const ViewTableItemDisplay = (props: any) => {
     }
 
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with ViewTableItemDisplay.tsx</div>}>
         <div style={{width: "100%", marginBottom: "0px", position: "relative"}} className='hovermouse' onClick={() => UpdateComponent()}>
             {position() % 2 == 0 &&
                 <div className="colourOverlay"/>
@@ -42,6 +44,7 @@ const ViewTableItemDisplay = (props: any) => {
                 </h1>
             }
         </div>
+        </ErrorBoundary>
     )
 }
 

@@ -16,8 +16,12 @@ class ItemManager {
     public GetItemByName(_name : string) {
         let i = 0;
         for (i=0; i < this.ItemList.length ; i++) {
-            if (this.ItemList[i].Title.trim() == _name) {
-                return this.ItemList[i]
+            try {
+                if (this.ItemList[i].Title.trim() == _name) {
+                    return this.ItemList[i]
+                }
+            } catch (e) {
+                console.log("Broken Save Item Found")
             }
         }
         return null;
@@ -46,7 +50,11 @@ class ItemManager {
     public SetStorage() {
         const _list: IItem[] = []
         for (let i = 0; i < this.ItemList.length; i++) {
-            _list.push(this.ItemList[i].ConvertToInterface())
+            try {
+                _list.push(this.ItemList[i].ConvertToInterface())
+            } catch (e) {
+                console.log("Conversion Failed")
+            }
         }
         localStorage.setItem('compendiumsaveitem', JSON.stringify(_list));
     }

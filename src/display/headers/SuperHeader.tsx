@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
 import React, { useEffect, useRef, useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import { BrowserRouter as Router, Route, Routes, useLocation  } from 'react-router-dom'
 import { ROUTES } from '../../resources/routes-constants'
@@ -42,19 +43,19 @@ const SuperHeader: React.FC = () => {
     }, [location])
 
     // Return result -----------------------------
-    return (
-        <>
-        <div data-theme={theme}>
-        <div id="topbarbody" ref={ref} className="topbarStructure">
-            <Routes>
-                <Route path={ROUTES.COMPENDIUM_ROUTE}  element={<BaseHeader />} />
-                <Route path={ROUTES.TOOLS_ROUTE} element={<BaseHeader />} />
-                <Route path={ROUTES.HOME_ROUTE} element={<MenuHeader />} />
-            </Routes>
-        </div>
-        <div style={{height:stateheight}} className="backgroundOffWhite"/>
-        </div>
-        </>
+    return (    
+        <ErrorBoundary fallback={<div>Something went wrong with SuperHeader.tsx</div>}>
+            <div data-theme={theme}>
+            <div id="topbarbody" ref={ref} className="topbarStructure">
+                <Routes>
+                    <Route path={ROUTES.COMPENDIUM_ROUTE}  element={<BaseHeader />} />
+                    <Route path={ROUTES.TOOLS_ROUTE} element={<BaseHeader />} />
+                    <Route path={ROUTES.HOME_ROUTE} element={<MenuHeader />} />
+                </Routes>
+            </div>
+            <div style={{height:stateheight}} className="backgroundOffWhite"/>
+            </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

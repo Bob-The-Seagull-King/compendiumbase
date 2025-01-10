@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
 import React from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -28,13 +29,15 @@ const ToolsRoute: React.FC<IControllerProp> = (prop) => {
 
     // Return result -----------------------------
     return (
-        <div className="backgroundBaseColour" data-theme={theme}>
-        <Routes>
-        <Route path={ROUTES.TOOLS_CONTENT_UPLOAD_ROUTE} element={<ToolsContentManager manager={prop.controller.ContentManager}/>} />
-        <Route path={ROUTES.TOOLS_CONTENT_SAVE_ITEM} element={<ToolsSavedItem manager={prop.controller.SaveItemManager}/>} />
         
-        </Routes>
-        </div>
+        <ErrorBoundary fallback={<div>Something went wrong with ToolsRoute.tsx</div>}>
+            <div className="backgroundBaseColour" data-theme={theme}>
+                <Routes>
+                    <Route path={ROUTES.TOOLS_CONTENT_UPLOAD_ROUTE} element={<ToolsContentManager manager={prop.controller.ContentManager}/>} />
+                    <Route path={ROUTES.TOOLS_CONTENT_SAVE_ITEM} element={<ToolsSavedItem manager={prop.controller.SaveItemManager}/>} />
+                </Routes>
+            </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

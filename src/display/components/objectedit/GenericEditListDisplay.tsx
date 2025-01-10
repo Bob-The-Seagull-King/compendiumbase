@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../resources/styles/_mainstylesource.scss'
 import React, { useRef, useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -25,15 +26,18 @@ const GenericEditListDisplay = (props: any) => {
     }
 
     return (
-        <div className={"col-md-" + EditStaticType.smallwidth + " col-" + EditStaticType.widewidth} >
-            <InputGroup className={"tagboxpad"}  style={{height:"100%"}}>
-                <Form.Select className="borderdefault borderstyler" defaultValue={EditStaticType.baseValue(Manager, Item)} style={{height:"100%",textAlign:"center"}} aria-label="Default select example" onChange={e => { EditStaticType.updateValue(Manager, Item, e.target.value, updateModel, SubItem)} } >
-                        {
-                            EditStaticType.returnOptions(Manager, Item, SubItem)
-                        }
-                </Form.Select>
-            </InputGroup>
-        </div>
+        
+        <ErrorBoundary fallback={<div>Something went wrong with GenericEditListDisplay.tsx</div>}>
+            <div className={"col-md-" + EditStaticType.smallwidth + " col-" + EditStaticType.widewidth} >
+                <InputGroup className={"tagboxpad"}  style={{height:"100%"}}>
+                    <Form.Select className="borderdefault borderstyler" defaultValue={EditStaticType.baseValue(Manager, Item)} style={{height:"100%",textAlign:"center"}} aria-label="Default select example" onChange={e => { EditStaticType.updateValue(Manager, Item, e.target.value, updateModel, SubItem)} } >
+                            {
+                                EditStaticType.returnOptions(Manager, Item, SubItem)
+                            }
+                    </Form.Select>
+                </InputGroup>
+            </div>
+        </ErrorBoundary>
     )
 }
 

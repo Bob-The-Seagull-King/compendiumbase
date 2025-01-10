@@ -1,4 +1,5 @@
 import { FilterManager } from "../../classes/viewmodel/collections/filters/FilterManager"
+import { ErrorBoundary } from "react-error-boundary";
 import {FilterTagItem, FilterTextItem, FilterMiscItem, FilterRangeItem} from "../components/subcomponents/filters/FilterItems"
 import GenericDisplay from "../components/generics/GenericDisplay"
 import GlossaryDisplay from "../components/features/glossary/GlossaryDisplay"
@@ -20,12 +21,16 @@ export const DisplayCollectionDataDex : DisplayCollectionDataTable = {
         width: 7,
         returnDisplay(item: any) {
             return (
-                <GenericDisplay  d_colour={item.ID} d_name={item.Name} d_type={""} d_method={() => <GlossaryDisplay data={item} />}/>
+                
+                <ErrorBoundary fallback={<div>Something went wrong with DisplayPageStatic.tsx</div>}>
+                    <GenericDisplay  d_colour={item.ID} d_name={item.Name} d_type={""} d_method={() => <GlossaryDisplay data={item} />}/>
+                </ErrorBoundary>
             )
         },
         returnFilterSelect(manager : FilterManager, update : NoneToNoneFunction, close : NoneToNoneFunction) {
             return (
-                <>
+                
+                <ErrorBoundary fallback={<div>Something went wrong with DisplayPageStatic.tsx</div>}>
                     <div className="col-12">
                         <div className="separator"><h3>NAME</h3></div>
                         <div className="row">
@@ -60,7 +65,7 @@ export const DisplayCollectionDataDex : DisplayCollectionDataTable = {
                             </div>
                         </div>
                     </div>
-               </>
+                </ErrorBoundary>
             )
         }
     }

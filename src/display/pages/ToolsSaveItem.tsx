@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
 import React, { useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,6 +44,7 @@ const ToolsSavedItem = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with ToolsSaveItem.tsx</div>}>
         <div className="container" style={{minWidth:"98%", marginLeft:"0.5rem", marginRight:"0.5rem"}}>
             {_currentItem != null &&
             <>
@@ -56,6 +58,7 @@ const ToolsSavedItem = (prop: any) => {
                 <SaveItemListDisplay manager={Manager} updater={UpdateItem}/>
             }
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

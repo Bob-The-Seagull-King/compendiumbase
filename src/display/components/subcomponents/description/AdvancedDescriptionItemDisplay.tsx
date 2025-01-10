@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
 import { getTagValue, getTagSetValue} from '../../../../utility/functions'
@@ -151,9 +152,12 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
     }
 
     return (
-        <span>
-            {returnFullItem(description)}
-        </span>
+        
+        <ErrorBoundary fallback={<div>Something went wrong with AdvancedDescriptionItemDisplay.tsx</div>}>
+            <span>
+                {returnFullItem(description)}
+            </span>
+        </ErrorBoundary>
     )
 }
 

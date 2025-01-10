@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../../../resources/styles/_mainstylesource.scss'
 import React, { useEffect, useRef, useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,6 +32,8 @@ const SaveItemViewDisplay = (prop: any) => {
       
 
     return (
+        
+        <ErrorBoundary fallback={<div>Something went wrong with SaveItemViewDisplay.tsx</div>}>
         <div>
             
             <div className="row">
@@ -58,6 +61,7 @@ const SaveItemViewDisplay = (prop: any) => {
                 <div className="verticalspacerbig"/>
             </div> 
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }

@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
 import React, { useState } from 'react'
+import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
 import { ViewCollectionsModel } from '../../classes/viewmodel/collections/ViewCollectionsModel'
@@ -55,6 +56,7 @@ const BaseDisplayCompendium = (prop: any) => {
 
     // Return result -----------------------------
     return (
+        <ErrorBoundary fallback={<div>Something went wrong with BaseDisplayCompendium.tsx</div>}>
         <div className="container" style={{maxWidth:"100%"}}>
             <div className="row">
                 {/* Display the filters and abilities which match the filters, if any. */}
@@ -130,6 +132,7 @@ const BaseDisplayCompendium = (prop: any) => {
                 </div>
             </div>
         </div>
+        </ErrorBoundary>
     )
     // -------------------------------------------
 }
