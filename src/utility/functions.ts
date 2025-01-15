@@ -1,5 +1,8 @@
-import { ObjectTag } from "../classes/CompendiumItem";
+import { CompendiumItem, ObjectTag } from "../classes/CompendiumItem";
 import { AdvancedDescription } from "../classes/AdvancedDescription";
+import { ObjectImage } from "../classes/ObjectImage";
+import { Requester } from "../factories/Requester";
+import { IObjectImage } from "../classes/ObjectImage";
 
 /**
  * Returns a capitalized version of a given string
@@ -204,4 +207,27 @@ export function DescriptionFactory(data: any[]) {
         array.push(tempAD)
     }
     return array;
+}
+
+export function ImageBuilder(source_obj : CompendiumItem) {
+    const ImageList : ObjectImage[] = [];
+    
+    const _data = Requester.MakeRequest({searchtype: "complex", searchparam: {type: "images", request: {
+        operator: "and",
+        terms: [{
+            item: "tags",
+            value: source_obj.ID,
+            equals: true,
+            strict: false,
+            istag: true,
+            tagvalue: ""
+        }],
+        subparams: []
+    }}}) as IObjectImage[]
+    let i = 0;
+    for (i = 0; i < _data.length; i++) {
+        ImageList.push(new ObjectImage(_data[i]))
+    }
+
+    return ImageList;
 }

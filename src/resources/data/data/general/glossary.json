@@ -1,12 +1,10 @@
 [
     {
         "id": "gl_default",
-        "type": "Glossary",
         "source": "core",
         "tags": {
             "category" : "default"
         },
-        "eventtags": {},
         "name": "Default",
         "description":  [{
             "tags": {"desc_type" : "desc"},

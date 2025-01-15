@@ -16,7 +16,6 @@ class GlossaryRule extends CompendiumItem {
     public constructor(data: IGlossaryRule)
     {
         super(data)
-        this.ItemType = ItemType.GlossaryRule;
         this.Description = DescriptionFactory(data.description);
     }
     
