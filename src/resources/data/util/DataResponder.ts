@@ -75,6 +75,12 @@ class DataResponder {
             case "images": {
                 return RelevantSet.imagedata.concat(data)
             }
+            case "testdynamicfeature": {
+                return RelevantSet.testdynamicdata.concat(data)
+            }
+            case "teststaticfeature" : {
+                return RelevantSet.teststaticdata.concat(data)
+            }
             default: {
                 return data
             }

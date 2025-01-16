@@ -1,0 +1,11 @@
+[
+    {
+        "id": "td_testitem",
+        "source": "core",
+        "tags": {
+            "category" : "default"
+        },
+        "name": "Default",
+        "teststaticlist" : []
+    }
+]

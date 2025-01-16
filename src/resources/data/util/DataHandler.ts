@@ -5,6 +5,9 @@
 import en_glossarydata from '../data/general/glossary.json'
 import en_tabledata from '../data/general/table.json'
 import en_imagedata from '../data/general/images.json'
+
+import en_testdynamic from '../data/testitemscontext/testitemdynamic.json'
+import en_teststatic from '../data/testitemscontext/testitemstatic.json'
 // -----------------------------------------------------
 /////////////////////////////// ENGLISH ///////////////////////////////
 
@@ -16,13 +19,17 @@ export interface LanguageDataTable {[languageID: string]: DataSetTC}
 export interface DataSetTC {
     glossarydata : any,
     tabledata : any,
-    imagedata : any
+    imagedata : any,
+    testdynamicdata : any,
+    teststaticdata : any
 }
 
 export const DataByLanguageTable : LanguageDataTable = {
     ln_english: {
         glossarydata : en_glossarydata,
         tabledata : en_tabledata,
-        imagedata : en_imagedata
+        imagedata : en_imagedata,
+        testdynamicdata : en_testdynamic,
+        teststaticdata : en_teststatic
     }
 }

@@ -1,0 +1,12 @@
+[
+    {
+        "id": "ts_testitem_a",
+        "source": "core",
+        "tags": {
+            "category" : "default"
+        },
+        "name": "TestA",
+        "teststatic" : 1,
+        "contextdata": {}
+    }
+]

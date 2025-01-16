@@ -7,9 +7,11 @@ import { StaticContextObject } from "../../classes/contextevent/staticcontextobj
  */
 export interface CallEvents {
     event_priotity : number,
-    genericEvent? : (eventSource : any, relayVar : any, trackVal : any, context_func : {}, context_static : StaticContextObject, context_main : DynamicContextObject | null) => Promise<void>; // Generic all-purpose event, avoid using if possible
+    genericEvent? : (eventSource : any, trackVal : any, context_func : ContextEventEntry, context_static : StaticContextObject, context_main : DynamicContextObject | null) => Promise<void>, // Generic all-purpose event, avoid using if possible
+    genericReturnEvent? : (eventSource : any, relayVar : any, trackVal : any, context_func : ContextEventEntry, context_static : StaticContextObject, context_main : DynamicContextObject | null) => Promise<any>; // Generic all-purpose event if you want a value returned, avoid using if possible
 }
 
 export interface CallEventTable {[tokenid: string]: CallEvents}
 
-export type ContextEventVals = {[type : string]: {}}; // Used for type chart matchups
+export type ContextEventVals = {[type : string]: ContextEventEntry};
+export type ContextEventEntry = {[type : string]: any};

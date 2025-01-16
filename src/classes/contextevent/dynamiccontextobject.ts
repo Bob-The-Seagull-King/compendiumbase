@@ -18,7 +18,7 @@ class DynamicContextObject extends ContextObject {
     }
 
     
-    private async GrabSubPackages(event_id : string, source_obj : ContextObject) : Promise<ContextPackage[]> { return []; }
+    public async GrabSubPackages(event_id : string, source_obj : ContextObject) : Promise<ContextPackage[]> { return []; }
 
 }
 

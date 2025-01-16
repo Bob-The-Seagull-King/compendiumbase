@@ -16,6 +16,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faFileLines } from '@fortawesome/free-solid-svg-icons'
 
+// TEST
+import { TestDynamicFeatureFactory } from '../../factories/features/TestDynamicFeatureFactory';
+import { TestDynamicFeature } from '../../classes/feature/teststatic/TestDynamicFeature';
+import { runEvent } from '../../classes/contextevent/contexteventhandler';
+
 const HomeRoute: React.FC = () => {
 
     // States
@@ -36,6 +41,19 @@ const HomeRoute: React.FC = () => {
     function NavigateHome(dir: string) {
         navigate('/' + dir);
     }
+
+    /* TEST */
+
+    async function testcontextobjects() {
+        const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem");
+
+        const output = await runEvent('genericReturnEvent', DynamicTest, [], 5, 8);
+        console.log(output);
+    }
+
+    testcontextobjects();
+
+    /* TEST */
 
     // Return result -----------------------------
     return (

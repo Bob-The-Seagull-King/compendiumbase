@@ -1,7 +1,11 @@
+import { ICompendiumItemData } from "../CompendiumItem";
 import { CallEventTable, ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { ContextObject } from "./contextobject";
 import { ContextPackage } from "./contextpackage";
 
+interface IStaticContextObject extends ICompendiumItemData {
+    contextdata : ContextEventVals;
+}
 
 class StaticContextObject extends ContextObject {
 
@@ -13,7 +17,8 @@ class StaticContextObject extends ContextObject {
 
         if (this.ContextData) {            
             for (const key of Object.keys(this.ContextKeys)) {
-                let context_entry = this.ContextData[key]
+                const context_entry = this.ContextData[key]
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore - dynamic lookup
                 const func = context_entry[event_id];
                 if (func !== undefined) {
@@ -37,4 +42,4 @@ class StaticContextObject extends ContextObject {
 
 }
 
-export {StaticContextObject}
+export {StaticContextObject, IStaticContextObject}
