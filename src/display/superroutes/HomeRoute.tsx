@@ -19,7 +19,7 @@ import { faFileLines } from '@fortawesome/free-solid-svg-icons'
 // TEST
 import { TestDynamicFeatureFactory } from '../../factories/features/TestDynamicFeatureFactory';
 import { TestDynamicFeature } from '../../classes/feature/teststatic/TestDynamicFeature';
-import { runEvent } from '../../classes/contextevent/contexteventhandler';
+import { EventRunner } from '../../classes/contextevent/contexteventhandler';
 
 const HomeRoute: React.FC = () => {
 
@@ -46,8 +46,9 @@ const HomeRoute: React.FC = () => {
 
     async function testcontextobjects() {
         const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem");
+        const Events : EventRunner = new EventRunner();
 
-        const output = await runEvent('genericReturnEvent', DynamicTest, [], 5, 8);
+        const output = await Events.runEvent('genericReturnEvent', DynamicTest, [], 5, 8);
         console.log(output);
     }
 
