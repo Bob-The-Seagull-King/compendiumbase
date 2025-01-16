@@ -12,7 +12,7 @@ class StaticContextObject extends ContextObject {
     public ContextKeys : ContextEventVals = {}
     public ContextData : CallEventTable | undefined;
 
-    public async GrabContextPackages(event_id : string, source_obj : ContextObject) { 
+    public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) { 
         const StaticEvents : ContextPackage[] = [];
 
         if (this.ContextData) {            
@@ -35,10 +35,17 @@ class StaticContextObject extends ContextObject {
                 }                
              }
         }
+
+        const SubPackages : ContextPackage[] = await this.GrabSpecialPackages(event_id, source_obj, arrs_extra);
+
+        for (let i = 0; i < SubPackages.length; i++) {
+            StaticEvents.push(SubPackages[i]);
+        }
  
         return StaticEvents; 
     }
     
+    public async GrabSpecialPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }
 

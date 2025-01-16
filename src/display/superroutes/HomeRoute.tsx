@@ -46,7 +46,7 @@ const HomeRoute: React.FC = () => {
 
     async function testcontextobjects() {
         const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem");
-        const Events : EventRunner = new EventRunner();
+        const [Events] = useGlobalState('eventrunner');
 
         const output = await Events.runEvent('genericReturnEvent', DynamicTest, [], 5, 8);
         console.log(output);

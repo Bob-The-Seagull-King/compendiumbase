@@ -34,11 +34,11 @@ class TestDynamicFeature extends DynamicContextObject {
         return staticlist;
     }
 
-    public async GrabSubPackages(event_id : string, source_obj : ContextObject) : Promise<ContextPackage[]> { 
+    public async GrabSubPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { 
         const subpackages : ContextPackage[] = []
         
         for (let i = 0; i < this.teststaticlist.length; i++) {
-            const static_packages : ContextPackage[] = await this.teststaticlist[i].GrabContextPackages(event_id, source_obj);
+            const static_packages : ContextPackage[] = await this.teststaticlist[i].GrabContextPackages(event_id, source_obj, arrs_extra);
             for (let j = 0; j < static_packages.length; j++) {
                 subpackages.push(static_packages[j])
             }

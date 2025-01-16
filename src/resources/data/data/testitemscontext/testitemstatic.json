@@ -6,7 +6,17 @@
             "category" : "default"
         },
         "name": "TestA",
-        "teststatic" : 1,
+        "teststatic" : 2,
         "contextdata": {"test_a":{"testinput": 2}}
+    },
+    {
+        "id": "ts_testitem_b",
+        "source": "core",
+        "tags": {
+            "category" : "default"
+        },
+        "name": "TestA",
+        "teststatic" : 2,
+        "contextdata": {"test_a":{"testinput": 4},"test_b":{}}
     }
 ]

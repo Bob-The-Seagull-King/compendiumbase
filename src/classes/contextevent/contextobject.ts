@@ -7,7 +7,7 @@ class ContextObject extends CompendiumItem {
 
     public MyContext : DynamicContextObject | null = null;
 
-    public async GrabContextPackages(event_id : string, source_obj : ContextObject) : Promise<ContextPackage[]> { return []; }
+    public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }
 

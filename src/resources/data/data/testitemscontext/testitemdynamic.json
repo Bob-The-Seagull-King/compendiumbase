@@ -6,6 +6,6 @@
             "category" : "default"
         },
         "name": "Default",
-        "teststaticlist" : ["ts_testitem_a"]
+        "teststaticlist" : ["ts_testitem_a","ts_testitem_b"]
     }
 ]
