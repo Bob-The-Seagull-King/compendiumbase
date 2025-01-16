@@ -12,6 +12,12 @@ export const ExampleCallTable : CallEventTable = {
         },
         async genericReturnEvent(eventSource : any, relayVar : any, trackVal : any, context_func : ContextEventEntry, context_static : StaticContextObject, context_main : DynamicContextObject | null) 
         {
+            console.log(eventSource)
+            console.log(relayVar)
+            console.log(trackVal)
+            console.log(context_func)
+            console.log(context_static)
+            console.log(context_main)
             return relayVar - context_func['testinput'];
         }
     },

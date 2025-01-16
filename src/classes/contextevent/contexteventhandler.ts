@@ -19,6 +19,7 @@ export async function runEvent(
 
     // Run each event
     for (const _event of Events) {
+        console.log(_event)
         
         // Determine function arguments
         const args = [];
@@ -30,9 +31,9 @@ export async function runEvent(
         if ((_event.callbackdict !== undefined) && (_event.callbackdict !== null)) { args[i] = _event.callbackdict; i += 1;}
         if ((_event.self !== undefined) && (_event.self !== null)) { args[i] = _event.self; i += 1;}
         if ((_event.dyncontext !== undefined)) { args[i] = _event.dyncontext; i += 1;}
-
+        console.log(args)
         const final_args = args.concat(arrs_extra)
-
+        console.log(final_args)
         // Run the event
         returnVal = await _event.callback.apply(final_args);
         relay_variable = returnVal;
