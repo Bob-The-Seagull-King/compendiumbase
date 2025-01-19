@@ -7,16 +7,26 @@
         },
         "name": "TestA",
         "teststatic" : 2,
-        "contextdata": {"test_a":{"testinput": 2}}
-    },
-    {
-        "id": "ts_testitem_b",
-        "source": "core",
-        "tags": {
-            "category" : "default"
-        },
-        "name": "TestA",
-        "teststatic" : 2,
-        "contextdata": {"test_a":{"testinput": 4},"test_b":{}}
+        "contextdata": {"test_a":{"testinput": 2}},
+        "options": [
+            {
+                "ref_id" : "ot_testitemset_a",
+                "name" : "TestOptionSet",
+                "description" : [],
+                "category" : "type",
+                "type" : "text",
+                "strictness" : "strict",
+                "predefined_options" : ["Preset_A"]
+            },
+            {
+                "ref_id" : "ot_testitemset_b",
+                "name" : "TestOptionSet",
+                "description" : [],
+                "category" : "contextobject",
+                "type" : "text",
+                "parent_level" : 0,
+                "question" : {}
+            }
+        ]
     }
 ]

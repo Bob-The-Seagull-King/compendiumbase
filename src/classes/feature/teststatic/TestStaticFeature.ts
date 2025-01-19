@@ -1,11 +1,11 @@
 import { ExampleCallTable } from "../../../resources/staticcontext/examplecontexttable";
-import { StaticContextObject, IStaticContextObject } from "../../contextevent/staticcontextobject";
+import { StaticOptionContextObject, IStaticOptionContextObject } from "../../options/StaticOptionContextObject";
 
-interface ITestStaticFeature extends IStaticContextObject {
+interface ITestStaticFeature extends IStaticOptionContextObject {
     teststatic : number
 }
 
-class TestStaticFeature extends StaticContextObject {
+class TestStaticFeature extends StaticOptionContextObject {
 
     public readonly teststatic;
 

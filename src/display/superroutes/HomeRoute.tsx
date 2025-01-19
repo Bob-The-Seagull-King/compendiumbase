@@ -17,9 +17,8 @@ import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faFileLines } from '@fortawesome/free-solid-svg-icons'
 
 // TEST
-import { TestDynamicFeatureFactory } from '../../factories/features/TestDynamicFeatureFactory';
-import { TestDynamicFeature } from '../../classes/feature/teststatic/TestDynamicFeature';
-import { EventRunner } from '../../classes/contextevent/contexteventhandler';
+import { TestStaticFeature } from '../../classes/feature/teststatic/TestStaticFeature';
+import { TestStaticFeatureFactory } from '../../factories/features/TestStaticFeatureFactory';
 
 const HomeRoute: React.FC = () => {
 
@@ -45,11 +44,8 @@ const HomeRoute: React.FC = () => {
     /* TEST */
 
     async function testcontextobjects() {
-        const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem");
-        const [Events] = useGlobalState('eventrunner');
-
-        const output = await Events.runEvent('genericReturnEvent', DynamicTest, [], 5, 8);
-        console.log(output);
+        const StaticTest : TestStaticFeature = TestStaticFeatureFactory.CreateNewTestStaticFeature("ts_testitem_a");
+        console.log(StaticTest);
     }
 
     testcontextobjects();
