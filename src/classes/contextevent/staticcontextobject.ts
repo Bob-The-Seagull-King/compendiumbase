@@ -1,16 +1,10 @@
 import { ICompendiumItemData } from "../CompendiumItem";
-import { CallEventTable, ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
+import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { ContextObject } from "./contextobject";
 import { ContextPackage } from "./contextpackage";
 
-interface IStaticContextObject extends ICompendiumItemData {
-    contextdata : ContextEventVals;
-}
 
 class StaticContextObject extends ContextObject {
-
-    public ContextKeys : ContextEventVals = {}
-    public ContextData : CallEventTable | undefined;
 
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) { 
         const StaticEvents : ContextPackage[] = [];
@@ -49,4 +43,4 @@ class StaticContextObject extends ContextObject {
 
 }
 
-export {StaticContextObject, IStaticContextObject}
+export {StaticContextObject}
