@@ -153,8 +153,6 @@ interface QuestionBase {
     tagq? : ContextEventEntry, // Search for contents in that objects tags
     baseq? : ContextEventEntry,  // Search for contents in that objects option_search_viable context data entry
     propertyq? : ContextEventEntry, // Search for properties on an object (if not present, count as failure)
-    optionq? : ContextEventEntry, // Search for StaticOption's contextvars (if options aren't there, count as failure)
-    selectedq? : ContextEventEntry // Search for a SelectedObject's chosen values (if selectedoptions aren't there, count as failure)
 }
 
 /**
