@@ -213,4 +213,4 @@ class StaticOptionContextObjectList extends StaticOption {
     
 }
 
-export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList, StaticOptionContextObjectQuestion, QuestionBase}
+export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList, StaticOptionContextObjectQuestion, QuestionBase, IChoice}

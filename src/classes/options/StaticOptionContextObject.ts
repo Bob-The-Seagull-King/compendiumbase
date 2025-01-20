@@ -35,6 +35,12 @@ class StaticOptionContextObject extends StaticContextObject {
         return OptionSet;
     }
 
+    public ReloadOptions() {
+        for (let i = 0; i < this.MyOptions.length; i++) {
+            this.MyOptions[i].FindChoices();
+        }
+    }
+
 
 }
 
