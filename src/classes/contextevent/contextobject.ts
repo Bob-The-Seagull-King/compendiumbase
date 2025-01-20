@@ -1,3 +1,4 @@
+import { BaseContextCallTable } from "../../resources/staticcontext/BaseContextTable";
 import { CallEventTable, ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { CompendiumItem, ICompendiumItemData } from "../CompendiumItem";
 import { ContextPackage } from "./contextpackage";
@@ -13,6 +14,13 @@ class ContextObject extends CompendiumItem {
     public ContextData : CallEventTable | undefined;
 
     public MyContext : DynamicContextObject | null = null;
+
+    public constructor(data : IContextObject, parent : DynamicContextObject | null) {
+        super(data);
+        this.MyContext = parent;
+        this.ContextKeys = data.contextdata;        
+        this.ContextData = BaseContextCallTable;
+    }
 
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 

@@ -19,6 +19,8 @@ import { faFileLines } from '@fortawesome/free-solid-svg-icons'
 // TEST
 import { TestStaticFeature } from '../../classes/feature/teststatic/TestStaticFeature';
 import { TestStaticFeatureFactory } from '../../factories/features/TestStaticFeatureFactory';
+import { TestDynamicFeature } from '../../classes/feature/teststatic/TestDynamicFeature';
+import { TestDynamicFeatureFactory } from '../../factories/features/TestDynamicFeatureFactory';
 
 const HomeRoute: React.FC = () => {
 
@@ -44,8 +46,8 @@ const HomeRoute: React.FC = () => {
     /* TEST */
 
     async function testcontextobjects() {
-        const StaticTest : TestStaticFeature = TestStaticFeatureFactory.CreateNewTestStaticFeature("ts_testitem_a");
-        console.log(StaticTest);
+        const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem", null);
+        console.log(DynamicTest);
     }
 
     testcontextobjects();

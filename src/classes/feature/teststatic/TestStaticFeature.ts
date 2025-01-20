@@ -1,4 +1,5 @@
-import { ExampleCallTable } from "../../../resources/staticcontext/examplecontexttable";
+import { DynamicContextObject } from "../../../classes/contextevent/dynamiccontextobject";
+import { BaseContextCallTable } from "../../../resources/staticcontext/BaseContextTable";
 import { StaticOptionContextObject, IStaticOptionContextObject } from "../../options/StaticOptionContextObject";
 
 interface ITestStaticFeature extends IStaticOptionContextObject {
@@ -9,11 +10,9 @@ class TestStaticFeature extends StaticOptionContextObject {
 
     public readonly teststatic;
 
-    constructor(data : ITestStaticFeature) {
-        super(data);
+    constructor(data : ITestStaticFeature, parent : DynamicContextObject | null) {
+        super(data, parent);
         this.teststatic = data.teststatic;
-        this.ContextKeys = data.contextdata;
-        this.ContextData = ExampleCallTable;
     }
 
 }

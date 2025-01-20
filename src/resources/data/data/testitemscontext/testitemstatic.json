@@ -7,7 +7,7 @@
         },
         "name": "TestA",
         "teststatic" : 2,
-        "contextdata": {"test_a":{"testinput": 2}},
+        "contextdata": {"option_search_viable" : {}},
         "options": [
             {
                 "ref_id" : "ot_testitemset_a",
@@ -31,9 +31,29 @@
                 "name" : "TestOptionSet",
                 "description" : [],
                 "category" : "contextobject",
-                "parent_level" : 0,
-                "question" : {}
+                "parent_level" : 2,
+                "question" : {
+                    "categories": [],
+                    "questions": [
+                        {
+                            "baseq": {},
+                            "propertyq": {},
+                            "optionq": {}
+                        }
+                    ]
+                }
             }
         ]
+    },
+    {
+        "id": "ts_testitem_b",
+        "source": "core",
+        "tags": {
+            "category" : "default"
+        },
+        "name": "TestB",
+        "teststatic" : 2,
+        "contextdata": {"option_search_viable" : {}},
+        "options": []
     }
 ]

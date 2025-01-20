@@ -3,6 +3,9 @@ import { IRequest, Requester } from "../../factories/Requester";
 import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
 import { StaticOptionContextObject } from "./StaticOptionContextObject";
+import { ContextObject } from "../../classes/contextevent/contextobject";
+import { useState } from "react";
+import { useGlobalState } from "../../utility/globalstate";
 
 interface IStaticOption {
     ref_id : string,
@@ -33,7 +36,7 @@ class StaticOption {
     public Description;
     public Selections : IChoice[] = [];
 
-    public MyStaticObject;
+    public MyStaticObject : ContextObject | null;
 
     public constructor(data : IStaticOption, parent : StaticOptionContextObject) {
         this.RefID = data.ref_id;
@@ -134,7 +137,18 @@ class StaticOptionTypeList extends StaticOption {
 
 interface IStaticOptionContextObjectList extends IStaticOption {
     parent_level : number,
-    question : ContextEventVals
+    question : StaticOptionContextObjectQuestion
+}
+
+interface StaticOptionContextObjectQuestion {
+    categories : [],
+    questions : QuestionBase[]
+}
+
+interface QuestionBase {
+    baseq : ContextEventVals,
+    propertyq : ContextEventVals 
+    optionq : ContextEventVals
 }
 
 /**
@@ -146,21 +160,40 @@ interface IStaticOptionContextObjectList extends IStaticOption {
  */
 class StaticOptionContextObjectList extends StaticOption {
     public ParentRefLevel : number;
-    public Question : ContextEventVals;
+    public Question : StaticOptionContextObjectQuestion;
 
     public constructor(data : IStaticOptionContextObjectList, parent :  StaticOptionContextObject) {
         super(data, parent)
 
         this.ParentRefLevel = data.parent_level;
         this.Question = data.question;
-        
-        this.FindChoices();
     }
 
-    public FindChoices() {
-        console.log("ContextObject FindChoices")
+    public async FindChoices() {
+        let OptionContextList : ContextObject[] = []
+
+        const RelevantContextObject : ContextObject | null = this.FindContextObject()
+        if (RelevantContextObject != null) {
+            const [EventRunner] = useGlobalState('eventrunner');
+
+            OptionContextList = await EventRunner.runEvent('optionSearchEvent', RelevantContextObject, [], [], this.Question)
+        }
+    }
+
+    public FindContextObject() {
+        let baseobject : ContextObject | null = this.MyStaticObject;
+
+        if (baseobject == null) { return null; }
+        for (let i = 0; i < this.ParentRefLevel; i++) {
+            const tempobject : ContextObject | null = baseobject.MyContext;
+            if (tempobject != null) {
+                baseobject = tempobject;
+            }
+        }
+
+        return baseobject;
     }
     
 }
 
-export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList}
+export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList, StaticOptionContextObjectQuestion}

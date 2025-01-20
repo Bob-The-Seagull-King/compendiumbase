@@ -8,7 +8,7 @@ class StaticContextObject extends ContextObject {
 
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) { 
         const StaticEvents : ContextPackage[] = [];
-
+        
         if (this.ContextData) {            
             for (const key of Object.keys(this.ContextKeys)) {
                 const context_entry = this.ContextData[key]

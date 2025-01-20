@@ -2,10 +2,11 @@ import { DynamicContextObject } from "../../contextevent/dynamiccontextobject";
 import { ICompendiumItemData, CompendiumItem, ItemType } from '../../CompendiumItem'
 import { TestStaticFeature } from "./TestStaticFeature";
 import { TestStaticFeatureFactory } from "../../../factories/features/TestStaticFeatureFactory";
-import { ContextObject } from "../../contextevent/contextobject";
+import { ContextObject, IContextObject } from "../../contextevent/contextobject";
 import { ContextPackage } from "../../contextevent/contextpackage";
+import { BaseContextCallTable } from "../../../resources/staticcontext/BaseContextTable";
 
-interface ITestDynamicFeature extends ICompendiumItemData {
+interface ITestDynamicFeature extends IContextObject {
     teststaticlist : string[]
 }
 
@@ -13,10 +14,14 @@ class TestDynamicFeature extends DynamicContextObject {
 
     public teststaticlist : TestStaticFeature[];
 
-    constructor(data : ITestDynamicFeature) {
-        super(data);
-
+    constructor(data : ITestDynamicFeature, parent : DynamicContextObject | null) {
+        super(data, parent);
         this.teststaticlist = this.BuildTestStaticList(data.teststaticlist)
+        for (let i = 0; i < this.teststaticlist.length; i++) {
+            for (let j = 0; j < this.teststaticlist[i].MyOptions.length; j++) {
+                this.teststaticlist[i].MyOptions[j].FindChoices();
+            } 
+        } 
     }
 
     private BuildTestStaticList(data : string[]) {
@@ -24,7 +29,7 @@ class TestDynamicFeature extends DynamicContextObject {
 
         for (let i =0; i < data.length; i++) {
             try {
-                const new_static : TestStaticFeature = TestStaticFeatureFactory.CreateNewTestStaticFeature(data[i]);
+                const new_static : TestStaticFeature = TestStaticFeatureFactory.CreateNewTestStaticFeature(data[i], this);
                 staticlist.push(new_static);
             } catch(e) {
                 console.log("Failed to generate TestStaticList with ID " + data[i])
