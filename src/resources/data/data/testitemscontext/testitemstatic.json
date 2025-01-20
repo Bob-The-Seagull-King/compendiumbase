@@ -6,7 +6,7 @@
             "category" : "default"
         },
         "name": "TestA",
-        "teststatic" : 2,
+        "teststatic" : 1,
         "contextdata": {"option_search_viable" : {}},
         "options": [
             {
