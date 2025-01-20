@@ -170,6 +170,7 @@ class StaticOptionContextObjectList extends StaticOption {
     }
 
     public async FindChoices() {
+        this.Selections = []
         let OptionContextList : ContextObject[] = []
 
         const RelevantContextObject : ContextObject | null = this.FindContextObject()
@@ -177,6 +178,14 @@ class StaticOptionContextObjectList extends StaticOption {
             const [EventRunner] = useGlobalState('eventrunner');
 
             OptionContextList = await EventRunner.runEvent('optionSearchEvent', RelevantContextObject, [], [], this.Question)
+
+            for (let i = 0; i < OptionContextList.length; i++) {
+                this.Selections.push({
+                    id: i,
+                    value: OptionContextList[i],
+                    display_str : OptionContextList[i].GetTrueName()
+                })
+            }
         }
     }
 

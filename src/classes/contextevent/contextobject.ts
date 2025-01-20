@@ -22,6 +22,13 @@ class ContextObject extends CompendiumItem {
         this.ContextData = BaseContextCallTable;
     }
 
+    public GetTrueName() {
+        if (this.Name != undefined) {
+            return this.Name;
+        }
+        return "name_unidentified";
+    }
+
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }

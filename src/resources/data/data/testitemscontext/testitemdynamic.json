@@ -5,7 +5,7 @@
         "tags": {
             "category" : "default"
         },
-        "name": "Default",
+        "name": "Test Dynamic",
         "contextdata": {"option_search_viable": {}},
         "teststaticlist" : ["ts_testitem_a","ts_testitem_b"]
     }
