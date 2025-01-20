@@ -34,13 +34,9 @@
                 "parent_level" : 2,
                 "question_name" : "optionSearchEvent",
                 "question" : {
-                    "categories": [],
                     "questions": [
                         {
-                            "baseq": {},
-                            "propertyq": {},
-                            "optionq": {},
-                            "selectedq": {}
+                            "tagq": { "category" : "default"}
                         }
                     ]
                 }

@@ -145,15 +145,15 @@ interface IStaticOptionContextObjectList extends IStaticOption {
 }
 
 interface StaticOptionContextObjectQuestion {
-    categories : [],
     questions : QuestionBase[]
 }
 
 interface QuestionBase {
-    baseq? : ContextEventVals,  // Search for contents in that objects option_search_viable context data entry
-    propertyq? : ContextEventVals, // Search for properties on an object (if not present, count as failure)
-    optionq? : ContextEventVals, // Search for StaticOption's contextvars (if options aren't there, count as failure)
-    selectedq? : ContextEventVals // Search for a SelectedObject's chosen values (if selectedoptions aren't there, count as failure)
+    tagq? : ContextEventEntry, // Search for contents in that objects tags
+    baseq? : ContextEventEntry,  // Search for contents in that objects option_search_viable context data entry
+    propertyq? : ContextEventEntry, // Search for properties on an object (if not present, count as failure)
+    optionq? : ContextEventEntry, // Search for StaticOption's contextvars (if options aren't there, count as failure)
+    selectedq? : ContextEventEntry // Search for a SelectedObject's chosen values (if selectedoptions aren't there, count as failure)
 }
 
 /**
@@ -214,4 +214,4 @@ class StaticOptionContextObjectList extends StaticOption {
     
 }
 
-export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList, StaticOptionContextObjectQuestion}
+export {IStaticOption, StaticOption, IStaticOptionTypeList, StaticOptionTypeList, IStaticOptionContextObjectList, StaticOptionContextObjectList, StaticOptionContextObjectQuestion, QuestionBase}
