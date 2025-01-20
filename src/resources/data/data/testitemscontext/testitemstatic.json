@@ -16,14 +16,21 @@
                 "category" : "type",
                 "type" : "text",
                 "strictness" : "strict",
-                "predefined_options" : ["Preset_A"]
+                "predefined_options" : ["Preset_A"],
+                "option_context" : {"basic_option_default":{}},
+                "data_search" : {
+                    "searchtype": "file",
+                    "searchparam": {
+                        "type": "glossary",
+                        "data": []
+                    }
+                }
             },
             {
                 "ref_id" : "ot_testitemset_b",
                 "name" : "TestOptionSet",
                 "description" : [],
                 "category" : "contextobject",
-                "type" : "text",
                 "parent_level" : 0,
                 "question" : {}
             }

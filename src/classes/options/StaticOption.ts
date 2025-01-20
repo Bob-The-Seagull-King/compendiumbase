@@ -1,6 +1,7 @@
 import { DescriptionFactory } from "../../utility/functions";
-import { IRequest } from "../../factories/Requester";
+import { IRequest, Requester } from "../../factories/Requester";
 import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
+import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
 
 interface IStaticOption {
     ref_id : string,
@@ -52,24 +53,17 @@ interface IStaticOptionTypeList extends IStaticOption {
     type : 'text' | 'number',
     strictness : 'loose' | 'free_form' | 'strict',
     predefined_options : string[]
-    data_search? : IRequest
+    data_search? : IRequest,
+    option_context : ContextEventVals
 }
 
-/**
- * Simple data, such as names, numbers, and free-text
- * 
- * Can be gathered from pre-defined lists, or searches, or questions
- * 
- * Can be strict (only choose from choices) loose (given choices, can write-in) or free-form (only write in)
- * 
- * Can be text or number
- */
 class StaticOptionTypeList extends StaticOption {
 
     public EntryType;
     public Strictness;
     public PresetOptions;
     public DataSearch : IRequest | null = null;
+    public OptionContext;
 
     public constructor(data : IStaticOptionTypeList) {
         super(data)
@@ -77,6 +71,7 @@ class StaticOptionTypeList extends StaticOption {
         this.EntryType = data.type;
         this.Strictness = data.strictness;
         this.PresetOptions = data.predefined_options;
+        this.OptionContext = data.option_context;
 
         if (data.data_search) {
             this.DataSearch = data.data_search;
@@ -86,8 +81,39 @@ class StaticOptionTypeList extends StaticOption {
     }
 
     public FindChoices() {
-        console.log("TypeList FindChoices")
+        this.Selections = []
+
+        let id_num = 0;
+        for (let i = 0; i < this.PresetOptions.length; i++) {
+            const val_key = Object.keys(this.OptionContext)[0]
+            const value = OptionCallTable[val_key].genericReturn(this, this.OptionContext[val_key], this.PresetOptions[i])
+
+            this.Selections.push({
+                id: id_num,
+                value: value
+            })
+            id_num += 1;
+        }
+
+        if (this.DataSearch != null) {
+            const results = Requester.MakeRequest(this.DataSearch);
+
+            for (let i = 0; i < results.length; i++) {
+                const val_key = Object.keys(this.OptionContext)[0]
+                const value = OptionCallTable[val_key].genericResultReturn(this, this.OptionContext[val_key], results[i])
+
+                this.Selections.push({
+                    id: id_num,
+                    value: value
+                })
+                id_num += 1;
+            }
+        }
     }
+
+
+
+
 
     public ReturnChoices() {undefined}
     
