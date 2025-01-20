@@ -10,7 +10,11 @@ export const BaseContextCallTable : CallEventTable = {
     option_search_viable: {
         event_priotity: 0,
         async optionSearchEvent(this: EventRunner, eventSource : any, relayVar : ContextObject[], trackVal : StaticOptionContextObjectQuestion, context_func : ContextEventEntry, context_static : ContextObject, context_main : DynamicContextObject | null, ) {
-            relayVar.push(context_static);
+            let is_valid_pass : boolean = false
+            
+            if (is_valid_pass) {
+                relayVar.push(context_static);
+            }
             return relayVar;
         }
     }

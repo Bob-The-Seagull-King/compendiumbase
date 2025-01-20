@@ -187,11 +187,13 @@ class StaticOptionContextObjectList extends StaticOption {
             OptionContextList = await EventRunner.runEvent(this.QuestionName, RelevantContextObject, [], [], this.Question)
 
             for (let i = 0; i < OptionContextList.length; i++) {
-                this.Selections.push({
-                    id: i,
-                    value: OptionContextList[i],
-                    display_str : OptionContextList[i].GetTrueName()
-                })
+                if (OptionContextList[i] != this.MyStaticObject) {
+                    this.Selections.push({
+                        id: i,
+                        value: OptionContextList[i],
+                        display_str : OptionContextList[i].GetTrueName()
+                    })
+                }
             }
         }
     }
