@@ -145,6 +145,7 @@ interface IStaticOptionContextObjectList extends IStaticOption {
 }
 
 interface StaticOptionContextObjectQuestion {
+    classes : string[]
     questions : QuestionBase[]
 }
 

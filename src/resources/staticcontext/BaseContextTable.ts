@@ -16,64 +16,67 @@ export const BaseContextCallTable : CallEventTable = {
         async optionSearchEvent(this: EventRunner, eventSource : any, relayVar : ContextObject[], trackVal : StaticOptionContextObjectQuestion, context_func : ContextEventEntry, context_static : ContextObject, context_main : DynamicContextObject | null, ) {
             let is_valid_pass = false
 
-            for (let i = 0; i < trackVal.questions.length; i++) {
+            if (trackVal.classes.includes(context_static.constructor.name)) {
 
-                let truthValCurrent = false;
-                const questionCurrent : QuestionBase = trackVal.questions[i]
+                for (let i = 0; i < trackVal.questions.length; i++) {
 
-                if (questionCurrent.tagq) {
-                    const entrykeys = Object.keys(questionCurrent.tagq);
+                    let truthValCurrent = false;
+                    const questionCurrent : QuestionBase = trackVal.questions[i]
 
-                    for (let j = 0; j < entrykeys.length; j++) {
-                        const val = questionCurrent.tagq[entrykeys[j]]
-                        if (containsTag(context_static.Tags, entrykeys[j])) {
-                            if (getTagValue(context_static.Tags, entrykeys[j]) == val) {
-                                truthValCurrent = true;
+                    if (questionCurrent.tagq) {
+                        const entrykeys = Object.keys(questionCurrent.tagq);
+
+                        for (let j = 0; j < entrykeys.length; j++) {
+                            const val = questionCurrent.tagq[entrykeys[j]]
+                            if (containsTag(context_static.Tags, entrykeys[j])) {
+                                if (getTagValue(context_static.Tags, entrykeys[j]) == val) {
+                                    truthValCurrent = true;
+                                } else {
+                                    truthValCurrent = false;
+                                }
                             } else {
                                 truthValCurrent = false;
                             }
-                        } else {
-                            truthValCurrent = false;
                         }
                     }
-                }
-                if (questionCurrent.baseq) {
-                    const entrykeys = Object.keys(questionCurrent.baseq);
+                    if (questionCurrent.baseq) {
+                        const entrykeys = Object.keys(questionCurrent.baseq);
 
-                    for (let j = 0; j < entrykeys.length; j++) {
-                        const val = questionCurrent.baseq[entrykeys[j]]
-                        if (context_func[entrykeys[j]]) {
-                            if (context_func[entrykeys[j]] == val) {
-                                truthValCurrent = true;
+                        for (let j = 0; j < entrykeys.length; j++) {
+                            const val = questionCurrent.baseq[entrykeys[j]]
+                            if (context_func[entrykeys[j]]) {
+                                if (context_func[entrykeys[j]] == val) {
+                                    truthValCurrent = true;
+                                } else {
+                                    truthValCurrent = false;
+                                }
                             } else {
                                 truthValCurrent = false;
                             }
-                        } else {
-                            truthValCurrent = false;
+                            
                         }
-                        
                     }
-                }
-                if (questionCurrent.propertyq) {
-                    const entrykeys = Object.keys(questionCurrent.propertyq);
+                    if (questionCurrent.propertyq) {
+                        const entrykeys = Object.keys(questionCurrent.propertyq);
 
-                    for (let j = 0; j < entrykeys.length; j++) {
-                        const val = questionCurrent.propertyq[entrykeys[j]]
-                        if (entrykeys[j] in context_static) {
-                            if (context_static[entrykeys[j] as keyof (typeof context_static)] == val) {
-                                truthValCurrent = true;
+                        for (let j = 0; j < entrykeys.length; j++) {
+                            const val = questionCurrent.propertyq[entrykeys[j]]
+                            if (entrykeys[j] in context_static) {
+                                if (context_static[entrykeys[j] as keyof (typeof context_static)] == val) {
+                                    truthValCurrent = true;
+                                } else {
+                                    truthValCurrent = false;
+                                }
                             } else {
                                 truthValCurrent = false;
                             }
-                        } else {
-                            truthValCurrent = false;
+                            
                         }
-                        
                     }
-                }
 
-                if (truthValCurrent == true) {
-                    is_valid_pass = true;
+                    if (truthValCurrent == true) {
+                        is_valid_pass = true;
+                    }
                 }
             }
 

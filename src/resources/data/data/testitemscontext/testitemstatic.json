@@ -34,10 +34,11 @@
                 "parent_level" : 2,
                 "question_name" : "optionSearchEvent",
                 "question" : {
+                    "classes": ["TestDynamicFeature"],
                     "questions": [
                         {
-                            "tagq": { "category" : "default"},
-                            "propertyq": {"teststatic": 2}
+                            
+                            "tagq": { "category" : "default"}
                         }
                     ]
                 }
