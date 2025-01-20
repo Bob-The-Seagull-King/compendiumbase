@@ -146,9 +146,10 @@ interface StaticOptionContextObjectQuestion {
 }
 
 interface QuestionBase {
-    baseq : ContextEventVals,
-    propertyq : ContextEventVals 
-    optionq : ContextEventVals
+    baseq? : ContextEventVals,
+    propertyq? : ContextEventVals, 
+    optionq? : ContextEventVals,
+    selectedq? : ContextEventVals
 }
 
 /**

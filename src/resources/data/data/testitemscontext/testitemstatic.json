@@ -38,7 +38,8 @@
                         {
                             "baseq": {},
                             "propertyq": {},
-                            "optionq": {}
+                            "optionq": {},
+                            "selectedq": {}
                         }
                     ]
                 }
