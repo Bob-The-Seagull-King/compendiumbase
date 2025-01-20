@@ -2,6 +2,7 @@ import { DescriptionFactory } from "../../utility/functions";
 import { IRequest, Requester } from "../../factories/Requester";
 import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
+import { StaticOptionContextObject } from "./StaticOptionContextObject";
 
 interface IStaticOption {
     ref_id : string,
@@ -31,21 +32,36 @@ class StaticOption {
     public Description;
     public Selections : IChoice[] = [];
 
-    public constructor(data : IStaticOption) {
+    public MyStaticObject;
+
+    public constructor(data : IStaticOption, parent : StaticOptionContextObject) {
         this.RefID = data.ref_id;
         this.Name = data.name;
         this.Category = data.category;
 
+        this.MyStaticObject = parent;
         this.Description = DescriptionFactory(data.description);
     }
 
     public FindChoices() {undefined}
 
-    public ReturnChoices() {undefined}
+    public ReturnChoices() {        
+        return this.Selections
+    }
 
-    public GetSingleChoice(id : number) {undefined}
+    public GetSingleChoice(id : number) {
+        return this.Selections[id];
+    }
 
-    public GetChoiceIDs() {undefined}
+    public GetChoiceIDs() {
+        const id_arr : number[] = []
+
+        for (let i = 0; i < this.Selections.length; i++) {
+            id_arr.push(this.Selections[i].id)
+        }
+
+        return id_arr;
+    }
 
 }
 
@@ -65,8 +81,8 @@ class StaticOptionTypeList extends StaticOption {
     public DataSearch : IRequest | null = null;
     public OptionContext;
 
-    public constructor(data : IStaticOptionTypeList) {
-        super(data)
+    public constructor(data : IStaticOptionTypeList, parent :  StaticOptionContextObject) {
+        super(data, parent)
 
         this.EntryType = data.type;
         this.Strictness = data.strictness;
@@ -110,12 +126,6 @@ class StaticOptionTypeList extends StaticOption {
             }
         }
     }
-
-
-
-
-
-    public ReturnChoices() {undefined}
     
 }
 
@@ -135,8 +145,8 @@ class StaticOptionContextObjectList extends StaticOption {
     public ParentRefLevel : number;
     public Question : ContextEventVals;
 
-    public constructor(data : IStaticOptionContextObjectList) {
-        super(data)
+    public constructor(data : IStaticOptionContextObjectList, parent :  StaticOptionContextObject) {
+        super(data, parent)
 
         this.ParentRefLevel = data.parent_level;
         this.Question = data.question;
@@ -147,8 +157,6 @@ class StaticOptionContextObjectList extends StaticOption {
     public FindChoices() {
         console.log("ContextObject FindChoices")
     }
-
-    public ReturnChoices() {undefined}
     
 }
 
