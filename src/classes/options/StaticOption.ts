@@ -1,6 +1,6 @@
 import { DescriptionFactory } from "../../utility/functions";
 import { IRequest, Requester } from "../../factories/Requester";
-import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
+import { ContextEventEntry, ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
 import { StaticOptionContextObject } from "./StaticOptionContextObject";
 import { ContextObject } from "../../classes/contextevent/contextobject";
@@ -10,8 +10,9 @@ import { useGlobalState } from "../../utility/globalstate";
 interface IStaticOption {
     ref_id : string,
     name : string,
-    description : []
-    category : string
+    description : [],
+    category : string,
+    contextvars : ContextEventEntry
 }
 
 interface IChoice {
@@ -32,13 +33,15 @@ class StaticOption {
     public RefID : string;
     public Name : string;
     public Category : string;
-
+    public ContextVars : ContextEventEntry;
+    
     public Description;
     public Selections : IChoice[] = [];
 
     public MyStaticObject : ContextObject | null;
 
     public constructor(data : IStaticOption, parent : StaticOptionContextObject) {
+        this.ContextVars = data.contextvars;
         this.RefID = data.ref_id;
         this.Name = data.name;
         this.Category = data.category;
@@ -137,7 +140,8 @@ class StaticOptionTypeList extends StaticOption {
 
 interface IStaticOptionContextObjectList extends IStaticOption {
     parent_level : number,
-    question : StaticOptionContextObjectQuestion
+    question : StaticOptionContextObjectQuestion,
+    question_name : string
 }
 
 interface StaticOptionContextObjectQuestion {
@@ -146,10 +150,10 @@ interface StaticOptionContextObjectQuestion {
 }
 
 interface QuestionBase {
-    baseq? : ContextEventVals,
-    propertyq? : ContextEventVals, 
-    optionq? : ContextEventVals,
-    selectedq? : ContextEventVals
+    baseq? : ContextEventVals,  // Search for contents in that objects option_search_viable context data entry
+    propertyq? : ContextEventVals, // Search for properties on an object (if not present, count as failure)
+    optionq? : ContextEventVals, // Search for StaticOption's contextvars (if options aren't there, count as failure)
+    selectedq? : ContextEventVals // Search for a SelectedObject's chosen values (if selectedoptions aren't there, count as failure)
 }
 
 /**
@@ -162,10 +166,12 @@ interface QuestionBase {
 class StaticOptionContextObjectList extends StaticOption {
     public ParentRefLevel : number;
     public Question : StaticOptionContextObjectQuestion;
+    public QuestionName : string;
 
     public constructor(data : IStaticOptionContextObjectList, parent :  StaticOptionContextObject) {
         super(data, parent)
 
+        this.QuestionName = data.question_name;
         this.ParentRefLevel = data.parent_level;
         this.Question = data.question;
     }
@@ -178,7 +184,7 @@ class StaticOptionContextObjectList extends StaticOption {
         if (RelevantContextObject != null) {
             const [EventRunner] = useGlobalState('eventrunner');
 
-            OptionContextList = await EventRunner.runEvent('optionSearchEvent', RelevantContextObject, [], [], this.Question)
+            OptionContextList = await EventRunner.runEvent(this.QuestionName, RelevantContextObject, [], [], this.Question)
 
             for (let i = 0; i < OptionContextList.length; i++) {
                 this.Selections.push({
