@@ -54,6 +54,23 @@ export const BaseContextCallTable : CallEventTable = {
                         
                     }
                 }
+                if (questionCurrent.propertyq) {
+                    const entrykeys = Object.keys(questionCurrent.propertyq);
+
+                    for (let j = 0; j < entrykeys.length; j++) {
+                        const val = questionCurrent.propertyq[entrykeys[j]]
+                        if (entrykeys[j] in context_static) {
+                            if (context_static[entrykeys[j] as keyof (typeof context_static)] == val) {
+                                truthValCurrent = true;
+                            } else {
+                                truthValCurrent = false;
+                            }
+                        } else {
+                            truthValCurrent = false;
+                        }
+                        
+                    }
+                }
 
                 if (truthValCurrent == true) {
                     is_valid_pass = true;
