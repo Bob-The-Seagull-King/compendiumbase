@@ -6,7 +6,7 @@
             "category" : "default"
         },
         "name": "Test Dynamic",
-        "contextdata": {"option_search_viable": {}},
+        "contextdata": {"option_search_viable": {"test": "check"}},
         "teststaticlist" : ["ts_testitem_a","ts_testitem_b"]
     }
 ]

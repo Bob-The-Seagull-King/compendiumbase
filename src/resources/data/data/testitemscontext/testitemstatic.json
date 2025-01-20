@@ -36,7 +36,8 @@
                 "question" : {
                     "questions": [
                         {
-                            "tagq": { "category" : "default"}
+                            "tagq": { "category" : "default"},
+                            "baseq": {"test": "check"}
                         }
                     ]
                 }

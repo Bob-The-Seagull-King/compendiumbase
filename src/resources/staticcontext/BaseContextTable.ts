@@ -29,8 +29,29 @@ export const BaseContextCallTable : CallEventTable = {
                         if (containsTag(context_static.Tags, entrykeys[j])) {
                             if (getTagValue(context_static.Tags, entrykeys[j]) == val) {
                                 truthValCurrent = true;
+                            } else {
+                                truthValCurrent = false;
                             }
+                        } else {
+                            truthValCurrent = false;
                         }
+                    }
+                }
+                if (questionCurrent.baseq) {
+                    const entrykeys = Object.keys(questionCurrent.baseq);
+
+                    for (let j = 0; j < entrykeys.length; j++) {
+                        const val = questionCurrent.baseq[entrykeys[j]]
+                        if (context_func[entrykeys[j]]) {
+                            if (context_func[entrykeys[j]] == val) {
+                                truthValCurrent = true;
+                            } else {
+                                truthValCurrent = false;
+                            }
+                        } else {
+                            truthValCurrent = false;
+                        }
+                        
                     }
                 }
 
