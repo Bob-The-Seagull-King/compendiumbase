@@ -13,7 +13,8 @@ interface IStaticOption {
 
 interface IChoice {
     id : number,
-    value : any
+    value : any,
+    display_str : string
 }
 
 /**
@@ -106,7 +107,8 @@ class StaticOptionTypeList extends StaticOption {
 
             this.Selections.push({
                 id: id_num,
-                value: value
+                value: this.PresetOptions[i],
+                display_str : value
             })
             id_num += 1;
         }
@@ -120,7 +122,8 @@ class StaticOptionTypeList extends StaticOption {
 
                 this.Selections.push({
                     id: id_num,
-                    value: value
+                    value: results[i],
+                    display_str : value
                 })
                 id_num += 1;
             }
