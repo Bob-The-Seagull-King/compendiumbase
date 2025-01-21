@@ -23,12 +23,12 @@ class TestDynamicFeature extends DynamicContextObject {
         super(data, parent);
         this.testbasiclist = this.BuildTestBasicList(data.teststaticbaselist)
         this.teststaticlist = this.BuildTestStaticList(data.teststaticlist)
-        this.LoadOptions()
+    
     }
 
-    public LoadOptions() {
+    public async LoadOptions() {
         for (let i = 0; i < this.teststaticlist.length; i++) {
-            this.teststaticlist[i].ReloadOption();
+            await this.teststaticlist[i].ReloadOption();
         } 
     }
 

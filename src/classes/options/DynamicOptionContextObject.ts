@@ -28,8 +28,8 @@ class DynamicOptionContextObject extends DynamicContextObject {
         }
     }
 
-    public ReloadOption() {
-        this.OptionChoice.ReloadOptions();
+    public async ReloadOption() {
+        await this.OptionChoice.ReloadOptions();
     }
 
     public async GrabSubPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { 

@@ -9,14 +9,15 @@ class TestDynamicFeatureFactory {
      * @param _ability The data in I format describing the object
      * @returns A newly created object
      */
-    static CreateTestDynamicFeature(_table: ITestDynamicFeature, parent : DynamicContextObject | null) {
+    static async CreateTestDynamicFeature(_table: ITestDynamicFeature, parent : DynamicContextObject | null) {
         const table = new TestDynamicFeature(_table, parent)
+        await table.LoadOptions();
         return table;
     }
 
-    static CreateNewTestDynamicFeature(_val : string, parent : DynamicContextObject | null) {
+    static async CreateNewTestDynamicFeature(_val : string, parent : DynamicContextObject | null) {
         const tabledata = Requester.MakeRequest({searchtype: "id", searchparam: {type: "testdynamicfeature", id: _val}}) as ITestDynamicFeature
-        const tablenew = TestDynamicFeatureFactory.CreateTestDynamicFeature(tabledata, parent)
+        const tablenew = await TestDynamicFeatureFactory.CreateTestDynamicFeature(tabledata, parent)
         return tablenew;
     }
 

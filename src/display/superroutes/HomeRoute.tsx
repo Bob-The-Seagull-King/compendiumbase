@@ -50,12 +50,11 @@ const HomeRoute: React.FC = () => {
     }
 
     async function testcontextobjects() {
-        const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem", null);
+        const DynamicTest : TestDynamicFeature = await TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem", null);
         
         console.log(DynamicTest);
-        const [Event] = useGlobalState('eventrunner');
+        const Event = new EventRunner();
 
-        await sleep(1000);
         const testa = await Event.runEvent('genericReturnEvent', DynamicTest.teststaticlist[0], [], 1, 0);
         console.log("TESTA: " + testa)
         DynamicTest.teststaticlist[0].Selections[1].SelectOption(0);

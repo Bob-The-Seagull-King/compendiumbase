@@ -4,8 +4,9 @@ import { ContextEventEntry, ContextEventVals } from "../../resources/staticconte
 import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
 import { StaticOptionContextObject } from "./StaticOptionContextObject";
 import { ContextObject } from "../../classes/contextevent/contextobject";
-import { useState } from "react";
+import { EventHandler, useState } from "react";
 import { useGlobalState } from "../../utility/globalstate";
+import { EventRunner } from "../contextevent/contexteventhandler";
 
 interface IStaticOption {
     ref_id : string,
@@ -50,7 +51,7 @@ class StaticOption {
         this.Description = DescriptionFactory(data.description);
     }
 
-    public FindChoices() {undefined}
+    public async FindChoices() {undefined}
 
     public ReturnChoices() {        
         return this.Selections
@@ -103,7 +104,7 @@ class StaticOptionTypeList extends StaticOption {
         this.FindChoices();
     }
 
-    public FindChoices() {
+    public async FindChoices() {
         this.Selections = []
 
         let id_num = 0;
@@ -181,9 +182,9 @@ class StaticOptionContextObjectList extends StaticOption {
 
         const RelevantContextObject : ContextObject | null = this.FindContextObject()
         if (RelevantContextObject != null) {
-            const [EventRunner] = useGlobalState('eventrunner');
+            const Events : EventRunner = new EventRunner();
 
-            OptionContextList = await EventRunner.runEvent(this.QuestionName, RelevantContextObject, [], [], this.Question)
+            OptionContextList = await Events.runEvent(this.QuestionName, RelevantContextObject, [], [], this.Question)
 
             for (let i = 0; i < OptionContextList.length; i++) {
                 if (OptionContextList[i] != this.MyStaticObject) {
