@@ -85,5 +85,17 @@ export const BaseContextCallTable : CallEventTable = {
             }
             return relayVar;
         }
+    },
+    test_run : {
+        event_priotity: 1,
+        genericReturnEvent(this: EventRunner, eventSource : any, relayVar : any, trackVal : any, context_func : ContextEventEntry, context_static : ContextObject, context_main : DynamicContextObject | null) {
+            
+            if (context_func["value"]) {
+                return relayVar * context_func["value"]
+            }
+            
+            return relayVar
+        }
+    
     }
 }

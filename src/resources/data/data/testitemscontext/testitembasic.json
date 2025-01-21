@@ -7,7 +7,7 @@
         },
         "name": "TestBasicA",
         "teststatic" : 1,
-        "contextdata": {"option_search_viable" : {}}
+        "contextdata": {"option_search_viable" : {}, "test_run" : {"value": 7}}
     },
     {
         "id": "tb_testitem_b",
@@ -17,7 +17,7 @@
         },
         "name": "TestBasicB",
         "teststatic" : 2,
-        "contextdata": {"option_search_viable" : {}}
+        "contextdata": {"option_search_viable" : {}, "test_run" : {"value": 2}}
     },
     {
         "id": "tb_testitem_c",
@@ -27,6 +27,6 @@
         },
         "name": "TestBasicC",
         "teststatic" : 1,
-        "contextdata": {"option_search_viable" : {}}
+        "contextdata": {"option_search_viable" : {}, "test_run" : {"value": 5}}
     }
 ]

@@ -21,6 +21,7 @@ import { TestStaticFeature } from '../../classes/feature/teststatic/TestStaticFe
 import { TestStaticFeatureFactory } from '../../factories/features/TestStaticFeatureFactory';
 import { TestDynamicFeature } from '../../classes/feature/teststatic/TestDynamicFeature';
 import { TestDynamicFeatureFactory } from '../../factories/features/TestDynamicFeatureFactory';
+import { EventRunner } from '../../classes/contextevent/contexteventhandler';
 
 const HomeRoute: React.FC = () => {
 
@@ -44,10 +45,25 @@ const HomeRoute: React.FC = () => {
     }
 
     /* TEST */
+    async function sleep(ms: number): Promise<void> {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
 
     async function testcontextobjects() {
         const DynamicTest : TestDynamicFeature = TestDynamicFeatureFactory.CreateNewTestDynamicFeature("td_testitem", null);
+        
         console.log(DynamicTest);
+        const [Event] = useGlobalState('eventrunner');
+
+        await sleep(1000);
+        const testa = await Event.runEvent('genericReturnEvent', DynamicTest.teststaticlist[0], [], 1, 0);
+        console.log("TESTA: " + testa)
+        DynamicTest.teststaticlist[0].Selections[1].SelectOption(0);
+        const testb = await Event.runEvent('genericReturnEvent', DynamicTest.teststaticlist[0], [], 1, 0);
+        console.log("TESTB: " + testb)
+        DynamicTest.teststaticlist[0].Selections[1].SelectOption(1);
+        const testc = await Event.runEvent('genericReturnEvent', DynamicTest.teststaticlist[0], [], 1, 0);
+        console.log("TESTc: " + testc)
     }
 
     testcontextobjects();
