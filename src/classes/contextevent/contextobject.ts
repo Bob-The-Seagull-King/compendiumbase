@@ -5,15 +5,15 @@ import { ContextPackage } from "./contextpackage";
 import { DynamicContextObject } from "./dynamiccontextobject";
 
 interface IContextObject extends ICompendiumItemData {
-    contextdata : ContextEventVals;
+    contextdata : ContextEventVals; // ContextEvent keys used for when events are run through the object
 }
 
 class ContextObject extends CompendiumItem {
 
     public ContextKeys : ContextEventVals = {}
-    public ContextData : CallEventTable | undefined;
+    public ContextData : CallEventTable | undefined; // The table searched through in Events
 
-    public MyContext : DynamicContextObject | null = null;
+    public MyContext : DynamicContextObject | null = null; // The parent object, if any
 
     public constructor(data : IContextObject, parent : DynamicContextObject | null) {
         super(data);
@@ -22,6 +22,9 @@ class ContextObject extends CompendiumItem {
         this.ContextData = BaseContextCallTable;
     }
 
+    /**
+     * Gets the name of an object to display outwards.
+     */
     public GetTrueName() {
         if (this.Name != undefined) {
             return this.Name;
@@ -29,6 +32,9 @@ class ContextObject extends CompendiumItem {
         return "name_unidentified";
     }
 
+    /**
+     * Grab context packages from this object, and potentially any child objects.
+     */
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }

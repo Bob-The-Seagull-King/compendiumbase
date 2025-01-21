@@ -28,10 +28,20 @@ class DynamicOptionContextObject extends DynamicContextObject {
         }
     }
 
+    /**
+     * Have all suboptions reload their selections.
+     */
     public async ReloadOption() {
         await this.OptionChoice.ReloadOptions();
     }
 
+    /**
+     * Grabs sub packages, also includes any selected context objects
+     * if one is available.
+     * 
+     * Ie. If a selection includes a specific StaticContextObject, it
+     * will be included in events.
+     */
     public async GrabSubPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { 
         const subpackages : ContextPackage[] = []
         

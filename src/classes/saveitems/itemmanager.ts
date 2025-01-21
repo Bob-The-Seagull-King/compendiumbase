@@ -1,6 +1,4 @@
-import { INote } from '../Note';
 import { Item, IItem } from './item';
-import { Requester } from '../../factories/Requester';
 
 class ItemManager {
     public ItemList: Item[] = []; 
@@ -10,8 +8,8 @@ class ItemManager {
     }    
 
     /**
-     * @param _name The name of the warband to find
-     * @returns The first instance of a warband with that name
+     * @param _name The name of the item to find
+     * @returns The first instance of a item with that name
      */
     public GetItemByName(_name : string) {
         let i = 0;
@@ -27,7 +25,9 @@ class ItemManager {
         return null;
     }
 
-
+    /**
+     * Gets all of the saved items.
+     */
     public GrabItems() {
         const TempList: Item[] = [];  
         const data = localStorage.getItem('compendiumsaveitem');  
@@ -45,7 +45,7 @@ class ItemManager {
 
     /**
      * Updates the browser's local storage to reflect
-     * the manager's array of Content Packs.
+     * the manager's array of items.
      */
     public SetStorage() {
         const _list: IItem[] = []
@@ -60,7 +60,7 @@ class ItemManager {
     }
 
     /**
-     * Attempts to convert a given file into a Content Pack
+     * Attempts to convert a given file into an
      * object, returning a message if something went wrong in
      * the conversion process.
      * @param _content The string representation of the File
@@ -87,8 +87,8 @@ class ItemManager {
 
     /**
      * Checks if the provided information can convert into
-     * a JSON format and that the minimum structure of a
-     * Content Pack is provided.
+     * a JSON format and that the minimum structure of an item
+     * is provided.
      * @param _content The string representation of the File
      * @returns String message, "" means nothing unusual has
      * occured, non empty strings indicate an error.
@@ -132,6 +132,9 @@ class ItemManager {
         this.SetStorage();
     }
 
+    /**
+     * Builds a new item and saves it to the browser
+     */
     public NewItem(_title : string) {
         const msg = ""
 
@@ -150,6 +153,9 @@ class ItemManager {
         return msg;
     }
 
+    /**
+     * Recreates a copy of the item as a new item.
+     */
     public DuplicateItem(_Item : Item) {        
         const NewMember : Item = new Item(_Item.ConvertToInterface());
         NewMember.Title = _Item.Title + " - Copy"
@@ -159,6 +165,9 @@ class ItemManager {
         this.SetStorage();
     }
 
+    /**
+     * Generates an ID based on upload time.
+     */
     public CalcID(_name : string) {
         const currentDate = new Date();
         const milliseconds = currentDate.getMilliseconds();

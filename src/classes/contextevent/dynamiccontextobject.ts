@@ -1,10 +1,13 @@
 import { ContextObject } from "./contextobject";
 import { ContextPackage } from "./contextpackage";
 
-
+/**
+ * Dynamic Context Objects refer to objects that contain
+ * other objects, as well as information that may change
+ * over time.
+ */
 class DynamicContextObject extends ContextObject {
 
-    
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) { 
         
         const SubPackages : ContextPackage[] = await this.GrabSubPackages(event_id, source_obj, arrs_extra);
@@ -39,7 +42,10 @@ class DynamicContextObject extends ContextObject {
         return SubPackages;
     }
 
-    
+    /**
+     * Grabs the packages from any sub-objects, based
+     * on class implementation.
+     */
     public async GrabSubPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }

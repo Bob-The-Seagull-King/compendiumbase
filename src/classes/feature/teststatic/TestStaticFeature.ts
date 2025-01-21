@@ -1,5 +1,4 @@
 import { DynamicContextObject } from "../../../classes/contextevent/dynamiccontextobject";
-import { BaseContextCallTable } from "../../../resources/staticcontext/BaseContextTable";
 import { StaticOptionContextObject, IStaticOptionContextObject } from "../../options/StaticOptionContextObject";
 
 interface ITestStaticFeature extends IStaticOptionContextObject {

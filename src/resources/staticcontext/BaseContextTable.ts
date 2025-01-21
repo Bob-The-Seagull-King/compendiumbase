@@ -1,12 +1,8 @@
-import { TestStaticFeature } from "../../classes/feature/teststatic/TestStaticFeature";
 import { DynamicContextObject } from "../../classes/contextevent/dynamiccontextobject";
-import { StaticContextObject } from "../../classes/contextevent/staticcontextobject";
 import { CallEventTable, ContextEventEntry } from "./contexteventtypes";
 import { EventRunner } from "../../classes/contextevent/contexteventhandler";
 import { ContextObject } from "../../classes/contextevent/contextobject";
 import { QuestionBase, StaticOptionContextObjectQuestion } from "../../classes/options/StaticOption";
-import { StaticOptionContextObject } from "../../classes/options/StaticOptionContextObject";
-import { DynamicOptionContextObject } from "../../classes/options/DynamicOptionContextObject";
 import { containsTag } from "../../utility/functions";
 import { getTagValue } from "../../utility/functions";
 
@@ -20,7 +16,7 @@ export const BaseContextCallTable : CallEventTable = {
 
                 for (let i = 0; i < trackVal.questions.length; i++) {
 
-                    let truthValCurrent = false;
+                    let truthValCurrent = true;
                     const questionCurrent : QuestionBase = trackVal.questions[i]
 
                     if (questionCurrent.tagq) {
@@ -30,7 +26,7 @@ export const BaseContextCallTable : CallEventTable = {
                             const val = questionCurrent.tagq[entrykeys[j]]
                             if (containsTag(context_static.Tags, entrykeys[j])) {
                                 if (getTagValue(context_static.Tags, entrykeys[j]) == val) {
-                                    truthValCurrent = true;
+                                    undefined;
                                 } else {
                                     truthValCurrent = false;
                                 }
@@ -46,7 +42,7 @@ export const BaseContextCallTable : CallEventTable = {
                             const val = questionCurrent.baseq[entrykeys[j]]
                             if (context_func[entrykeys[j]]) {
                                 if (context_func[entrykeys[j]] == val) {
-                                    truthValCurrent = true;
+                                    undefined;
                                 } else {
                                     truthValCurrent = false;
                                 }
@@ -63,7 +59,7 @@ export const BaseContextCallTable : CallEventTable = {
                             const val = questionCurrent.propertyq[entrykeys[j]]
                             if (entrykeys[j] in context_static) {
                                 if (context_static[entrykeys[j] as keyof (typeof context_static)] == val) {
-                                    truthValCurrent = true;
+                                    undefined;
                                 } else {
                                     truthValCurrent = false;
                                 }

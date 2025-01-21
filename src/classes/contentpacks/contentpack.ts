@@ -39,6 +39,13 @@ class ContentPack {
         this.Files = _contentpack.files;
     }
 
+    /**
+     * Reads the file information, and creates a collection
+     * of tags representing how many of each file type are
+     * added with this content pack.
+     * @param data the content pack data
+     * @returns array of tags, one for each file-type added to
+     */
     private GetTags(data : IContentPackFile[]) {
         const Tags : IContentPackTag[] = [];
 

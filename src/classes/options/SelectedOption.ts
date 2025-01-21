@@ -18,6 +18,10 @@ class SelectedOption {
         this.MyParent = parent;
     }
 
+    /**
+     * Given a specific id, set the current choice
+     * to one of this object's Option's selections.
+     */
     public SelectOption(_id : number) {
         for (let i = 0; i < this.Option.Selections.length; i++) {
             if (this.Option.Selections[i].id == _id) {

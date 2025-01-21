@@ -4,22 +4,20 @@ import { ContextEventEntry, ContextEventVals } from "../../resources/staticconte
 import { OptionCallTable } from "../../resources/staticcontext/optioncontexttable";
 import { StaticOptionContextObject } from "./StaticOptionContextObject";
 import { ContextObject } from "../../classes/contextevent/contextobject";
-import { EventHandler, useState } from "react";
-import { useGlobalState } from "../../utility/globalstate";
 import { EventRunner } from "../contextevent/contexteventhandler";
 
 interface IStaticOption {
-    ref_id : string,
-    name : string,
-    description : [],
-    category : string,
-    contextvars : ContextEventEntry
+    ref_id : string, // ID of the option (unique only to the parent object)
+    name : string, // Representation name of the option
+    description : [], // Description of what this option means
+    category : string, // Used to determine if the option is basic or uses context objects
+    contextvars : ContextEventEntry // Variables used for events.
 }
 
 interface IChoice {
-    id : number,
-    value : any,
-    display_str : string
+    id : number, // ID of the choice (unique only to the parent object)
+    value : any, // Unaltered value of the choice
+    display_str : string // String representation of the choice for lists
 }
 
 /**
@@ -51,16 +49,29 @@ class StaticOption {
         this.Description = DescriptionFactory(data.description);
     }
 
+    /**
+     * Creates a set of choices to select from.
+     */
     public async FindChoices() {undefined}
 
+    /**
+     * Getter for selections
+     */
     public ReturnChoices() {        
         return this.Selections
     }
 
+    /**
+     * Gets a single selection by position in array
+     */
     public GetSingleChoice(id : number) {
         return this.Selections[id];
     }
 
+    /**
+     * Creates an array of the ID values of
+     * choices.
+     */
     public GetChoiceIDs() {
         const id_arr : number[] = []
 
@@ -74,11 +85,11 @@ class StaticOption {
 }
 
 interface IStaticOptionTypeList extends IStaticOption {
-    type : 'text' | 'number',
-    strictness : 'loose' | 'free_form' | 'strict',
-    predefined_options : string[]
-    data_search? : IRequest,
-    option_context : ContextEventVals
+    type : 'text' | 'number',   // Type used to limit input
+    strictness : 'loose' | 'free_form' | 'strict', // How limited should input be (allow anything to only from chosen options)
+    predefined_options : string[] // Any preset options
+    data_search? : IRequest, // Search request to find additional values
+    option_context : ContextEventVals // Used for choice generating methods.
 }
 
 class StaticOptionTypeList extends StaticOption {
@@ -104,6 +115,10 @@ class StaticOptionTypeList extends StaticOption {
         this.FindChoices();
     }
 
+    /**
+     * Performs a search based on the provided request,
+     * and combines that with any preset options.
+     */
     public async FindChoices() {
         this.Selections = []
 
@@ -140,29 +155,22 @@ class StaticOptionTypeList extends StaticOption {
 }
 
 interface IStaticOptionContextObjectList extends IStaticOption {
-    parent_level : number,
-    question : StaticOptionContextObjectQuestion,
-    question_name : string
+    parent_level : number, // how many levels above this object to start a search from
+    question : StaticOptionContextObjectQuestion, // the question to use in filtering context objects
+    question_name : string // string name of the event to run
 }
 
 interface StaticOptionContextObjectQuestion {
-    classes : string[]
-    questions : QuestionBase[]
+    classes : string[] // classes to include in the search
+    questions : QuestionBase[] // Questions, a given object must meet one or more of these questions
 }
 
-interface QuestionBase {
+interface QuestionBase { // To meet a question, all parameters must be met
     tagq? : ContextEventEntry, // Search for contents in that objects tags
     baseq? : ContextEventEntry,  // Search for contents in that objects option_search_viable context data entry
     propertyq? : ContextEventEntry, // Search for properties on an object (if not present, count as failure)
 }
 
-/**
- * Other context objects, such as other Blocks or Monsters
- * 
- * Gathered using context events
- * 
- * Given a parentage-value, which is how many steps up the context tree to start looking
- */
 class StaticOptionContextObjectList extends StaticOption {
     public ParentRefLevel : number;
     public Question : StaticOptionContextObjectQuestion;
@@ -176,6 +184,10 @@ class StaticOptionContextObjectList extends StaticOption {
         this.Question = data.question;
     }
 
+    /**
+     * Perform an event to find what context objects
+     * to choose from.
+     */
     public async FindChoices() {
         this.Selections = []
         let OptionContextList : ContextObject[] = []
@@ -198,6 +210,13 @@ class StaticOptionContextObjectList extends StaticOption {
         }
     }
 
+    /**
+     * Finds the source object to use in the event,
+     * going up X steps in the context tree. Will return the
+     * highest-stage object (ie, if the parent level is 3 but
+     * only 2 are there, the 2nd will be returned rather 
+     * than null)
+     */
     public FindContextObject() {
         let baseobject : ContextObject | null = this.MyStaticObject;
 

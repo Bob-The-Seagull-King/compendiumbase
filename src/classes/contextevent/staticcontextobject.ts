@@ -1,9 +1,10 @@
-import { ICompendiumItemData } from "../CompendiumItem";
-import { ContextEventVals } from "../../resources/staticcontext/contexteventtypes";
 import { ContextObject } from "./contextobject";
 import { ContextPackage } from "./contextpackage";
 
-
+/**
+ * Static Context Objects are intended to be the base
+ * level components comprising a larger Dynamic object.
+ */
 class StaticContextObject extends ContextObject {
 
     public async GrabContextPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) { 
@@ -39,6 +40,10 @@ class StaticContextObject extends ContextObject {
         return StaticEvents; 
     }
     
+    /**
+     * Grabs any additional packages unique to
+     * class implementation.
+     */
     public async GrabSpecialPackages(event_id : string, source_obj : ContextObject, arrs_extra : any[]) : Promise<ContextPackage[]> { return []; }
 
 }

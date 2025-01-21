@@ -1,6 +1,5 @@
 import {ContentPack, IContentPack } from './contentpack'
 import { useContentPackStore } from '../../store/contentpacks'
-import { ContentDataDex } from './contentstaticvalidator';
 
 class ContentPackManager {
     PackList: ContentPack[] = []; // Array of Content Packs
@@ -94,6 +93,13 @@ class ContentPackManager {
         return ""
     }
 
+    /**
+     * Checks the basic data structure of the content pack,
+     * does NOT validate the structure of individual bits of data,
+     * only the broader content pack.
+     * @param pack the pack to validate
+     * @returns string describing error, if empty then no error has occured
+     */
     private ValidateType(pack : any) {
 
         try {
@@ -101,9 +107,6 @@ class ContentPackManager {
                 pack.description && pack.isactive && pack.files ) {
                 if ( (typeof pack.id === 'string') && (typeof pack.name === 'string') &&
                     (typeof pack.author === 'string') && (typeof pack.isactive === 'boolean') ) {
-
-                        const result = ContentDataDex['description'].validateItem(pack.description);
-                        if (result !== '') {return result}
 
                         let i = 0;
                         for (i = 0; i < pack.files.length; i ++) {

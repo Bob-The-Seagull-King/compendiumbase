@@ -24,6 +24,10 @@ class StaticOptionContextObject extends StaticContextObject {
         this.MyOptions = this.BuildOptions(data.options)
     }
 
+    /**
+     * Construct a series of options. These options are
+     * not initialized with their selections available.
+     */
     public BuildOptions(data : IStaticOption[]) {
         const OptionSet : StaticOption[] = []
 
@@ -35,6 +39,10 @@ class StaticOptionContextObject extends StaticContextObject {
         return OptionSet;
     }
 
+    /**
+     * Have all options search for potential selections
+     * to choose from.
+     */
     public async ReloadOptions() {
         for (let i = 0; i < this.MyOptions.length; i++) {
             await this.MyOptions[i].FindChoices();
