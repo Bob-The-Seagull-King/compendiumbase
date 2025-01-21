@@ -8,6 +8,7 @@ import en_imagedata from '../data/general/images.json'
 
 import en_testdynamic from '../data/testitemscontext/testitemdynamic.json'
 import en_teststatic from '../data/testitemscontext/testitemstatic.json'
+import en_testbasic from '../data/testitemscontext/testitembasic.json'
 // -----------------------------------------------------
 /////////////////////////////// ENGLISH ///////////////////////////////
 
@@ -21,7 +22,8 @@ export interface DataSetTC {
     tabledata : any,
     imagedata : any,
     testdynamicdata : any,
-    teststaticdata : any
+    teststaticdata : any,
+    testbasicdata : any
 }
 
 export const DataByLanguageTable : LanguageDataTable = {
@@ -30,6 +32,7 @@ export const DataByLanguageTable : LanguageDataTable = {
         tabledata : en_tabledata,
         imagedata : en_imagedata,
         testdynamicdata : en_testdynamic,
-        teststaticdata : en_teststatic
+        teststaticdata : en_teststatic,
+        testbasicdata : en_testbasic
     }
 }

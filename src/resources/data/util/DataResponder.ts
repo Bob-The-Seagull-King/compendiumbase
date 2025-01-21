@@ -81,6 +81,9 @@ class DataResponder {
             case "teststaticfeature" : {
                 return RelevantSet.teststaticdata.concat(data)
             }
+            case "testbasicfeature" : {
+                return RelevantSet.testbasicdata.concat(data)
+            }
             default: {
                 return data
             }

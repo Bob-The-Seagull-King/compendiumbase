@@ -31,14 +31,15 @@
                 "name" : "TestOptionSet",
                 "description" : [],
                 "category" : "contextobject",
-                "parent_level" : 2,
+                "parent_level" : 3,
                 "question_name" : "optionSearchEvent",
                 "question" : {
-                    "classes": ["TestDynamicFeature"],
+                    "classes": ["TestBasicFeature"],
                     "questions": [
                         {
                             
-                            "tagq": { "category" : "default"}
+                            "tagq": { "category" : "default"},
+                            "propertyq": {"teststatic":1}
                         }
                     ]
                 }
@@ -54,6 +55,24 @@
         "name": "TestB",
         "teststatic" : 2,
         "contextdata": {"option_search_viable" : {}},
-        "options": []
+        "options": [
+            {
+                "ref_id" : "ot_testitemset_b",
+                "name" : "TestOptionSet",
+                "description" : [],
+                "category" : "contextobject",
+                "parent_level" : 3,
+                "question_name" : "optionSearchEvent",
+                "question" : {
+                    "classes": ["TestStaticInContextFeature"],
+                    "questions": [
+                        {
+                            
+                            "tagq": { "category" : "default"}
+                        }
+                    ]
+                }
+            }
+        ]
     }
 ]

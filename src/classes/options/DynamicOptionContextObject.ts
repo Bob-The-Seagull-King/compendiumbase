@@ -22,7 +22,7 @@ class DynamicOptionContextObject extends DynamicContextObject {
         super(data, parent);
         this.OptionChoice = option_obj;
 
-        for (let i = 0; i << this.OptionChoice.MyOptions.length; i++) {
+        for (let i = 0; i < this.OptionChoice.MyOptions.length; i++) {
             const NewSelection : SelectedOption = new SelectedOption(this.OptionChoice.MyOptions[i], this);
             this.Selections.push(NewSelection);
         }

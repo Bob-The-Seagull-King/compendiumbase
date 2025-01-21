@@ -6,11 +6,9 @@ import { IObjectImage, ObjectImage } from "./ObjectImage";
  */
 interface ICompendiumItemData {
     id: string, // The id of the item
-    type: string, // The type of the item (ability, addon, summon, talent, relic, etc)
     name: string, // The name of the item
     source: string, // The source of the item (core book, homebrew, etc)
     tags: ObjectTag // Tags associated with that item (used for sorting and synergies)
-    eventtags: ObjectTag // Tags associated with that item (used for sorting and synergies)
 }
 
 type ObjectTag = {[_name : string] : string | boolean | number | null | []}
