@@ -2,6 +2,8 @@ import { TableFactory } from '../factories/features/TableFactory';
 import { AdvancedDescriptionItemFactory } from '../factories/components/AdvancedDescriptionItemFactory';
 import { CompendiumItem } from './CompendiumItem';
 import { IDescriptionItemData, DescriptionItem } from './DescriptionItem'
+import { EventRunner } from './contextevent/contexteventhandler';
+import { ContextObject } from './contextevent/contextobject';
 
 /**
  * Interface for an ability description item
@@ -74,6 +76,44 @@ class AdvancedDescription extends DescriptionItem {
             return sublist;
         } else {
             return sublist;
+        }
+    }
+
+    /**
+     * Any descriptions of the type 'question'
+     */
+    public async AnswerQuestions(source_obj : ContextObject) {
+        
+        if (this.Tags['desc_type']) {
+
+            // Build Table
+            if (this.Tags['desc_type'] == 'question') {
+
+
+                const default_val = this.Tags['default'];
+                const question = this.Tags['question'];
+                const bonus_args = this.Tags['bonus_args']? this.Tags['bonus_args'] as any[] : [];
+                const parent_level = this.Tags['parent_level'];
+                const track_val = this.Tags['track_val']? this.Tags['track_val'] : null;
+
+                if (
+                    (default_val == null) || (default_val == undefined) ||
+                    (question == null) || (question == undefined)|| (typeof question != 'string') ||
+                    (bonus_args == null) || (bonus_args == undefined)||
+                    (parent_level == null) || (parent_level == undefined)||
+                    (track_val == undefined)
+                ) {
+                    this.DisplayData = default_val;
+                } else {
+                    const Event_Run : EventRunner = new EventRunner();
+                    this.DisplayData = await Event_Run.runEvent(question, source_obj, bonus_args, default_val, track_val)
+                }
+
+            }
+        }
+
+        for (let i = 0; i < this.SubContent.length; i++) {
+            await this.SubContent[i].AnswerQuestions(source_obj);
         }
     }
 }
