@@ -15,6 +15,8 @@ import { DisplayCollectionDataDex, DisplayCollectionType } from './DisplayPageSt
 const BaseDisplayCompendium = (prop: any) => {
     // Initialize controllers and managers
     const ViewPageController: CollectionsListPage = prop.controller
+    ViewPageController.initCollection();
+
     const CollectionController: ViewCollectionsModel = ViewPageController.Collection;
     const DisplayPage: DisplayCollectionType = DisplayCollectionDataDex[ViewPageController.TypeName]
     

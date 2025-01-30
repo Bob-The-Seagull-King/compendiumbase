@@ -8,6 +8,7 @@ class CollectionsListPage {
     Collection: ViewCollectionsModel;
     FilterManager: FilterManager;
     TypeName: Lowercase<string>
+    Initialised : Boolean = false;
 
     /**
      * Creates new collection and filter manager objects then
@@ -17,8 +18,6 @@ class CollectionsListPage {
         this.Collection = new ViewCollectionsModel(type);
         this.FilterManager = new FilterManager(type);
         this.TypeName = type;
-
-        this.initCollection();
     }
 
     /**
@@ -26,8 +25,12 @@ class CollectionsListPage {
      * then runs that search.
      */
     initCollection() {
-        this.Collection.UpdateSearchParams({searchtype: "file", searchparam: {type: this.Collection.CollectionType.searchId}});
-        this.Collection.RunSearch();
+        if (this.Initialised == false) {
+            this.Initialised = true;
+        
+            this.Collection.UpdateSearchParams({searchtype: "file", searchparam: {type: this.Collection.CollectionType.searchId}});
+            this.Collection.RunSearch();
+        }
     }
 
     /**
