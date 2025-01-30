@@ -17,11 +17,11 @@
                 "eventtags": {},
                 "description": [
                 {
-                    "tags": {"desc_type" : "desc"},
+                    "tags": {"desc_type" : "default"},
                     "content": "Test_A"
                 },
                 {
-                    "tags": {"desc_type" : "desc"},
+                    "tags": {"desc_type" : "default"},
                     "content": "Test_B"
                 }
                 ]

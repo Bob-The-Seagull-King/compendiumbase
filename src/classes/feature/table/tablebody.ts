@@ -22,7 +22,7 @@ class TableBody extends CompendiumItem {
     public constructor(data: ITable)
     {
         super(data)
-        this.Description = DescriptionFactory(data.description);
+        this.Description = DescriptionFactory(data.description, this);
         this.ColNames = data.colnames;
         this.Items = TableItemFactory.CreateTableItems(data.items);
     }

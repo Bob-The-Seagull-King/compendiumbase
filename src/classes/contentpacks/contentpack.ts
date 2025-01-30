@@ -33,7 +33,7 @@ class ContentPack {
         this.ID = _contentpack.id;
         this.Name = _contentpack.name;
         this.Author = _contentpack.author;
-        this.Description = DescriptionFactory(_contentpack.description);
+        this.Description = DescriptionFactory(_contentpack.description, this);
         this.Tags = this.GetTags(_contentpack.files);
         this.IsActive = true;
         this.Files = _contentpack.files;

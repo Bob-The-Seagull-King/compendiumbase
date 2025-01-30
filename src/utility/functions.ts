@@ -3,6 +3,7 @@ import { AdvancedDescription } from "../classes/AdvancedDescription";
 import { ObjectImage } from "../classes/ObjectImage";
 import { Requester } from "../factories/Requester";
 import { IObjectImage } from "../classes/ObjectImage";
+import { AdvancedDescriptionItemFactory } from "../factories/components/AdvancedDescriptionItemFactory";
 
 /**
  * Returns a capitalized version of a given string
@@ -199,11 +200,11 @@ export function sort<T extends object> (arr: T[], ...sortBy: Array<sortArg<T>>) 
     arr.sort(byPropertiesOf<T>(sortBy))
 }
 
-export function DescriptionFactory(data: any[]) {
+export function DescriptionFactory(data: any[], parent : any | null) {
     let i = 0;
     const array: AdvancedDescription[] = []
     for (i = 0; i < data.length; i++) {
-        const tempAD = new AdvancedDescription(data[i])
+        const tempAD = AdvancedDescriptionItemFactory.CreateAdvancedDescriptionItem(data[i], parent)
         array.push(tempAD)
     }
     return array;

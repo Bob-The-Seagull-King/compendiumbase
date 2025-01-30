@@ -46,7 +46,7 @@ class StaticOption {
         this.Category = data.category;
 
         this.MyStaticObject = parent;
-        this.Description = DescriptionFactory(data.description);
+        this.Description = DescriptionFactory(data.description, this);
     }
 
     /**

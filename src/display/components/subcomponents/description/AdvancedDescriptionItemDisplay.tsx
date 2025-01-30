@@ -16,10 +16,14 @@ import TableDisplay from '../../../../display/components/features/table/TableDis
 import GenericHover from '../../../../display/components/generics/GenericHover'
 import EmptyDisplay from '../../../../display/components/generics/EmptyDisplay'
 import GenericPopup from '../../../../display/components/generics/GenericPopup'
+import { ObjectTag } from '../../../../classes/CompendiumItem';
 
 const AdvancedDescriptionItemDisplay = (props: any) => {
     const description: AdvancedDescription = props.data
-    const parentItem = props.parent
+    const parentItem = description.Parent;
+
+    let colour = getParentValue('Class');
+    if (colour == null) { colour = "default"}
 
     /**
      * Takes a description and combines all tags, subcomponents,
@@ -41,10 +45,14 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
                 )
 
             }
-            case "effect": {
+            case "bold": {
                 return (
                     <span>
-                        <span><b>{ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} </b></span>
+                        <span>
+                            <b>
+                                {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} 
+                            </b>
+                        </span>
                         <span>
                             {item.SubContent?.map((subitem) => (
                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
@@ -53,10 +61,14 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
                     </span>
                 )
             }
-            case "subeffect": {
+            case "italic": {
                 return (
                     <span>
-                        <span><i>{ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} </i></span>
+                        <span>
+                            <i>
+                                {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} 
+                            </i>
+                        </span>
                         <span>
                             {item.SubContent?.map((subitem) => (
                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
@@ -66,10 +78,12 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
                     </span>
                 )
             }
-            case "desc": {
+            case "default": {
                 return (
                     <span>
-                        <span>{ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} </span>
+                        <span>
+                            {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")}
+                        </span>
                         <span>
                             {item.SubContent?.map((subitem) => (
                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
@@ -82,7 +96,7 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
             case "table": {
                 return (
                     <div style={{width:"100%"}}>
-                        <div className='addonbox'>{findTable(item.Content?.toString() || "")}</div>
+                        <div className='addonbox'><EmptyDisplay d_colour={colour} d_name={item.DisplayData? item.DisplayData.Name : ""} d_type={"sub"} d_method={() => <TableDisplay d_colour={colour} d_type={"sub"} data={item.DisplayData} />}/></div>
                         <span>
                             {item.SubContent?.map((subitem) => (
                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
@@ -108,7 +122,9 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
             case "list": {
                 return (
                     <div style={{width:"100%"}}>
-                        <span>{ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")} </span>
+                        <span>
+                            {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")}
+                        </span>
                         <span>
                             <ul>
                                 {item.SubContent?.map((subitem) => (
@@ -121,38 +137,40 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
                     </div>
                 )
             }
+            case "question": {
+                return (
+                    <span>
+                        {item.DisplayData}
+                    </span>
+                )
+            }
             default: {
                 return (
                     <span>
-                    <span>{ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")}</span>
-                    <span>
-                        {item.SubContent?.map((subitem) => (
-                               <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
-                        ))}
-                    </span>
+                        <span>
+                            {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")}
+                        </span>
+                        <span>
+                            {item.SubContent?.map((subitem) => (
+                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
+                            ))}
+                        </span>
                     </span>
                 )
             }
         }
     }
 
-    /**
-     * returns a component showing an Addon display
-     * @param id The ID of the addon
-     * @returns Display component with the Addon
-     */
-    function findTable(id: string) {
-        let table: TableBody | null = null;
-
-        table = TableFactory.CreateNewTable(id)
-
-        return (
-            <EmptyDisplay d_colour={parentItem.Class} d_name={table.Name} d_type={"sub"} d_method={() => <TableDisplay d_colour={parentItem.Class} d_type={"sub"} data={table} />}/>
-        )
+    function getParentValue(val : string) {
+        if (parentItem) {
+            if (val in parentItem) {
+                return parentItem[val as keyof (typeof parentItem)];
+            }
+        }
+        return null;
     }
 
     return (
-        
         <ErrorBoundary fallback={<div>Something went wrong with AdvancedDescriptionItemDisplay.tsx</div>}>
             <span>
                 {returnFullItem(description)}

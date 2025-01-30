@@ -19,7 +19,7 @@ class TableItem extends CompendiumItem {
     public constructor(data: ITableItem)
     {
         super(data)
-        this.Description = DescriptionFactory(data.description);
+        this.Description = DescriptionFactory(data.description, this);
     }
     
     /**
