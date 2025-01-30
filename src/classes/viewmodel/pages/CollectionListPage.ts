@@ -8,7 +8,7 @@ class CollectionsListPage {
     Collection: ViewCollectionsModel;
     FilterManager: FilterManager;
     TypeName: Lowercase<string>
-    Initialised : Boolean = false;
+    Initialised = false;
 
     /**
      * Creates new collection and filter manager objects then
