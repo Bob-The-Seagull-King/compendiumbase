@@ -96,7 +96,7 @@ const SaveItemDisplay = (prop: any) => {
                         <span className="packvrbox">
                             <div className="vr packvr"></div>
                             <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                <FontAwesomeIcon icon={faTrash} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                             </Button>
                         </span>
                     </div>
@@ -131,7 +131,7 @@ const SaveItemDisplay = (prop: any) => {
                                         <div className="vr packvr"/>
                                     </span>
                                     <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                        <FontAwesomeIcon icon={faTrash} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                        <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                                     </Button>
                                 <span/>
                             </div>

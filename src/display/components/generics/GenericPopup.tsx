@@ -45,7 +45,7 @@ const GenericPopup = (props: any) => {
                         <div className="row float-end">
                             <div className='col-12 float-end'>
                                 <Button style={{padding:"0em"}} variant="" onClick={() => handleClose()}>
-                                    <FontAwesomeIcon icon={faCircleXmark} className="setWhite" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faCircleXmark} className="colorWhite" style={{fontSize:"2em",margin:"0em"}}/>
                                 </Button>
                             </div>
                         </div>

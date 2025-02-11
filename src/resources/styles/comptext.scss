@@ -11,18 +11,6 @@
     text-align: left;
 }
 
-.megatitleShape {
-    padding: 0%;
-    margin: 0%;
-    font-size: 4rem;
-}
-
-.medtitleShape {
-    padding: 0%;
-    margin: 0%;
-    font-size: 2.5rem;
-}
-
 .table {
   --bs-table-bg: transparent; /* or --bs-table-bg: transparent; */
 }
@@ -49,16 +37,6 @@
   padding-bottom: 0em;
 }
 
-.actionheaderbody {
-  border-radius: 0.2em;
-  padding: 0.25em;
-  width: 100%;
-  text-align: center;
-  color: var(--colour_white);
-  font-size: 150%;
-  font-weight: bolder;
-}
-
 .titlebody {
   padding-left: 0.25em;
   padding-right: 0.25em;
@@ -72,48 +50,9 @@
   font-weight: bolder;
 }
 
-.titleIcon {
-  
-  color: var(--colour_white);
-  font-size: 200%;
-  font-weight: bolder;
-}
-
-.tablerowbody {
-  padding: 0.75em;
-  margin: 0em;
-  border-radius: 0em;
-  width: 100%;
-}
-
-.tablerow0 {
-  background-color: var(--colour_tablea);
-}
-
-.tablerow1 {
-  background-color: var(--colour_offwhite);
-}
-
 .glossaryMain {
     color: var(--colour_default_main);
     font-weight: bold;
-}
-
-.boldtextDefault {   
-    font-weight: 650;
-    font-size: 1.25rem;
-}
-
-.boldtextCol {   
-    font-weight: 650;
-    font-size: 1.25rem;
-    color: var(--colour_default_main);
-}
-
-.boldtextColNormal {   
-    font-weight: 650;
-    font-size: 1rem;
-    color: var(--colour_default_main);
 }
 
 .subtletext {
@@ -121,36 +60,6 @@
     color: var(--colour_grey_secondary);
     font-size: 200%;
     font-weight: bolder;
-}
-
-.hometitle {
-    color: var(--colour_default_main);
-    font-size: 5rem;
-    font-weight: 1500;
-}
-
-.homesubtitle {
-    color: var(--colour_default_main);
-    font-size: 2rem;
-    font-weight: 1500;
-}
-
-.homelink {
-    font-weight: 1000;
-    text-decoration: none;
-    color: var(--colour_default_main);
-}
-.navitemh2 {
-    margin-top: 0.4em;
-    margin-bottom: 0.5em;
-}
-
-.webtitle {
-    margin-top: 0em;
-    margin-bottom: 0em;
-    color: var(--colour_default_main);
-    font-size: 3rem;
-
 }
 
 .separator {
@@ -190,20 +99,6 @@
     text-align: center;
   }
 
-
-  .equipbody {
-    width: 100%;
-    font-weight: 600;
-    text-align: left;
-  }
-
-  .equiptitle {
-    width: 100%;
-    font-weight: 400;
-    color: var(--colour_grey_main);
-    text-align: left;
-  }
-
   .itemlisttext {
 
     font-size: 125%;
@@ -236,14 +131,6 @@
     font-size: 0.85rem;
   }
 
-  .pagetitletext {
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--colour_default_main);
-    justify-self: center;
-    text-align: center;
-  }
-
   .pageaccestext {
     font-size: 1.75rem;
     font-weight: 700;
@@ -263,18 +150,6 @@
     font-weight: 400;
     color: var(--colour_default_main);
     margin: 0.25em;
-  }
-
-  .defaultIcon {
-    color: var(--colour_default_main);
-  }
-  
-  .redIcon {
-    color: var(--colour_red_main);
-  }
-
-  .greenIcon {
-    color: var(--colour_green_main);
   }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
@@ -301,14 +176,6 @@
   font-size: 1.1rem !important;
 }
 
-.tabOverride {
-  color: var(--colour_default_secondary) !important;
-  background-color: var(colour_offwhite) !important;
-  border-color: none !important ;
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-}
-
 .nav-tabs {
   color: var(--colour_default_secondary)  !important;
   background-color:var(colour_offwhite) !important;
@@ -322,18 +189,8 @@
     font-size: 1.1rem !important;
 }
 
-.paragraphlinebreak {
-  white-space: pre-line;
-}
-
 .largefonttext {
   color: var(--colour_default_main);
   font-size: 4rem;
   font-weight: 700;
-}
-
-.medfonttext {
-  color: var(--colour_default_main);
-  font-size: 3rem;
-  font-weight: 600;
 }

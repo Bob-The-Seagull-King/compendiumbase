@@ -76,15 +76,15 @@ const ContentPackDisplay = (props: any) => {
                     <div className="contentpackcontainer smallbordersubdefault" >
                         <span className="packvrbox">
                             <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
-                                <FontAwesomeIcon icon={faBookOpen} className="defaultIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
                             </Button>
                             <div className="vr packvr"></div>
                             <Button style={{padding:"0em"}} variant="" onClick={() => switchContentPackState()}>
                                 {PackItem.IsActive &&
-                                    <FontAwesomeIcon icon={faUnlock} className="greenIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faUnlock} className="colorgreen" style={{fontSize:"2em",margin:"0em"}}/>
                                 }
                                 {!PackItem.IsActive &&
-                                    <FontAwesomeIcon icon={faLock} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faLock} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                                 }
                             </Button>
                             <div className="vr packvr"></div>
@@ -103,7 +103,7 @@ const ContentPackDisplay = (props: any) => {
                         <span className="packvrbox">
                             <div className="vr packvr"></div>
                             <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                <FontAwesomeIcon icon={faTrash} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                             </Button>
                         </span>
                     </div>
@@ -133,20 +133,20 @@ const ContentPackDisplay = (props: any) => {
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
                                 <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
-                                    <FontAwesomeIcon icon={faBookOpen} className="defaultIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
                                 </Button>
                                 <div className="vr packvr"></div>
                                 <Button style={{padding:"0em"}} variant="" onClick={() => switchContentPackState()}>
                                     {PackItem.IsActive &&
-                                        <FontAwesomeIcon icon={faUnlock} className="greenIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                        <FontAwesomeIcon icon={faUnlock} className="colorgreen" style={{fontSize:"2em",margin:"0em"}}/>
                                     }
                                     {!PackItem.IsActive &&
-                                        <FontAwesomeIcon icon={faLock} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                        <FontAwesomeIcon icon={faLock} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                                     }
                                 </Button>
                                 <div className="vr packvr"></div>
                                 <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                    <FontAwesomeIcon icon={faTrash} className="redIcon" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
                                 </Button>
                                 <span/>
                             </div>
@@ -165,7 +165,7 @@ const ContentPackDisplay = (props: any) => {
                         <div className="row float-end">
                             <div className='col-12 float-end'>
                                 <Button style={{padding:"0em"}} variant="" onClick={() => handleClose()}>
-                                    <FontAwesomeIcon icon={faCircleXmark} className="setWhite" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faCircleXmark} className="colorWhite" style={{fontSize:"2em",margin:"0em"}}/>
                                 </Button>
                             </div>
                         </div>

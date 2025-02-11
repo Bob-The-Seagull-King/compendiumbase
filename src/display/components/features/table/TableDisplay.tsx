@@ -25,7 +25,7 @@ const TableDisplay = (props: any) => {
                     <tr className={BackgroundClass}>
                         {TableObject.ColNames.map((item) => 
                             (<th style={{paddingBottom:"0em"}} className={BackgroundClass} key={"headtabledesc"}>
-                                <p className={BackgroundClass + " setWhite"} style={{marginBottom:"0.5em"}}>
+                                <p className={BackgroundClass + " colorWhite"} style={{marginBottom:"0.5em"}}>
                                     {item}
                                 </p>
                             </th>))
