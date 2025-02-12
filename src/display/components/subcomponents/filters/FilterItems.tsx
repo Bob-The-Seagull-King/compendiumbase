@@ -69,7 +69,7 @@ const FilterTextItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
             <div className="col">
                 <div className="centerPosition">
-                    <InputGroup className="mb-3 borderstyler subborderdefault filtertextinput">
+                    <InputGroup className="mb-3 borderstyler subborderdefault">
                         <Form.Control onChange={e => updateName(ItemFilter, e.target.value)} className='' aria-label="Text input with checkbox" defaultValue={ItemFilter.Val}/>
                         <InputGroup.Text className=''>Exact Match?</InputGroup.Text>
                         <InputGroup.Checkbox checked={_currentstate}  onChange={e => updateStrict(ItemFilter, returnactivetext)}  className='' aria-label="Checkbox for following text input" ></InputGroup.Checkbox>
@@ -119,7 +119,7 @@ const FilterRangeItem = (prop: any) => {
                     
                 <div className="col-2">
                         
-                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
 
                             
                             <div onClick={() => resetRange(ItemFilter)} className="hovermouse" style={{textAlign:"center", width:"100%"}}>
@@ -131,7 +131,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
                             <div className='hovermouse tagpad'/>
                             {"MIN"}
                             <div className='tagpad'/>
@@ -146,7 +146,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
                             <div className='hovermouse tagpad'/>
                             {"MAX"}
                             <div className='tagpad'/>
@@ -177,7 +177,7 @@ const FilterTagItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="">
             <div className="centerPosition">
-                <div className={"filterbox quartermargin filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} style={{minHeight:"2.75em", alignItems: "center"}} >
+                <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} style={{minHeight:"2.75em", alignItems: "center"}} >
                     <div className='hovermouse tagpad'/>
                     <div onClick={() => SwitchStates(ItemFilter.TagType, returnactivetext)} className="hovermouse tagboxtitle ">
                         {makestringpresentable(ItemFilter.TagType.Name)}
@@ -208,7 +208,7 @@ const FilterMiscItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="col">
             <div className="centerPosition">
-                <div className={"hovermouse quartermargin filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} onClick={() => SwitchStates(ItemFilter, returnactivetext)}>
+                <div className={"hovermouse quartermargin borderstyler basestructure filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} onClick={() => SwitchStates(ItemFilter, returnactivetext)}>
                     {makestringpresentable(ItemFilter.Name)}
                 </div>
             </div>

@@ -73,7 +73,7 @@ const ContentPackDisplay = (props: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with ContentPackDisplay.tsx</div>}>
             <div className='' ref={ref}>
                 {stateWidth > 700 &&
-                    <div className="filterbox contentpackbasecontainer borderstyler subborderdefault" >
+                    <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         <span className="packvrbox">
                             <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
                                 <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
@@ -109,7 +109,7 @@ const ContentPackDisplay = (props: any) => {
                     </div>
                 }
                 {stateWidth <= 700 &&
-                    <div className="filterbox contentpackbasecontainer borderstyler subborderdefault" >
+                    <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         
                         <div className="row" style={{width:"100%"}}>
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
@@ -158,7 +158,7 @@ const ContentPackDisplay = (props: any) => {
             <Modal data-theme={theme}  size="lg" show={show}  contentClassName="overcomeBackground" dialogClassName="" onHide={handleClose} keyboard={true}  centered>    
                 
                 <Modal.Body >
-                <div className={'abilityStructure borderstyler borderdefault'}>
+                <div className={'basestructure abilityStructure subborderstyler borderdefault'}>
                     <h1 className={'titleShape titlebody backgrounddefault'}>
                     {PackItem.Name}
                         
@@ -181,7 +181,7 @@ const ContentPackDisplay = (props: any) => {
                                 <div className="separator" style={{marginTop:"0em"}}><h5>Content</h5></div>
                                 <div style={{display:"flex",flexWrap:"wrap"}}>
                                     {PackItem.Tags.map((item: any) => (
-                                        <div className=" quartermarginfilterbuttonitem bordergrey backgroundgrey" key={"packdisplay"}>
+                                        <div className=" quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey" key={"packdisplay"}>
                                             {makestringpresentable(item.name)} - {item.count.toString()}
                                         </div>
                                     ))}

@@ -29,7 +29,7 @@ const GenericPanel = (prop: any) => {
             <div style={{display:"flex"}}>
                 {panelType.returnButton(handleShow)}
             </div>
-            <Modal data-theme={theme}  show={show}  contentClassName="filterboxStructure" dialogClassName="" onHide={handleClose} keyboard={true}  centered>
+            <Modal data-theme={theme}  show={show}  contentClassName="basestructure abilityStructure borderstyler colordefault" dialogClassName="" onHide={handleClose} keyboard={true}  centered>
                 
                 <h1 className={'titleShape titlebody backgrounddefault'}>
                     {panelType.id}

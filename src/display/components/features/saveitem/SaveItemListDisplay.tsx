@@ -120,7 +120,7 @@ const SaveItemListDisplay = (prop: any) => {
                                         </InputGroup>
                                     </div>
                                     <div className="col-md-2 col-6">
-                                        <div className="generalbuttonbox" style={{width:"100%",alignItems:"center",height:"4em"}}>
+                                        <div className="basestructure generalbuttonbox" style={{width:"100%",alignItems:"center",height:"4em"}}>
                                             <div style={{display:"flex",width:"fit-content",alignItems:"flex-end"}} onClick={() => NewItem()} className="hovermouse ">
                                                 <FontAwesomeIcon icon={faPerson} className="pageaccestext"/>
                                                 <h1 className="pageaccestext" style={{whiteSpace:"nowrap"}}>
@@ -130,7 +130,7 @@ const SaveItemListDisplay = (prop: any) => {
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-6">
-                                        <label htmlFor="pack-upload" className="generalbuttonbox hovermouse">
+                                        <label htmlFor="pack-upload" className="basestructure generalbuttonbox hovermouse">
                                             <FontAwesomeIcon icon={faFileImport} className="pageaccestext"/>
                                             <h1 className="pageaccestext">
                                                 Upload

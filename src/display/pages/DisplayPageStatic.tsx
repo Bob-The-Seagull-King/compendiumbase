@@ -39,9 +39,7 @@ export const DisplayCollectionDataDex : DisplayCollectionDataTable = {
                             ))}
                         </div>
                         <div className="separator"><h3>TAGS</h3></div>
-                        <div className="subltenotetext">{"You can specify tag's value in the text box. Leave blank to find all of that tag."}
-                        </div>
-                        <div className='toppad'></div>
+                        <div className='tagboxpad'></div>
                         <div className="row">
                             <div className="filterbox centerPosition">
                                 {manager.ReturnTagFilters().map((item) => (
@@ -58,10 +56,10 @@ export const DisplayCollectionDataDex : DisplayCollectionDataTable = {
                             </div>
                         </div>
                             
-                        <div className='separator toppad'></div>
+                        <div className='separator tagboxpad'></div>
                         <div className="row float-end">
                             <div className='col-12 float-end'>
-                                <div className='hovermouse filterbuttonitem bordergrey backgroundgrey' onClick={() => {close()}}>CONFIRM</div>
+                                <div className='hovermouse filterbuttonitem basestructure bordergrey backgroundgrey' onClick={() => {close()}}>CONFIRM</div>
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@ export const PanelDataDex : PanelDataTable = {
                 <div className="row p-3 overflow-auto flex-grow-1">
                     <div style={{"maxHeight": "calc(70vh"}}>
                         <div className="col-12">
-                            <div className="row textHolder">
+                            <div className="row">
                                 <p className="bodytext">
                                     Content packs are structured JSON files that allow people to make their game content accessable in
                                     the compendium. Here, you can add or delete content packs to include them in the Compendium. You can

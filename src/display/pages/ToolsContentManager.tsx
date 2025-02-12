@@ -101,13 +101,13 @@ const ToolsContentManager = (prop: any) => {
                     </div>
                     <div className="row">
                         <div className="col-12 justify-content-center" style={{display:"flex"}}>
-                            <label htmlFor="pack-upload" className="generalbuttonbox borderstyler subborderdefault hovermouse">
+                            <label htmlFor="pack-upload" className="basestructure generalbuttonbox borderstyler subborderdefault hovermouse">
                                 <FontAwesomeIcon icon={faFileImport} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
                                     UPLOAD CONTENT PACK
                                 </h1>
                             </label>
-                            <div className="navpad"/>
+                            <div className="addonbox"/>
                             <div style={{width:"fit-content"}}>
                                 <GenericPanel panelname={"contentpack"}/>
                             </div>
@@ -119,10 +119,10 @@ const ToolsContentManager = (prop: any) => {
                         </div>
                     </div>
                     <div style={{padding:"0.5em"}}>
-                        <div className='row row-cols-1 borderstyler subborderdefault'>
+                        <div className='row row-cols-1 subborderstyler subborderdefault'>
                                 {_allcontentpacks.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
-                                        <div className='filterbox contentpackbasecontainer contentpackcontainer borderstyler subborderdefault' style={{justifyContent:"center",alignItems:"center"}}>
+                                        <div className='filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault' style={{justifyContent:"center",alignItems:"center"}}>
                                             <h1 className="subtletext" style={{paddingTop:"1em", paddingBottom:"1em"}}>No Packages Selected</h1>
                                         </div>
                                     </div>

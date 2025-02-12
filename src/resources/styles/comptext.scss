@@ -6,9 +6,9 @@
 }
 
 .titleShape {
-    padding: 0%;
-    margin: 0%;
-    text-align: left;
+  padding: 0%;
+  margin: 0%;
+  text-align: left;
 }
 
 .table {
@@ -24,17 +24,9 @@
 }
 
 .tablecontent {
-  
   margin: auto;
   width: 100%;
   display: flex;
-}
-
-.tableTitle {
-  font-size: 150%;
-  font-weight: 800;
-  text-justify: center;
-  padding-bottom: 0em;
 }
 
 .titlebody {
@@ -69,50 +61,43 @@
     color: var(--colour_grey_secondary);
     font-weight: bolder;
     font-size: 2rem;
-  }
+} 
   
-  .separator::before,
-  .separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid var(--colour_grey_secondary);
-  }
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--colour_grey_secondary);
+}
   
-  .separator:not(:empty)::before {
-    margin-right: .25em;
-  }
-  
-  .separator:not(:empty)::after {
-    margin-left: .25em;
-  }
-  
-  .statbody {
-    width: 100%;
-    font-weight: 600;
-    text-align: center;
-  }  
+.separator:not(:empty)::before {
+  margin-right: .25em;
+}
 
-  .stattitle {
-    width: 100%;
-    font-weight: 400;
+.separator:not(:empty)::after {
+  margin-left: .25em;
+}
+
+.statbody {
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+}  
+
+.stattitle {
+  width: 100%;
+  font-weight: 400;
     color: var(--colour_grey_main);
     text-align: center;
   }
 
   .itemlisttext {
-
     font-size: 125%;
     text-align: left;
   }
 
   .softpad {
     padding: 0.25em !important
-  }
-
-  .subltenotetext {
-    text-align: center;
-    color: var(--colour_grey_secondary);
-    font-size: 0.9rem;
   }
 
   .headertext {

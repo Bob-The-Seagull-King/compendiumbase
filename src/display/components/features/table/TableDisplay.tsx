@@ -21,7 +21,7 @@ const TableDisplay = (props: any) => {
         
         <ErrorBoundary fallback={<div>Something went wrong with TableDisplay.tsx</div>}>
             <Table style={{width:"100%",margin:"0em"}} className={BackgroundClass}>                
-                <thead className={"tableTitle " + BackgroundClass} >
+                <thead className={"packtitlelarge " + BackgroundClass} >
                     <tr className={BackgroundClass}>
                         {TableObject.ColNames.map((item) => 
                             (<th style={{paddingBottom:"0em"}} className={BackgroundClass} key={"headtabledesc"}>

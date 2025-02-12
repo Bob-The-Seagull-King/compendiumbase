@@ -8,7 +8,7 @@
 
 .no-margin
 {
-  margin: 0px !important;
+    margin: 0px !important;
 }
 
 .no-padding
@@ -16,14 +16,7 @@
     padding: 0px !important;
 }
 
-.verticalspacer {
-    
-    margin-bottom: 0.25rem;
-    margin-top: 0.25rem;
-}
-
 .verticalspacerbig {
-    
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
@@ -40,16 +33,6 @@
     width: 100%;
 }
 
-.navpad {
-    padding-left: 1%;
-    padding-right: 1%;
-}
-
-.toppad {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
 .tagboxpad {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
@@ -61,4 +44,76 @@
 
 .tagpad {
     margin-left: 0.5rem;
+}
+
+// Empty Space
+
+.quartermargin {
+    margin : 0.25rem;
+}
+
+.filterbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tagboxtitle {
+    
+	/* Use a flexbox layout */
+	display: flex;
+	
+	/* Make a horizontal flexbox (the default) */
+	flex-direction: row;
+	
+	/* The important part: vertically center the items */
+	align-items: center;
+}
+
+.inputbox input {
+    height: 50%;
+}
+
+.topbarCompendiumStructure {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contentpackcontainer {
+    justify-content: space-between;
+}
+
+.contentpackbasecontainer {    
+    align-items: center;
+    align-content: center;
+    border-radius: 0rem;
+    width: 100%;
+    position: relative;
+    padding: 0.75rem;
+}
+
+.smallcontentpackrow {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.contentsubnamecontainer {
+    display: flex; /* make element size relative to content */
+    align-items: center;
+    align-content: center;
+    width: fit-content;
+}
+
+.floatingButton {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+
+.topbarStructure {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }

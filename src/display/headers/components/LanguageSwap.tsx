@@ -54,7 +54,7 @@ const LanguageSwap = (prop: any) => {
     return (
         <ErrorBoundary fallback={<div>Something went wrong with PalleteSwap.tsx</div>}>
             <Dropdown style={{margin:"0em", height:"100%"}} onSelect={(e,obj) => SetLanguage(e? e : "")}>
-                <Dropdown.Toggle bsPrefix="dropdownClean" style={{width:"fit-content",fontWeight:"600"}} id="dropdown-custom-components">
+                <Dropdown.Toggle bsPrefix="overcomeBackground no-margin no-padding" style={{width:"fit-content",fontWeight:"600"}} id="dropdown-custom-components">
                     {returnCurrentLanguage(language)}
                 </Dropdown.Toggle>
             

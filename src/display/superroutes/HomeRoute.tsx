@@ -86,7 +86,7 @@ const HomeRoute: React.FC = () => {
                     </div>
                     <div className="row row-cols-lg-2 row-cols-md-2 row-cols-sx-1 row-cols-xs-1 row-cols-1">
                         <div className="col" style={{padding:"0.5em"}}>
-                            <div className="pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("compendium/glossary/")}>
+                            <div className="basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("compendium/glossary/")}>
                                 <FontAwesomeIcon icon={faList} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
                                     GLOSSARY
@@ -99,7 +99,7 @@ const HomeRoute: React.FC = () => {
                     </div>
                     <div className="row row-cols-lg-1 row-cols-md-1 row-cols-sx-1 row-cols-xs-1 row-cols-1">
                         <div className="col" style={{padding:"0.5em"}}>
-                            <div className="pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/content/")}>
+                            <div className=" basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/content/")}>
                                 <FontAwesomeIcon icon={faFileLines} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
                                     CONTENT MANAGER
@@ -107,7 +107,7 @@ const HomeRoute: React.FC = () => {
                             </div>
                         </div>
                         <div className="col" style={{padding:"0.5em"}}>
-                            <div className="pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/saveitem/")}>
+                            <div className="basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/saveitem/")}>
                                 <FontAwesomeIcon icon={faFileLines} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
                                     SAVE ITEM

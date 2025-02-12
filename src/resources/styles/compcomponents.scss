@@ -7,7 +7,12 @@
     border-width: 2px !important;
 }
 
-// Structure
+.subborderstyler {
+    border-style: solid;
+    border-width: 1px !important;
+}
+
+// Overcome Basics
 
 .overcomeBackground {
     background: none !important;
@@ -19,11 +24,47 @@
     --bs-tooltip-bg: none !important;
 }
 
-.dropdownClean {
-    background: none !important;
-    border: none !important;
-    margin: 0em !important;
-    padding: 0em !important;
+// Box Structures
+
+.filterbuttonitem {
+    border-radius: 0.4em 0.4em 0.4em 0.4em !important;
+    color: var(--colour_white);
+    font-weight: 600 ;
+    font-size: 1.25rem;
+    width: fit-content;
+    padding: 0.1rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.basestructure {
+    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
+    text-align: justify;
+    
+    &:hover {
+        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
+    }
+}
+
+.generalbuttonbox {
+    justify-content: center;
+    display: flex; /* make element size relative to content */
+    align-items: center;
+    border-radius: 0.2rem;
+    height: 100%;
+    width: fit-content;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.abilityStructure {
+    border-radius: 0em 0em 0em 0rem;
+    width: 100%;
+    background-color: var(--colour_offwhite);
+
+    &:hover {
+        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
+    }
 }
 
 .pageaccessbox {
@@ -31,24 +72,7 @@
     display: flex; /* make element size relative to content */
     align-items: center;
     border-radius: 0.2rem;
-    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
     padding: 0.5rem;
-
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
-    }
-}
-
-.abilityStructure {
-    border-radius: 0em 0em 0em 0rem;
-    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
-    width: 100%;
-    text-align: justify;
-    background-color: var(--colour_offwhite);
-
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
-    }
 }
 
 .abilityInternalStructure {
@@ -66,90 +90,11 @@
     height: 400%;
 }
 
+// Body Elements
+
 .popupBody {
     background: var(--colour_offwhite);
     max-width: 20rem;
-}
-
-.filterSelectorBack {
-    background-color: var(--colour_offwhite) !important;
-}
-
-.filterboxStructure {
-    border-style: solid !important;
-    border-width: 2px !important;
-    border-color: var(--colour_default_main) !important;
-    border-radius: 0em 0em 0em 0em !important;
-    box-shadow: 0 0 5px 1px var(--colour_grey_main);
-    width: 100%;
-    text-align: justify;
-    background-color: var(--colour_offwhite) !important;
-
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_main);
-    }
-}
-
-.filtertextinput {
-    border-radius: 0.4rem;
-}
-
-.quartermargin {
-    margin : 0.25rem;
-}
-
-.filterbuttonitem {
-    border-style: solid !important;
-    border-width: 2px !important;
-    border-radius: 0.4em 0.4em 0.4em 0.4em !important;
-    box-shadow: 0 0 3px 0px var(--colour_grey_secondary);
-    text-align: justify;
-    color: var(--colour_white);
-    font-weight: 600 ;
-    font-size: 1.25rem;
-    width: fit-content;
-    padding: 0.1rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-
-    &:hover {
-        box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
-    }
-}
-
-.filterbox {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tagboxtitle {
-    
-	/* Use a flexbox layout */
-	display: flex;
-	
-	/* Make a horizontal flexbox (the default) */
-	flex-direction: row;
-	
-	/* The important part: vertically center the items */
-	align-items: center;
-}
-
-.inputbox input {
-    height: 50%;
-  }
-
-.floatingButton {
-    margin: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-}
-
-.topbarStructure {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
 }
 
 .topbarCompendiumBase {
@@ -162,57 +107,6 @@
     &:hover {
         box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
     }
-}
-
-.topbarCompendiumStructure {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.generalbuttonbox {
-    justify-content: center;
-    display: flex; /* make element size relative to content */
-    align-items: center;
-    border-radius: 0.2rem;
-    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
-    height: 100%;
-    width: fit-content;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
-    }
-}
-
-.contentpackcontainer {
-    justify-content: space-between;
-}
-
-.contentpackbasecontainer {    
-    align-items: center;
-    align-content: center;
-    border-radius: 0rem;
-    width: 100%;
-    position: relative;
-    padding: 0.75rem;
-}
-
-.smallcontentpackrow {
-    width: 100%;
-    justify-content: space-between;
-}
-
-.contentsubnamecontainer {
-    display: flex; /* make element size relative to content */
-    align-items: center;
-    align-content: center;
-    width: fit-content;
-}
-
-.textHolder {
-  text-align: justify;
 }
 
 .packvr {
@@ -232,18 +126,18 @@
 /* Apply column striping */
 .table td:nth-child(odd), .table th:nth-child(odd) {
     background-color: var(--colour_offwhite);
-    }
-      
-    /* You can also style even columns if desired */
-    .table td:nth-child(even), .table th:nth-child(even) {
+}
+    
+/* You can also style even columns if desired */
+.table td:nth-child(even), .table th:nth-child(even) {
     background-color: var(--colour_tableb); /* Slightly different shade */
-    }
+}
 
-    .table tr:nth-child(odd) {
-        background-color: var(--colour_offwhite);
-        }
-          
-        /* You can also style even columns if desired */
-        .table tr:nth-child(even) {
-        background-color: var(--colour_tableb); /* Slightly different shade */
-        }
+.table tr:nth-child(odd) {
+    background-color: var(--colour_offwhite);
+}
+    
+/* You can also style even columns if desired */
+.table tr:nth-child(even) {
+    background-color: var(--colour_tableb); /* Slightly different shade */
+}

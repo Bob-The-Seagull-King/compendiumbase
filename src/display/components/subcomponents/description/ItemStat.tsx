@@ -13,7 +13,7 @@ const ItemStat = (props: any) => {
             <div className="col">
                 <div className="stattitle">{Title}</div>
                 <div className="statbody">{Content}</div>
-                <div className="verticalspacer"/>
+                <div className="verticalspacerbig"/>
             </div>
         </ErrorBoundary>
     )

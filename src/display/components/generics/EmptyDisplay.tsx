@@ -12,7 +12,7 @@ const EmptyDisplay = (props: any) => {
     const displayMethod = props.d_method
 
     return (
-        <div className={'abilityStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
+        <div className={' basestructure abilityStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
             {displayMethod()}
         </div>
     )

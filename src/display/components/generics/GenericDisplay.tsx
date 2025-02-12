@@ -16,7 +16,7 @@ const GenericDisplay = (props: any) => {
     const [open, setOpen]   = useState((DefaultState != undefined)? DefaultState : true);
 
     return (
-        <div className={'abilityStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
+        <div className={'basestructure abilityStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
             <div onClick={() => {setOpen(!open)}} className={'titleShape hovermouse titlebody ' + DisplayType + 'background'+getColour(DisplayColour)}>{DisplayName || ""}</div>
             <Collapse in={open}>
             <div>

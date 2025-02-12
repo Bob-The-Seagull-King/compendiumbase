@@ -61,7 +61,7 @@ const PalleteSwap = (prop: any) => {
     return (
         <ErrorBoundary fallback={<div>Something went wrong with PalleteSwap.tsx</div>}>
             <Dropdown style={{margin:"0em"}} onSelect={(e,obj) => SetPallete(e? e : "")}>
-                <Dropdown.Toggle bsPrefix="dropdownClean" style={{width:"3em"}} id="dropdown-custom-components">
+                <Dropdown.Toggle bsPrefix="overcomeBackground no-margin no-padding" style={{width:"3em"}} id="dropdown-custom-components">
                     {returnCurrentPallete(theme)}
                 </Dropdown.Toggle>
             

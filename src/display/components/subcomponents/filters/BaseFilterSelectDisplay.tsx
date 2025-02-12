@@ -75,15 +75,15 @@ const BaseFilterSelectDisplay = (prop: any) => {
                                     <FilterDisplay key={"tag"+(item.Lower)+(_keyval.toString())} title={item.Group} state={""} value={item.Lower + " to " + item.Upper}/>
                                 ))}
                         </div>
-                        <div className='toppad'></div>
+                        <div className='tagboxpad'></div>
                     </div>
                 }
             </div>
 
-            <Modal data-theme={theme} show={show} contentClassName="filterboxStructure" dialogClassName="" size="lg" onHide={handleClose} keyboard={true}  centered>
+            <Modal data-theme={theme} show={show} contentClassName="basestructure abilityStructure borderstyler colordefault" dialogClassName="" size="lg" onHide={handleClose} keyboard={true}  centered>
                 
                 <h1 className={'titleShape titlebody backgrounddefault'}>Select Filters</h1>
-                <Modal.Body className="filterSelectorBack">
+                <Modal.Body className="backgroundOffWhite">
                     <div className="row p-3 overflow-auto flex-grow-1">
                         <div style={{"maxHeight": "calc(70vh"}}>
                             {DisplayPage.returnFilterSelect(FilterManager, RunUpdate, handleClose)}
