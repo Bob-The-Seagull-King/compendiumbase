@@ -64,7 +64,7 @@ const BaseDisplayCompendium = (prop: any) => {
                 {/* Display the filters and abilities which match the filters, if any. */}
                 <div className={"col-lg-" + (12-DisplayPage.width) + " col-md-" + (12-DisplayPage.width) + " col-sm-12 col-xs-12 col-12 my-0 py-0"}>
                     <div className="row p-3 overflow-auto flex-grow-1">
-                        <div style={{"maxHeight": "calc(80vh)"}}>
+                        <div className="height80">
                             <div className="col-12">
                                 <div className="row">
                                     <div className='col-12'>
@@ -103,7 +103,7 @@ const BaseDisplayCompendium = (prop: any) => {
                 {/* Display the selected abilities, if any */}
                 <div className={"col-lg-" + (DisplayPage.width) + " col-md-" + (DisplayPage.width) + " col-sm-12 col-xs-12 col-12"}>
                     <div className="row p-3 overflow-auto flex-grow-1">
-                        <div style={{"maxHeight": "calc(80vh)"}}>
+                        <div className="height80">
                             <div className="col-12">
                                 <div className="row">
                                     <div className='col-12'>

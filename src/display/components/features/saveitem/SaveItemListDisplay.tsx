@@ -116,7 +116,7 @@ const SaveItemListDisplay = (prop: any) => {
                                 <div className="row justify-content-center filterbox">
                                     <div className="col-md-6 col-12">
                                         <InputGroup className="tagboxpad" style={{height:"4em"}}>
-                                            <Form.Control ref={inputRef} style={{ height:"100%",textAlign:"center"}} onChange={e => updateTitle(e.target.value)} aria-label="Text input" defaultValue={NewItemTitle} placeholder="Item Name"/>
+                                            <Form.Control ref={inputRef} className="tallcentertext" onChange={e => updateTitle(e.target.value)} aria-label="Text input" defaultValue={NewItemTitle} placeholder="Item Name"/>
                                         </InputGroup>
                                     </div>
                                     <div className="col-md-2 col-6">

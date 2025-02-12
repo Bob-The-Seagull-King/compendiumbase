@@ -105,12 +105,12 @@ const SaveItemDisplay = (prop: any) => {
                     <div className="filterbox contentpackbasecontainer smallbordersubpurple" >
                         
                         <div className="row textmaxwidth">
-                                <h1 className="packtitlebase packtitlelarge" style={{textAlign:"center",width:"100%"}}>
+                                <h1 className="packtitlebase packtitlelarge widecentertext" >
                                     {ItemItem.Title}
                                 </h1>
                         </div>
                         <div className="row">
-                            <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
+                            <div className="col-12 smallcontentpackrow flex-with-space">
                                 <span/>
                                     <Button className="no-padding" variant="" onClick={() => ViewContentPack()}>
                                         <FontAwesomeIcon icon={faEye} className="contentpacklabel no-margin" />

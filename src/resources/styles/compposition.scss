@@ -119,9 +119,18 @@
     width: fit-content;
 }
 
+.fit-to-content{
+    width: fit-content;
+}
+
 .topbarStructure {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+}
+
+.flex-with-space {
+    display: flex;
+    justify-content: space-between;
 }

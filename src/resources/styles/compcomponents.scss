@@ -144,3 +144,22 @@
 .table tr:nth-child(even) {
     background-color: var(--colour_tableb); /* Slightly different shade */
 }
+
+// Size
+
+.height80 {
+    max-height: calc(80vh);
+}
+
+.height70 {
+    max-height: calc(70vh);
+}
+
+.width30 {
+    width: calc(30vw);
+}
+
+.setheightcentered {
+    min-height: 2.75rem;
+    align-items: center;
+}

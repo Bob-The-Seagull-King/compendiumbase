@@ -26,7 +26,7 @@ export const PanelDataDex : PanelDataTable = {
         returnModal() {
             return (
                 <div className="row p-3 overflow-auto flex-grow-1">
-                    <div style={{"maxHeight": "calc(70vh"}}>
+                    <div className="height70">
                         <div className="col-12">
                             <div className="row">
                                 <p className="bodytext">

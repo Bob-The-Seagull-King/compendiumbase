@@ -112,25 +112,25 @@ const ContentPackDisplay = (props: any) => {
                     <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         
                         <div className="row textmaxwidth" >
-                            <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
+                            <div className="col-12 smallcontentpackrow flex-with-space">
                                 <span/>
-                                <h1 className="packtitlebase packtitlelarge" style={{width:"fit-content"}}>
+                                <h1 className="packtitlebase packtitlelarge fit-to-content">
                                     {PackItem.Name}
                                 </h1>
                                 <span/>
                             </div>
                         </div>
                         <div className="row textmaxwidth">
-                            <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
+                            <div className="col-12 smallcontentpackrow flex-with-space">
                                 <span/>
-                                <h3 className="packtitlebase packtitlesmall" style={{width:"fit-content"}}>
+                                <h3 className="packtitlebase packtitlesmall fit-to-content">
                                     {PackItem.Author}
                                 </h3>
                                 <span/>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
+                            <div className="col-12 smallcontentpackrow flex-with-space" >
                                 <span/>
                                 <Button className="no-padding" variant="" onClick={() => handleShow()}>
                                     <FontAwesomeIcon icon={faBookOpen} className="colordefault contentpacklabel no-margin"/>
@@ -173,7 +173,7 @@ const ContentPackDisplay = (props: any) => {
                     
                     <div className='abilityInternalStructure'>
                         <div className="row overflow-auto flex-grow-1 m-0 p-0">
-                            <div style={{"maxHeight": "calc(70vh"}}>
+                            <div className="height70">
                                 <div className="separator" style={{marginTop:"0em"}}><h5>By {PackItem.Author}</h5></div>
                                 <div className="col-12 bodytext">
                                     {returnDescription(PackItem, PackItem.Description)}

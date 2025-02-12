@@ -85,7 +85,7 @@ const BaseFilterSelectDisplay = (prop: any) => {
                 <h1 className={'titleShape titlebody backgrounddefault'}>Select Filters</h1>
                 <Modal.Body className="backgroundOffWhite">
                     <div className="row p-3 overflow-auto flex-grow-1">
-                        <div style={{"maxHeight": "calc(70vh"}}>
+                        <div className="height70">
                             {DisplayPage.returnFilterSelect(FilterManager, RunUpdate, handleClose)}
                         </div>
                     </div>

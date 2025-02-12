@@ -108,7 +108,7 @@ const ToolsContentManager = (prop: any) => {
                                 </h1>
                             </label>
                             <div className="addonbox"/>
-                            <div style={{width:"fit-content"}}>
+                            <div className="fit-to-content">
                                 <GenericPanel panelname={"contentpack"}/>
                             </div>
                         </div>

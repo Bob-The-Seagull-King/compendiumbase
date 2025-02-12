@@ -119,10 +119,10 @@ const FilterRangeItem = (prop: any) => {
                     
                 <div className="col-2">
                         
-                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey setheightcentered"}  >
 
                             
-                            <div onClick={() => resetRange(ItemFilter)} className="hovermouse" style={{textAlign:"center", width:"100%"}}>
+                            <div onClick={() => resetRange(ItemFilter)} className="hovermouse widecentertext">
                                 {"Reset"}
                             </div>  
                             
@@ -131,7 +131,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey setheightcentered"} >
                             <div className='hovermouse tagpad'/>
                             {"MIN"}
                             <div className='tagpad'/>
@@ -146,7 +146,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey setheightcentered"}  >
                             <div className='hovermouse tagpad'/>
                             {"MAX"}
                             <div className='tagpad'/>
@@ -177,7 +177,7 @@ const FilterTagItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="">
             <div className="centerPosition">
-                <div className={"filterbox quartermargin borderstyler basestructure filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} style={{minHeight:"2.75em", alignItems: "center"}} >
+                <div className={"setheightcentered filterbox quartermargin borderstyler basestructure filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} >
                     <div className='hovermouse tagpad'/>
                     <div onClick={() => SwitchStates(ItemFilter.TagType, returnactivetext)} className="hovermouse tagboxtitle ">
                         {makestringpresentable(ItemFilter.TagType.Name)}
