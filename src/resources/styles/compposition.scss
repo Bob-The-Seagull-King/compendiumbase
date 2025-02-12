@@ -33,6 +33,10 @@
     width: 100%;
 }
 
+.justify-center {    
+    justify-content: center;
+}
+
 .tagboxpad {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
@@ -55,6 +59,10 @@
 .filterbox {
     display: flex;
     flex-wrap: wrap;
+}
+
+.droppaddingleft {
+    padding-left: 0 !important;
 }
 
 .tagboxtitle {

@@ -92,7 +92,7 @@ const SaveItemListDisplay = (prop: any) => {
     }
 
     return(
-        <div className="container" style={{width:"100%"}}>
+        <div className="container textmaxwidth">
             <ToastContainer
             position="top-center"
             autoClose={5000}
@@ -107,13 +107,13 @@ const SaveItemListDisplay = (prop: any) => {
             />
             <input id="pack-upload" style={{display:"none"}} type="file" accept=".json" onChange={(e)=>readFileOnUpload(e.target.files? e.target.files[0] : undefined)} />
 
-            <div className="row justify-content-center" style={{width:"100%"}}>
+            <div className="row justify-content-center textmaxwidth">
                 <div className="col-lg-10 col-md-12 col-sm-12 col-xs-12 col-12">
 
                     <div className="row justify-content-center">
                         <div className="col">
                             <div className="" style={{paddingTop:"1em"}}>
-                                <div className="row justify-content-center" style={{display:"flex"}}>
+                                <div className="row justify-content-center filterbox">
                                     <div className="col-md-6 col-12">
                                         <InputGroup className="tagboxpad" style={{height:"4em"}}>
                                             <Form.Control ref={inputRef} style={{ height:"100%",textAlign:"center"}} onChange={e => updateTitle(e.target.value)} aria-label="Text input" defaultValue={NewItemTitle} placeholder="Item Name"/>
@@ -153,7 +153,7 @@ const SaveItemListDisplay = (prop: any) => {
                                 {_allItems.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
                                         <div className='filterbox contentpackbasecontainer contentpackcontainer smallbordersubpurple' style={{justifyContent:"center",alignItems:"center"}}>
-                                            <h1 className="subtletext" style={{paddingTop:"1em", paddingBottom:"1em"}}>No Items Available</h1>
+                                            <h1 className="subtletext tagboxpad" >No Items Available</h1>
                                         </div>
                                     </div>
                                 }

@@ -13,7 +13,7 @@ const MenuHeader = (prop: any) => {
     return (
         
         <ErrorBoundary fallback={<div>Something went wrong with MenuHeader.tsx</div>}>
-            <div style={{display:"flex"}}>
+            <div className="filterbox">
                 <div className={"floatingButton backgrounddefault"}>
                     <PalleteSwap/>
                 </div>

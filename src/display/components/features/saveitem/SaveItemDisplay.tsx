@@ -79,24 +79,24 @@ const SaveItemDisplay = (prop: any) => {
                             </h1>
                             <span/>
                             <span className="packvrbox">
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => ViewContentPack()}>
-                                <FontAwesomeIcon icon={faEye} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => ViewContentPack()}>
+                                <FontAwesomeIcon icon={faEye} className="contentpacklabel no-margin" />
                             </Button>
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => copyContentPack()}>
-                                <FontAwesomeIcon icon={faClone} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => copyContentPack()}>
+                                <FontAwesomeIcon icon={faClone} className="contentpacklabel no-margin" />
                             </Button>
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => exportData()}>
-                                <FontAwesomeIcon icon={faDownload} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => exportData()}>
+                                <FontAwesomeIcon icon={faDownload} className="contentpacklabel no-margin" />
                             </Button>
                             </span>
                         </span>
                         <span className="packvrbox">
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => removeContentPack()}>
+                                <FontAwesomeIcon icon={faTrash} className="colorred contentpacklabel no-margin" />
                             </Button>
                         </span>
                     </div>
@@ -104,7 +104,7 @@ const SaveItemDisplay = (prop: any) => {
                 {stateWidth <= 700 &&
                     <div className="filterbox contentpackbasecontainer smallbordersubpurple" >
                         
-                        <div className="row" style={{width:"100%"}}>
+                        <div className="row textmaxwidth">
                                 <h1 className="packtitlebase packtitlelarge" style={{textAlign:"center",width:"100%"}}>
                                     {ItemItem.Title}
                                 </h1>
@@ -112,26 +112,26 @@ const SaveItemDisplay = (prop: any) => {
                         <div className="row">
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
-                                    <Button style={{padding:"0em"}} variant="" onClick={() => ViewContentPack()}>
-                                        <FontAwesomeIcon icon={faEye} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <Button className="no-padding" variant="" onClick={() => ViewContentPack()}>
+                                        <FontAwesomeIcon icon={faEye} className="contentpacklabel no-margin" />
                                     </Button>
                                     <span className="packvrbox">
-                                        <div className="vr packvr"/>
+                                        <div className="vr packvr small-side-margin"/>
                                     </span>
-                                    <Button style={{padding:"0em"}} variant="" onClick={() => copyContentPack()}>
-                                        <FontAwesomeIcon icon={faClone} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <Button className="no-padding" variant="" onClick={() => copyContentPack()}>
+                                        <FontAwesomeIcon icon={faClone} className="contentpacklabel no-margin" />
                                     </Button>
                                     <span className="packvrbox">
-                                        <div className="vr packvr"/>
+                                        <div className="vr packvr small-side-margin"/>
                                     </span>
-                                    <Button style={{padding:"0em"}} variant="" onClick={() => exportData()}>
-                                        <FontAwesomeIcon icon={faDownload} className="" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <Button className="no-padding" variant="" onClick={() => exportData()}>
+                                        <FontAwesomeIcon icon={faDownload} className="contentpacklabel no-margin" />
                                     </Button>
                                     <span className="packvrbox">
-                                        <div className="vr packvr"/>
+                                        <div className="vr packvr small-side-margin"/>
                                     </span>
-                                    <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                        <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <Button className="no-padding" variant="" onClick={() => removeContentPack()}>
+                                        <FontAwesomeIcon icon={faTrash} className="colorred contentpacklabel no-margin" />
                                     </Button>
                                 <span/>
                             </div>

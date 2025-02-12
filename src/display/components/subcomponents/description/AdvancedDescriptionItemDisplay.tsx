@@ -35,8 +35,8 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
         switch (getTagSetValue(item.Tags, "desc_type")) {
             case "paragraph": {
                 return (
-                    <div style={{width:"100%"}}>
-                        <span style={{width:"100%"}}>
+                    <div className="textmaxwidth">
+                        <span className="textmaxwidth">
                             {item.SubContent?.map((subitem) => (
                                <AdvancedDescriptionItemDisplay key="descriptionsubitem" data={subitem} parent={parentItem}/>
                             ))}
@@ -95,7 +95,7 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
             }
             case "table": {
                 return (
-                    <div style={{width:"100%"}}>
+                    <div className="textmaxwidth">
                         <div className='addonbox'><EmptyDisplay d_colour={colour} d_name={item.DisplayData? item.DisplayData.Name : ""} d_type={"sub"} d_method={() => <TableDisplay d_colour={colour} d_type={"sub"} data={item.DisplayData} />}/></div>
                         <span>
                             {item.SubContent?.map((subitem) => (
@@ -108,7 +108,7 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
             }
             case "gap": {
                 return (
-                    <div style={{width:"100%"}}>
+                    <div className="textmaxwidth">
                         <div><br/></div>
                         <span>
                             {item.SubContent?.map((subitem) => (
@@ -121,7 +121,7 @@ const AdvancedDescriptionItemDisplay = (props: any) => {
             }
             case "list": {
                 return (
-                    <div style={{width:"100%"}}>
+                    <div className="textmaxwidth">
                         <span>
                             {ConvertContentWithGlossary((item.Glossary), item.Content?.toString() || "")}
                         </span>

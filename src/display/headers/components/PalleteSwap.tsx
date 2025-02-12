@@ -37,21 +37,21 @@ const PalleteSwap = (prop: any) => {
             case "light": {
                 return (
                     <>
-                        <FontAwesomeIcon icon={faSun} style={{fontSize:"2em",color:"white",margin:"0em"}}/>
+                        <FontAwesomeIcon icon={faSun} className="contentpacklabel colourWhite no-margin"/>
                     </>
                 )
             }
             case "dark": {
                 return (
                     <>
-                        <FontAwesomeIcon icon={faMoon} style={{fontSize:"2em",color:"white",margin:"0em"}}/>
+                        <FontAwesomeIcon icon={faMoon} className="contentpacklabel colourWhite no-margin"/>
                     </>
                 )
             }
             default : {
                 return (
                     <>
-                        <FontAwesomeIcon icon={faSun} style={{fontSize:"2em",color:"white",margin:"0em"}}/>
+                        <FontAwesomeIcon icon={faSun}  className="contentpacklabel colourWhite no-margin"/>
                     </>
                 )
             }
@@ -60,7 +60,7 @@ const PalleteSwap = (prop: any) => {
       
     return (
         <ErrorBoundary fallback={<div>Something went wrong with PalleteSwap.tsx</div>}>
-            <Dropdown style={{margin:"0em"}} onSelect={(e,obj) => SetPallete(e? e : "")}>
+            <Dropdown className="no-margin" onSelect={(e,obj) => SetPallete(e? e : "")}>
                 <Dropdown.Toggle bsPrefix="overcomeBackground no-margin no-padding" style={{width:"3em"}} id="dropdown-custom-components">
                     {returnCurrentPallete(theme)}
                 </Dropdown.Toggle>

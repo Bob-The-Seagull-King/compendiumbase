@@ -75,35 +75,35 @@ const ContentPackDisplay = (props: any) => {
                 {stateWidth > 700 &&
                     <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         <span className="packvrbox">
-                            <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
-                                <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
+                            <Button className="no-padding" variant="" onClick={() => handleShow()}>
+                                <FontAwesomeIcon icon={faBookOpen} className="colordefault contentpacklabel no-margin"/>
                             </Button>
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => switchContentPackState()}>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => switchContentPackState()}>
                                 {PackItem.IsActive &&
-                                    <FontAwesomeIcon icon={faUnlock} className="colorgreen" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faUnlock} className="colorgreen contentpacklabel no-margin"/>
                                 }
                                 {!PackItem.IsActive &&
-                                    <FontAwesomeIcon icon={faLock} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                                    <FontAwesomeIcon icon={faLock} className="colorred contentpacklabel no-margin"/>
                                 }
                             </Button>
-                            <div className="vr packvr"></div>
+                            <div className="vr packvr small-side-margin"></div>
                         </span>
                         <span className="contentsubnamecontainer">
                             <span/>
                             <h1 className="packtitlebase packtitlelarge">
                                 {PackItem.Name}
                             </h1>
-                            <div className="vr packvr"></div>
+                            <div className="vr packvr small-side-margin"></div>
                             <h3 className="packtitlebase packtitlesmall">
                                 {PackItem.Author}
                             </h3>
                             <span/>
                         </span>
                         <span className="packvrbox">
-                            <div className="vr packvr"></div>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() => removeContentPack()}>
+                                <FontAwesomeIcon icon={faTrash} className="colorred contentpacklabel no-margin"/>
                             </Button>
                         </span>
                     </div>
@@ -111,7 +111,7 @@ const ContentPackDisplay = (props: any) => {
                 {stateWidth <= 700 &&
                     <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         
-                        <div className="row" style={{width:"100%"}}>
+                        <div className="row textmaxwidth" >
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
                                 <h1 className="packtitlebase packtitlelarge" style={{width:"fit-content"}}>
@@ -120,7 +120,7 @@ const ContentPackDisplay = (props: any) => {
                                 <span/>
                             </div>
                         </div>
-                        <div className="row" style={{width:"100%"}}>
+                        <div className="row textmaxwidth">
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
                                 <h3 className="packtitlebase packtitlesmall" style={{width:"fit-content"}}>
@@ -132,21 +132,21 @@ const ContentPackDisplay = (props: any) => {
                         <div className="row">
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
-                                <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
-                                    <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
+                                <Button className="no-padding" variant="" onClick={() => handleShow()}>
+                                    <FontAwesomeIcon icon={faBookOpen} className="colordefault contentpacklabel no-margin"/>
                                 </Button>
-                                <div className="vr packvr"></div>
-                                <Button style={{padding:"0em"}} variant="" onClick={() => switchContentPackState()}>
+                                <div className="vr packvr small-side-margin"></div>
+                                <Button className="no-padding" variant="" onClick={() => switchContentPackState()}>
                                     {PackItem.IsActive &&
-                                        <FontAwesomeIcon icon={faUnlock} className="colorgreen" style={{fontSize:"2em",margin:"0em"}}/>
+                                        <FontAwesomeIcon icon={faUnlock} className="colorgreen contentpacklabel no-margin"/>
                                     }
                                     {!PackItem.IsActive &&
-                                        <FontAwesomeIcon icon={faLock} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                                        <FontAwesomeIcon icon={faLock} className="colorred contentpacklabel no-margin"/>
                                     }
                                 </Button>
-                                <div className="vr packvr"></div>
-                                <Button style={{padding:"0em"}} variant="" onClick={() => removeContentPack()}>
-                                    <FontAwesomeIcon icon={faTrash} className="colorred" style={{fontSize:"2em",margin:"0em"}}/>
+                                <div className="vr packvr small-side-margin"></div>
+                                <Button className="no-padding" variant="" onClick={() => removeContentPack()}>
+                                    <FontAwesomeIcon icon={faTrash} className="colorred contentpacklabel no-margin"/>
                                 </Button>
                                 <span/>
                             </div>
@@ -164,8 +164,8 @@ const ContentPackDisplay = (props: any) => {
                         
                         <div className="row float-end">
                             <div className='col-12 float-end'>
-                                <Button style={{padding:"0em"}} variant="" onClick={() => handleClose()}>
-                                    <FontAwesomeIcon icon={faCircleXmark} className="colorWhite" style={{fontSize:"2em",margin:"0em"}}/>
+                                <Button className="no-padding" variant="" onClick={() => handleClose()}>
+                                    <FontAwesomeIcon icon={faCircleXmark} className="colorWhite contentpacklabel no-margin"/>
                                 </Button>
                             </div>
                         </div>
@@ -175,11 +175,11 @@ const ContentPackDisplay = (props: any) => {
                         <div className="row overflow-auto flex-grow-1 m-0 p-0">
                             <div style={{"maxHeight": "calc(70vh"}}>
                                 <div className="separator" style={{marginTop:"0em"}}><h5>By {PackItem.Author}</h5></div>
-                                <div className="col-12" style={{fontSize:"0.95em"}}>
+                                <div className="col-12 bodytext">
                                     {returnDescription(PackItem, PackItem.Description)}
                                 </div>
                                 <div className="separator" style={{marginTop:"0em"}}><h5>Content</h5></div>
-                                <div style={{display:"flex",flexWrap:"wrap"}}>
+                                <div className="filterbox">
                                     {PackItem.Tags.map((item: any) => (
                                         <div className=" quartermargin borderstyler basestructure filterbuttonitem bordergrey backgroundgrey" key={"packdisplay"}>
                                             {makestringpresentable(item.name)} - {item.count.toString()}

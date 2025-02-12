@@ -34,7 +34,7 @@ const ImageSetDisplay = (props: any) => {
       };
 
     return (
-        <div style={{justifyContent:"center"}}>
+        <div className="justify-center">
             <Carousel responsive={responsive} centerMode={true} className="imagecarouseldisplay" swipeable={true} infinite={true}>
                 {ObjectImages.map(item => 
                     <ImageSingleDisplay key={item.Src+item.Caption} data={item}/>

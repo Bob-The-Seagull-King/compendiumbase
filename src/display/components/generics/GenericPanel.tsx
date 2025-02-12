@@ -26,7 +26,7 @@ const GenericPanel = (prop: any) => {
     // Return result -----------------------------
     return (
         <>
-            <div style={{display:"flex"}}>
+            <div className="filterbox">
                 {panelType.returnButton(handleShow)}
             </div>
             <Modal data-theme={theme}  show={show}  contentClassName="basestructure abilityStructure borderstyler colordefault" dialogClassName="" onHide={handleClose} keyboard={true}  centered>
@@ -35,8 +35,8 @@ const GenericPanel = (prop: any) => {
                     {panelType.id}
                     <div className="row float-end">
                         <div className='col-12 float-end'>
-                            <Button style={{padding:"0em"}} variant="" onClick={() => handleClose()}>
-                                <FontAwesomeIcon icon={faCircleXmark} style={{fontSize:"2em",color:"white",margin:"0em"}}/>
+                            <Button className="no-padding" variant="" onClick={() => handleClose()}>
+                                <FontAwesomeIcon icon={faCircleXmark} className="colorWhite contentpacklabel no-margin" />
                             </Button>
                         </div>
                     </div>

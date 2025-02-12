@@ -76,7 +76,7 @@ const ToolsContentManager = (prop: any) => {
     return (
         
         <ErrorBoundary fallback={<div>Something went wrong with ToolsContentManager.tsx</div>}>
-        <div className="container" style={{width:"100%"}}>
+        <div className="container textmaxwidth">
              <ToastContainer
             position="top-center"
             autoClose={5000}
@@ -100,7 +100,7 @@ const ToolsContentManager = (prop: any) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-12 justify-content-center" style={{display:"flex"}}>
+                        <div className="col-12 justify-content-center filterbox">
                             <label htmlFor="pack-upload" className="basestructure generalbuttonbox borderstyler subborderdefault hovermouse">
                                 <FontAwesomeIcon icon={faFileImport} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
@@ -118,12 +118,12 @@ const ToolsContentManager = (prop: any) => {
                             <br/>
                         </div>
                     </div>
-                    <div style={{padding:"0.5em"}}>
+                    <div className="tagboxpad">
                         <div className='row row-cols-1 subborderstyler subborderdefault'>
                                 {_allcontentpacks.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
                                         <div className='filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault' style={{justifyContent:"center",alignItems:"center"}}>
-                                            <h1 className="subtletext" style={{paddingTop:"1em", paddingBottom:"1em"}}>No Packages Selected</h1>
+                                            <h1 className="subtletext tagboxpad" >No Packages Selected</h1>
                                         </div>
                                     </div>
                                 }

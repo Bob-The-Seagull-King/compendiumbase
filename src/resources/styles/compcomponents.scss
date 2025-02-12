@@ -109,10 +109,13 @@
     }
 }
 
-.packvr {
-    color: var(--colour_default_main);
+.small-side-margin {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+}
+
+.packvr {
+    color: var(--colour_default_main);
     width: fit-content;
 }
 

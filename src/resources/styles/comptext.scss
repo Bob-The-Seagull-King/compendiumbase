@@ -11,6 +11,10 @@
   text-align: left;
 }
 
+.textmaxwidth {
+  width: 100%;
+}
+
 .table {
   --bs-table-bg: transparent; /* or --bs-table-bg: transparent; */
 }
@@ -40,6 +44,10 @@
   color: var(--colour_white);
   font-size: 200%;
   font-weight: bolder;
+}
+
+.contentpacklabel {
+  font-size: 2rem;
 }
 
 .glossaryMain {
@@ -110,6 +118,10 @@
     color: var(--colour_white);
     font-size: 1rem;
     font-weight: 400;
+  }
+
+  .complextext {
+    font-family: "Libre Baskerville"
   }
 
   .bodytext {

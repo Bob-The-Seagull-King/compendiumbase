@@ -43,7 +43,7 @@ const SaveItemViewDisplay = (prop: any) => {
 
             <div className="row">        
                 <span className="">
-                    <Button style={{padding:"0em"}} className="colordefault" variant="" onClick={() => exportData()}>
+                    <Button className="colordefault no-padding" variant="" onClick={() => exportData()}>
                         <FontAwesomeIcon icon={faDownload} style={{fontSize:"2em",margin:"0em"}}/>
                     </Button>
                 </span>    

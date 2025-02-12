@@ -31,13 +31,13 @@ const BaseHeader = (prop: any) => {
     return (
         
         <ErrorBoundary fallback={<div>Something went wrong with BaseHeader.tsx</div>}>
-            <div className='topbarCompendiumBase topbarCompendiumStructure hstack gap-3' style={{justifyContent:"center"}}>
-                <span style={{paddingLeft:"0em"}}/>
+            <div className='topbarCompendiumBase topbarCompendiumStructure hstack gap-3 justify-center'>
+                <span className="droppaddingleft"/>
                 <h1 className='headertext'>COMPENDIUM</h1>
                 <p className='headersubtext'>v0.0.1</p>
                 <div className="vr headertext"></div>
-                <Button style={{padding:"0em"}} variant="" onClick={() => NavigateHome()}>
-                    <FontAwesomeIcon icon={faHouse} style={{fontSize:"2em",color:"white",margin:"0em"}}/>
+                <Button className="no-padding" variant="" onClick={() => NavigateHome()}>
+                    <FontAwesomeIcon icon={faHouse} className="contentpacklabel colorWhite no-margin"/>
                 </Button>
                 <div className="vr headertext"></div>
                 <PalleteSwap/>
@@ -49,7 +49,7 @@ const BaseHeader = (prop: any) => {
                         {getRouteName(useLocation().pathname).toUpperCase()}
                     </h1>
                 </div>
-                <span style={{paddingLeft:"0em"}}/>
+                <span className="droppaddingleft"/>
             </div>
         </ErrorBoundary>
 

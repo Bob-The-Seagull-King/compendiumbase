@@ -38,7 +38,6 @@ export const PanelDataDex : PanelDataTable = {
                                     Once uploaded you can activate or deactive a content pack. Deactivating it removes it from the Compendium,
                                     but still keeps the file stored on your browser and can be turned on again at any time.
                                 </p>
-                                <div className="separator"><p style={{fontSize:"0.8em"}}>Incompatability</p></div>
                                 <p className="bodytext">
                                     If two pieces of data across your uploaded content packs share the same ID value, this can cause issues
                                     when searching and constructing information. When this incompatability is detected, you will be notified.

@@ -78,14 +78,14 @@ const HomeRoute: React.FC = () => {
             <div className="row justify-content-center m-0 p-0">
                 <div className="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-12">
                     <div className="row">
-                        <img src={logo} style={{maxWidth:"100%"}} />
+                        <img src={logo} />
                     </div>
                     <div className='row'><div className='col'><br/></div></div>
                     <div className="row">
-                        <div className="separator"><h3 style={{fontFamily:"Libre Baskerville"}}>Content</h3></div>
+                        <div className="separator"><h3 className="complextext">Content</h3></div>
                     </div>
                     <div className="row row-cols-lg-2 row-cols-md-2 row-cols-sx-1 row-cols-xs-1 row-cols-1">
-                        <div className="col" style={{padding:"0.5em"}}>
+                        <div className="col softpad">
                             <div className="basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("compendium/glossary/")}>
                                 <FontAwesomeIcon icon={faList} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
@@ -95,10 +95,10 @@ const HomeRoute: React.FC = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="separator"><h3 style={{fontFamily:"Libre Baskerville"}}>Tools</h3></div>
+                        <div className="separator"><h3 className="complextext">Tools</h3></div>
                     </div>
                     <div className="row row-cols-lg-1 row-cols-md-1 row-cols-sx-1 row-cols-xs-1 row-cols-1">
-                        <div className="col" style={{padding:"0.5em"}}>
+                        <div className="col softpad">
                             <div className=" basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/content/")}>
                                 <FontAwesomeIcon icon={faFileLines} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
@@ -106,7 +106,7 @@ const HomeRoute: React.FC = () => {
                                 </h1>
                             </div>
                         </div>
-                        <div className="col" style={{padding:"0.5em"}}>
+                        <div className="col softpad" >
                             <div className="basestructure pageaccessbox borderstyler subborderdefault hovermouse" onClick={() => NavigateHome("tools/saveitem/")}>
                                 <FontAwesomeIcon icon={faFileLines} className="pageaccestext"/>
                                 <h1 className="pageaccestext">
