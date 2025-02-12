@@ -9,6 +9,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 // Classes
 import { useGlobalState } from '../../../utility/globalstate'
 import { getColour } from '../../../utility/functions';
+import { Popover } from 'react-bootstrap';
 
 const GenericHover = (props: any) => {
     const DisplayColour : string = props.d_colour;
@@ -24,17 +25,18 @@ const GenericHover = (props: any) => {
 
     return (
       <>
-        <OverlayTrigger placement={'auto'} overlay={
-          <Tooltip className="overcomeTooltip width30" id="tooltip">
-            <div data-theme={theme} className='popupBody width30'>
-              <div className={'modelStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
+        <OverlayTrigger placement={'auto'} 
+          overlay={
+          <Popover.Body className="fit-to-content overcomeTooltip" id="tooltip">
+            <div data-theme={theme} className='fit-to-content popupBody'>
+              <div className={' fit-to-content modelStructure borderstyler ' + DisplayType + 'border'+getColour(DisplayColour)}>
                   <h1 className={'titleShape titlebody titlestyler ' + DisplayType + 'background'+getColour(DisplayColour)}>
                       {ruleName || ""}
                   </h1>
                   {displayMethod()}
               </div>
             </div>
-          </Tooltip>
+          </Popover.Body>
           }>
           <span className='glossaryMain hovermouse'>{DisplayName}</span>
         </OverlayTrigger>

@@ -108,9 +108,6 @@ const ToolsContentManager = (prop: any) => {
                                 </h1>
                             </label>
                             <div className="addonbox"/>
-                            <div className="fit-to-content">
-                                <GenericPanel panelname={"contentpack"}/>
-                            </div>
                         </div>
                     </div>
                     <div className='row'>
@@ -118,8 +115,8 @@ const ToolsContentManager = (prop: any) => {
                             <br/>
                         </div>
                     </div>
-                    <div className="tagboxpad">
-                        <div className='row row-cols-1 subborderstyler subborderdefault'>
+                    <div className="tagboxpad softpad">
+                        <div className='row row-cols-1 subborderstyler subborderdefault '>
                                 {_allcontentpacks.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
                                         <div className='filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault' style={{justifyContent:"center",alignItems:"center"}}>

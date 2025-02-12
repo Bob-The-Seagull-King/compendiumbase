@@ -130,12 +130,15 @@ const SaveItemListDisplay = (prop: any) => {
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-6">
-                                        <label htmlFor="pack-upload" className="basestructure generalbuttonbox hovermouse">
-                                            <FontAwesomeIcon icon={faFileImport} className="pageaccestext"/>
-                                            <h1 className="pageaccestext">
-                                                Upload
-                                            </h1>
-                                        </label>
+                                    <div className="basestructure generalbuttonbox" style={{width:"100%",alignItems:"center",height:"4em"}}>
+                                            
+                                            <label htmlFor="pack-upload" style={{display:"flex",width:"fit-content",alignItems:"flex-end"}}>
+                                                <FontAwesomeIcon icon={faFileImport} className="pageaccestext"/>
+                                                <h1 className="pageaccestext">
+                                                    Upload
+                                                </h1>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -149,10 +152,10 @@ const SaveItemListDisplay = (prop: any) => {
                     </div>
 
                     <div style={{padding:"0.5em"}}>
-                        <div className='row row-cols-1 smallbordersubpurple'>
+                        <div className='row row-cols-1 subborderstyler subborderdefault '>
                                 {_allItems.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
-                                        <div className='filterbox contentpackbasecontainer contentpackcontainer smallbordersubpurple' style={{justifyContent:"center",alignItems:"center"}}>
+                                        <div className='filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault' style={{justifyContent:"center",alignItems:"center"}}>
                                             <h1 className="subtletext tagboxpad" >No Items Available</h1>
                                         </div>
                                     </div>

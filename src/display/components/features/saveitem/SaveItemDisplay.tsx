@@ -71,7 +71,7 @@ const SaveItemDisplay = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with SaveItemDisplay.tsx</div>}>
             <div className='' ref={ref} >
                 {stateWidth > 700 &&
-                    <div className="filterbox contentpackbasecontainer contentpackcontainer smallbordersubpurple" >
+                    <div className="filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault" >
                         <span className="contentsubnamecontainer">
                             <span/>
                             <h1 className="packtitlebase packtitlelarge">
@@ -102,7 +102,7 @@ const SaveItemDisplay = (prop: any) => {
                     </div>
                 }
                 {stateWidth <= 700 &&
-                    <div className="filterbox contentpackbasecontainer smallbordersubpurple" >
+                    <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         
                         <div className="row textmaxwidth">
                                 <h1 className="packtitlebase packtitlelarge widecentertext" >
