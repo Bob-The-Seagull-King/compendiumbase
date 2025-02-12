@@ -82,7 +82,7 @@ const BaseDisplayCompendium = (prop: any) => {
                                 </div>
                                 <div className="row">
                                     <div className='col-12'>
-                                        <div className='borderstyler borderdefault roundBody no-padding '>
+                                        <div className='borderstyler borderdefault no-padding '>
                                             {_foundItems.length == 0 && 
                                                 <div className="">
                                                     <h1 className="subtletext">No {ViewPageController.Collection.CollectionType.pageName} Found</h1>

@@ -93,7 +93,7 @@ export function returnTags(taglist: ObjectTag, bannedList : string[]) {
     const displaytags: ObjectTag = sortTagsForDisplay(taglist, bannedList)
 
     return (
-        <div className="tagBox">
+        <div className="filterbox">
                 {Object.keys(displaytags).map((item) => (
                     <div key={"tagDisplay"+item+displaytags[item]}>
                         <TagDisplay itemkey={item} itemval={displaytags[item]}/>

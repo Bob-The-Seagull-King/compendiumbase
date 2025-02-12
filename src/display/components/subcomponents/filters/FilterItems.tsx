@@ -119,7 +119,7 @@ const FilterRangeItem = (prop: any) => {
                     
                 <div className="col-2">
                         
-                        <div className={"tagBox filterobjectdisplay"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
 
                             
                             <div onClick={() => resetRange(ItemFilter)} className="hovermouse" style={{textAlign:"center", width:"100%"}}>
@@ -131,7 +131,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"tagBox filterobjectdisplay"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
                             <div className='hovermouse tagpad'/>
                             {"MIN"}
                             <div className='tagpad'/>
@@ -146,7 +146,7 @@ const FilterRangeItem = (prop: any) => {
                     </div>
                     <div className="col-5">
                         
-                        <div className={"tagBox filterobjectdisplay"} style={{minHeight:"2.75em", alignItems: "center"}} >
+                        <div className={"filterbox quartermargin filterbuttonitem bordergrey backgroundgrey"} style={{minHeight:"2.75em", alignItems: "center"}} >
                             <div className='hovermouse tagpad'/>
                             {"MAX"}
                             <div className='tagpad'/>
@@ -177,7 +177,7 @@ const FilterTagItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="">
             <div className="centerPosition">
-                <div className={"tagBox " + (_currentstate == "" ? "filterobjectdisplay" : _currentstate == "positive" ? "filterobjectdisplaypositive" : "filterobjectdisplaynegative")} style={{minHeight:"2.75em", alignItems: "center"}} >
+                <div className={"filterbox quartermargin filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} style={{minHeight:"2.75em", alignItems: "center"}} >
                     <div className='hovermouse tagpad'/>
                     <div onClick={() => SwitchStates(ItemFilter.TagType, returnactivetext)} className="hovermouse tagboxtitle ">
                         {makestringpresentable(ItemFilter.TagType.Name)}
@@ -208,7 +208,7 @@ const FilterMiscItem = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with FilterItems.tsx</div>}>
         <div className="col">
             <div className="centerPosition">
-                <div className={"hovermouse " + (_currentstate == "" ? "filterobjectdisplay" : _currentstate == "positive" ? "filterobjectdisplaypositive" : "filterobjectdisplaynegative")} onClick={() => SwitchStates(ItemFilter, returnactivetext)}>
+                <div className={"hovermouse quartermargin filterbuttonitem" + (_currentstate == "" ? " bordergrey backgroundgrey" : _currentstate == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")} onClick={() => SwitchStates(ItemFilter, returnactivetext)}>
                     {makestringpresentable(ItemFilter.Name)}
                 </div>
             </div>

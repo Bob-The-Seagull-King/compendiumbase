@@ -61,7 +61,7 @@ export const DisplayCollectionDataDex : DisplayCollectionDataTable = {
                         <div className='separator toppad'></div>
                         <div className="row float-end">
                             <div className='col-12 float-end'>
-                                <div className='hovermouse filterclosebutton' onClick={() => {close()}}>CONFIRM</div>
+                                <div className='hovermouse filterbuttonitem bordergrey backgroundgrey' onClick={() => {close()}}>CONFIRM</div>
                             </div>
                         </div>
                     </div>

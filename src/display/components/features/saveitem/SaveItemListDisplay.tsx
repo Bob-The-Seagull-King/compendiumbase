@@ -152,7 +152,7 @@ const SaveItemListDisplay = (prop: any) => {
                         <div className='row row-cols-1 smallbordersubpurple'>
                                 {_allItems.length < 1 &&
                                     <div className="col p-0" key={"packdisplaynone"}>
-                                        <div className='contentpackcontainer smallbordersubpurple' style={{justifyContent:"center",alignItems:"center"}}>
+                                        <div className='filterbox contentpackbasecontainer contentpackcontainer smallbordersubpurple' style={{justifyContent:"center",alignItems:"center"}}>
                                             <h1 className="subtletext" style={{paddingTop:"1em", paddingBottom:"1em"}}>No Items Available</h1>
                                         </div>
                                     </div>

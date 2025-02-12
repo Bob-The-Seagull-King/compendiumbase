@@ -14,7 +14,7 @@ const FilterDisplay = (prop: any) => {
     return (
         <div className="">
             <div className="centerPosition">
-                <div className={"filterobjectdisplay"+exists}>
+                <div className={"quartermargin filterbuttonitem" + (exists == "" ? " bordergrey backgroundgrey" : exists == "positive" ? " subbordergreen subbackgroundgreen" : " subborderred subbackgroundred")}>
                     {makestringpresentable(title)}{(value.toString().trim().length == 0)? ": " : ": "}{makestringpresentable(value)}
                 </div>
             </div>

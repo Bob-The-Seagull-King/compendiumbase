@@ -49,7 +49,7 @@ const BaseFilterSelectDisplay = (prop: any) => {
     // Return result -----------------------------
     return (
         <>
-            <div onClick={() => handleShow()}className='borderstyler borderdefault roundBody hovermouse'>
+            <div onClick={() => handleShow()}className='borderstyler borderdefault hovermouse'>
                 {((_activetextfilters.length == 0) && (_activetagfilters.length == 0) && (_activerangefilters.length == 0) && (_activemiscfilters.length == 0) ) &&
                     <div className="">
                             <h1 className="subtletext">No Filters Selected</h1>

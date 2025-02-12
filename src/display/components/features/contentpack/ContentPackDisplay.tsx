@@ -73,7 +73,7 @@ const ContentPackDisplay = (props: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with ContentPackDisplay.tsx</div>}>
             <div className='' ref={ref}>
                 {stateWidth > 700 &&
-                    <div className="contentpackcontainer smallbordersubdefault" >
+                    <div className="filterbox contentpackbasecontainer borderstyler subborderdefault" >
                         <span className="packvrbox">
                             <Button style={{padding:"0em"}} variant="" onClick={() => handleShow()}>
                                 <FontAwesomeIcon icon={faBookOpen} className="colordefault" style={{fontSize:"2em",margin:"0em"}}/>
@@ -91,11 +91,11 @@ const ContentPackDisplay = (props: any) => {
                         </span>
                         <span className="contentsubnamecontainer">
                             <span/>
-                            <h1 className="packtitle">
+                            <h1 className="packtitlebase packtitlelarge">
                                 {PackItem.Name}
                             </h1>
                             <div className="vr packvr"></div>
-                            <h3 className="packsubtitle">
+                            <h3 className="packtitlebase packtitlesmall">
                                 {PackItem.Author}
                             </h3>
                             <span/>
@@ -109,12 +109,12 @@ const ContentPackDisplay = (props: any) => {
                     </div>
                 }
                 {stateWidth <= 700 &&
-                    <div className="contentpacksmallcontainer smallbordersubdefault" >
+                    <div className="filterbox contentpackbasecontainer borderstyler subborderdefault" >
                         
                         <div className="row" style={{width:"100%"}}>
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
-                                <h1 className="packtitle" style={{width:"fit-content"}}>
+                                <h1 className="packtitlebase packtitlelarge" style={{width:"fit-content"}}>
                                     {PackItem.Name}
                                 </h1>
                                 <span/>
@@ -123,7 +123,7 @@ const ContentPackDisplay = (props: any) => {
                         <div className="row" style={{width:"100%"}}>
                             <div className="col-12 smallcontentpackrow" style={{display: "flex", justifyContent:"space-between"}}>
                                 <span/>
-                                <h3 className="packsubtitle" style={{width:"fit-content"}}>
+                                <h3 className="packtitlebase packtitlesmall" style={{width:"fit-content"}}>
                                     {PackItem.Author}
                                 </h3>
                                 <span/>
@@ -181,7 +181,7 @@ const ContentPackDisplay = (props: any) => {
                                 <div className="separator" style={{marginTop:"0em"}}><h5>Content</h5></div>
                                 <div style={{display:"flex",flexWrap:"wrap"}}>
                                     {PackItem.Tags.map((item: any) => (
-                                        <div className="filterobjectdisplay" key={"packdisplay"}>
+                                        <div className=" quartermarginfilterbuttonitem bordergrey backgroundgrey" key={"packdisplay"}>
                                             {makestringpresentable(item.name)} - {item.count.toString()}
                                         </div>
                                     ))}
