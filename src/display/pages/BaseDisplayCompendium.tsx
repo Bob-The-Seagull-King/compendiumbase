@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../resources/styles/_mainstylesource.scss'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
@@ -24,6 +24,23 @@ const BaseDisplayCompendium = (prop: any) => {
     const [_activeItems, returnstate] = useState(CollectionController.ObjectList);
     const [_foundItems, returntable] = useState(CollectionController.itemcollection);
     const [_keyval, updatekey] = useState(1);
+    
+    const [stateWidth, setWidth] = useState(window.innerWidth);
+
+    
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const setContentPackWidth = () => {
+            if(ref.current) {
+                setWidth(ref.current.clientWidth);
+                updatekey(_keyval + 1);
+            }
+        }
+        window.addEventListener("load", setContentPackWidth, false);
+        window.addEventListener("resize", setContentPackWidth, false);
+        setContentPackWidth();
+    }, [])
+    
 
     let listcolourval = 0;
 
@@ -56,16 +73,10 @@ const BaseDisplayCompendium = (prop: any) => {
         updatekey(_keyval+1)
     }
 
-    // Return result -----------------------------
-    return (
-        <ErrorBoundary fallback={<div>Something went wrong with BaseDisplayCompendium.tsx</div>}>
-        <div className="container" style={{maxWidth:"100%"}}>
-            <div className="row">
-                {/* Display the filters and abilities which match the filters, if any. */}
-                <div className={"col-lg-" + (12-DisplayPage.width) + " col-md-" + (12-DisplayPage.width) + " col-sm-12 col-xs-12 col-12 my-0 py-0"}>
-                    <div className="row p-3 overflow-auto flex-grow-1">
-                        <div className="height80">
-                            <div className="col-12">
+    function returnFilterDOM() {
+        return (
+            <>
+            <div className="col-12">
                                 <div className="row">
                                     <div className='col-12'>
                                     </div>
@@ -97,14 +108,14 @@ const BaseDisplayCompendium = (prop: any) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Display the selected abilities, if any */}
-                <div className={"col-lg-" + (DisplayPage.width) + " col-md-" + (DisplayPage.width) + " col-sm-12 col-xs-12 col-12"}>
-                    <div className="row p-3 overflow-auto flex-grow-1">
-                        <div className="height80">
-                            <div className="col-12">
+            </>
+        )
+    }
+
+    function returnItemDOM() {
+        return (
+            <>
+            <div className="col-12">
                                 <div className="row">
                                     <div className='col-12'>
                                     </div>
@@ -129,8 +140,53 @@ const BaseDisplayCompendium = (prop: any) => {
                                     ))}
                                 </div>
                             </div>
+            </>
+        )
+    }
+
+    // Return result -----------------------------
+    return (
+        <ErrorBoundary fallback={<div>Something went wrong with BaseDisplayCompendium.tsx</div>}>
+        <div className="container" ref={ref} key={_keyval} style={{maxWidth:"100%"}}>
+            <div className="row">
+                {/* Display the filters and abilities which match the filters, if any. */}
+                <div className={"col-lg-" + (12-DisplayPage.width) + " col-md-" + (12-DisplayPage.width) + " col-sm-12 col-xs-12 col-12 my-0 py-0"}>
+                    {stateWidth > 700 &&
+                        <div className="row p-3 overflow-auto flex-grow-1">
+                            <div className="height80">
+                            {returnFilterDOM()}
+                            </div>
+                        </div>
+                    }
+                    {stateWidth <= 700 &&
+                        <div className="row"> 
+                                {returnFilterDOM()}
+                        </div>
+                    }
+                </div>
+                {stateWidth <= 700 &&
+                    <>
+                        <div className="verticalspacerbig"/>
+                        <div className="verticalspacerbig"/>
+                        <div className="verticalspacerbig"/>
+                        <div className="verticalspacerbig"/>
+                    </>
+                }
+                {/* Display the selected abilities, if any */}
+                <div className={"col-lg-" + (DisplayPage.width) + " col-md-" + (DisplayPage.width) + " col-sm-12 col-xs-12 col-12"}>
+                    
+                {stateWidth > 700 &&
+                    <div className="row p-3 overflow-auto flex-grow-1">
+                        <div className="height80">
+                            {returnItemDOM()}
                         </div>
                     </div>
+                }
+                {stateWidth <= 700 &&
+                    <div className="row">                        
+                        {returnItemDOM()}
+                    </div>
+                }
                 </div>
             </div>
         </div>
