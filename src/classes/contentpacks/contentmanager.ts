@@ -162,6 +162,32 @@ class ContentPackManager {
         
         this.SetStorage();
     }
+
+    /**
+     * Moves a content pack within the array
+     * @param _pack the content pack to move
+     * @param direction if the pack should be moved up (true) or down (false)
+     */
+    public ShufflePack(_pack : ContentPack, direction: boolean) {
+        
+        let i = 0;
+        for (i = 0; i < this.PackList.length; i++) {
+            if (_pack == this.PackList[i]) {
+                break;
+            }
+        }
+
+        if ((i == 0 && direction == true) || (i == this.PackList.length - 1 && direction == false)) {return;}
+
+        const new_i = i + (direction? -1 : 1);
+
+        const MemberArray = this.PackList.slice();
+        [MemberArray[i], MemberArray[new_i]] = [MemberArray[new_i], MemberArray[i]]
+
+        this.PackList = MemberArray;
+
+        this.SetStorage();
+    }
 }
 
 export {ContentPackManager}

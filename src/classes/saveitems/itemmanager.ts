@@ -174,6 +174,32 @@ class ItemManager {
         
         return _name + milliseconds.toString();
     }
+
+    /**
+     * Moves a content pack within the array
+     * @param _pack the content pack to move
+     * @param direction if the pack should be moved up (true) or down (false)
+     */
+    public ShufflePack(_pack : Item, direction: boolean) {
+        
+        let i = 0;
+        for (i = 0; i < this.ItemList.length; i++) {
+            if (_pack == this.ItemList[i]) {
+                break;
+            }
+        }
+
+        if ((i == 0 && direction == true) || (i == this.ItemList.length - 1 && direction == false)) {return;}
+
+        const new_i = i + (direction? -1 : 1);
+
+        const MemberArray = this.ItemList.slice();
+        [MemberArray[i], MemberArray[new_i]] = [MemberArray[new_i], MemberArray[i]]
+
+        this.ItemList = MemberArray;
+
+        this.SetStorage();
+    }
 }
 
 export {ItemManager}

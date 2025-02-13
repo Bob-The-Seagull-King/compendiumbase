@@ -16,7 +16,7 @@ import { makestringpresentable } from '../../../../utility/functions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import { faBookOpen, faSquareCaretUp, faSquareCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { faUnlock } from '@fortawesome/free-solid-svg-icons'
 import { returnDescription } from '../../../../utility/util';
@@ -50,6 +50,12 @@ const ContentPackDisplay = (props: any) => {
     function switchContentPackState() {
         PackItem.IsActive = !PackItem.IsActive;
         parentView.SetStorage();
+        updateHost();
+    }
+
+    // Move a unit up or down in the list
+    function SwapUnits(direction : boolean) {
+        parentView.ShufflePack(PackItem, direction);
         updateHost();
     }
     
@@ -86,6 +92,15 @@ const ContentPackDisplay = (props: any) => {
                                 {!PackItem.IsActive &&
                                     <FontAwesomeIcon icon={faLock} className="colorred contentpacklabel no-margin"/>
                                 }
+                            </Button>
+                            <div className="vr packvr small-side-margin"></div>
+                        </span>
+                        <span className="packvrbox">
+                            <Button className="no-padding" variant="" onClick={() => SwapUnits(true)}>
+                                <FontAwesomeIcon icon={faSquareCaretUp} className="colordefault contentpacklabel no-margin"/>
+                            </Button>
+                            <Button className="no-padding" variant="" onClick={() => SwapUnits(false)}>
+                                <FontAwesomeIcon icon={faSquareCaretDown} className="colordefault contentpacklabel no-margin"/>
                             </Button>
                             <div className="vr packvr small-side-margin"></div>
                         </span>
@@ -143,6 +158,13 @@ const ContentPackDisplay = (props: any) => {
                                     {!PackItem.IsActive &&
                                         <FontAwesomeIcon icon={faLock} className="colorred contentpacklabel no-margin"/>
                                     }
+                                </Button>
+                                <div className="vr packvr small-side-margin"></div>
+                                <Button className="no-padding" variant="" onClick={() => SwapUnits(true)}>
+                                    <FontAwesomeIcon icon={faSquareCaretUp} className="colordefault contentpacklabel no-margin"/>
+                                </Button>
+                                <Button className="no-padding" variant="" onClick={() => SwapUnits(false)}>
+                                    <FontAwesomeIcon icon={faSquareCaretDown} className="colordefault contentpacklabel no-margin"/>
                                 </Button>
                                 <div className="vr packvr small-side-margin"></div>
                                 <Button className="no-padding" variant="" onClick={() => removeContentPack()}>

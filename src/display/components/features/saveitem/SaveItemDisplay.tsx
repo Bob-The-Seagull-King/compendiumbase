@@ -15,7 +15,7 @@ import ContentPackDisplay from '../../../components/features/contentpack/Content
 
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClone, faDownload, faEye, faFileImport, faPenToSquare, faPersonMilitaryRifle, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faClone, faDownload, faEye, faSquareCaretUp, faSquareCaretDown, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Item } from '../../../../classes/saveitems/item';
 import { ItemManager } from '../../../../classes/saveitems/itemmanager';
 import { Button } from 'react-bootstrap';
@@ -31,6 +31,12 @@ const SaveItemDisplay = (prop: any) => {
 
     function ViewContentPack() {
         UpdateFunction(ItemItem, true)
+    }
+    
+    // Move a unit up or down in the list
+    function SwapUnits(direction : boolean) {
+        Manager.ShufflePack(ItemItem, direction);
+        updateHost();
     }
 
     function removeContentPack() {
@@ -91,6 +97,13 @@ const SaveItemDisplay = (prop: any) => {
                             <Button className="no-padding" variant="" onClick={() => exportData()}>
                                 <FontAwesomeIcon icon={faDownload} className="contentpacklabel no-margin" />
                             </Button>
+                            <div className="vr packvr small-side-margin"></div>
+                            <Button className="no-padding" variant="" onClick={() =>  SwapUnits(true)}>
+                                <FontAwesomeIcon icon={faSquareCaretUp} className="contentpacklabel no-margin" />
+                            </Button>
+                            <Button className="no-padding" variant="" onClick={() => SwapUnits(false)}>
+                                <FontAwesomeIcon icon={faSquareCaretDown} className="contentpacklabel no-margin" />
+                            </Button>
                             </span>
                         </span>
                         <span className="packvrbox">
@@ -126,6 +139,15 @@ const SaveItemDisplay = (prop: any) => {
                                     </span>
                                     <Button className="no-padding" variant="" onClick={() => exportData()}>
                                         <FontAwesomeIcon icon={faDownload} className="contentpacklabel no-margin" />
+                                    </Button>
+                                    <span className="packvrbox">
+                                        <div className="vr packvr small-side-margin"/>
+                                    </span>
+                                    <Button className="no-padding" variant="" onClick={() =>  SwapUnits(true)}>
+                                        <FontAwesomeIcon icon={faSquareCaretUp} className="contentpacklabel no-margin" />
+                                    </Button>
+                                    <Button className="no-padding" variant="" onClick={() => SwapUnits(false)}>
+                                        <FontAwesomeIcon icon={faSquareCaretDown} className="contentpacklabel no-margin" />
                                     </Button>
                                     <span className="packvrbox">
                                         <div className="vr packvr small-side-margin"/>
