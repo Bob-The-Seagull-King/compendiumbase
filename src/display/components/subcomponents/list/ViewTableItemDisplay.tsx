@@ -5,6 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 // Classes
 import { ViewTableItem } from '../../../../classes/viewmodel/collections/ViewTableItem'
+import { Form } from 'react-bootstrap';
 
 const ViewTableItemDisplay = (props: any) => {
     const tableItem: ViewTableItem = props.data
@@ -30,19 +31,18 @@ const ViewTableItemDisplay = (props: any) => {
     return (
         <ErrorBoundary fallback={<div>Something went wrong with ViewTableItemDisplay.tsx</div>}>
         <div style={{width: "100%", marginBottom: "0px", position: "relative"}} className='hovermouse' onClick={() => UpdateComponent()}>
-            {position() % 2 == 0 &&
-                <div className="colourOverlay"/>
-            }
-            {_activestate && 
-                <h1 className={"titlebody background" + tableItem.Colour + " no-padding itemlisttext softpad"}>
+            
+            <h1 className={"titlebody " + (position() % 2 == 0? "" : "sub") + "background" + tableItem.Colour + " no-padding itemlisttext softpad"}>
+            <Form.Check className="packtitlebase"
+                inline
+                disabled
+                name="group1"
+                type={"checkbox"}
+                id={`inline-${"checkbox"}-1`}
+                checked={_activestate}
+            />
                 {tableItem.HeldItem.Name}
-                </h1>
-            }
-            {!_activestate &&
-                <h1 className={"titlebody subbackground" + tableItem.Colour + " no-padding itemlisttext softpad"}>
-                {tableItem.HeldItem.Name}
-                </h1>
-            }
+            </h1>
         </div>
         </ErrorBoundary>
     )
