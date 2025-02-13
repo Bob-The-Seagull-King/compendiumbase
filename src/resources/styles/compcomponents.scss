@@ -1,6 +1,6 @@
 @import './_variables';
 
-// Border
+// Border ------------------------------------------------------------
 
 .borderstyler {
     border-style: solid;
@@ -12,7 +12,7 @@
     border-width: 1px !important;
 }
 
-// Overcome Basics
+// Overcome Elements -------------------------------------------------
 
 .overcomeBackground {
     background: none !important;
@@ -24,7 +24,16 @@
     --bs-tooltip-bg: none !important;
 }
 
-// Box Structures
+// Box Structures ----------------------------------------------------
+
+.basestructure {
+    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
+    text-align: justify;
+    
+    &:hover {
+        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
+    }
+}
 
 .filterbuttonitem {
     border-radius: 0.4em 0.4em 0.4em 0.4em !important;
@@ -35,15 +44,6 @@
     padding: 0.1rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-}
-
-.basestructure {
-    box-shadow: 0 0 5px 1px var(--colour_grey_secondary);
-    text-align: justify;
-    
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
-    }
 }
 
 .generalbuttonbox {
@@ -61,10 +61,12 @@
     border-radius: 0em 0em 0em 0rem;
     width: 100%;
     background-color: var(--colour_offwhite);
+}
 
-    &:hover {
-        box-shadow: 0 0 10px 2px var(--colour_grey_secondary);
-    }
+.abilityInternalStructure {
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--colour_basic_text) !important;
 }
 
 .pageaccessbox {
@@ -73,12 +75,6 @@
     align-items: center;
     border-radius: 0.2rem;
     padding: 0.5rem;
-}
-
-.abilityInternalStructure {
-    padding: 1rem;
-    font-size: 0.8rem;
-    color: var(--colour_basic_text) !important;
 }
 
 .emptyboxStructure {
@@ -90,7 +86,7 @@
     height: 400%;
 }
 
-// Body Elements
+// Body Elements ----------------------------------------------------
 
 .popupBody {
     background: var(--colour_offwhite);
@@ -109,43 +105,34 @@
     }
 }
 
-.small-side-margin {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
 .packvr {
     color: var(--colour_default_main);
     width: fit-content;
 }
 
-.packvrbox {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
+// Bootstrap overrides ----------------------------------------------- 
 
-// Bootstrap overrides
-/* Apply column striping */
 .table td:nth-child(odd), .table th:nth-child(odd) {
     background-color: var(--colour_offwhite);
 }
     
-/* You can also style even columns if desired */
 .table td:nth-child(even), .table th:nth-child(even) {
-    background-color: var(--colour_tableb); /* Slightly different shade */
+    background-color: var(--colour_tableb); 
 }
 
 .table tr:nth-child(odd) {
     background-color: var(--colour_offwhite);
 }
-    
-/* You can also style even columns if desired */
+
 .table tr:nth-child(even) {
-    background-color: var(--colour_tableb); /* Slightly different shade */
+    background-color: var(--colour_tableb); 
 }
 
-// Size
+.table {
+  --bs-table-bg: transparent;
+}
+
+// Set Sizes ----------------------------------------------------------
 
 .height80 {
     max-height: calc(80vh);
@@ -162,4 +149,25 @@
 .setheightcentered {
     min-height: 2.75rem;
     align-items: center;
+}
+
+.shorten {
+    max-width: 4rem;
+}
+
+.inputbox input {
+    height: 50%;
+}
+
+.fit-to-content{
+    width: fit-content;
+}
+
+.smallcontentpackrow {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.textmaxwidth {
+  width: 100%;
 }

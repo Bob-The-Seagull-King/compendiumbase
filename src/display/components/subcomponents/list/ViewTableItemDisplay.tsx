@@ -33,7 +33,7 @@ const ViewTableItemDisplay = (props: any) => {
         <div style={{width: "100%", marginBottom: "0px", position: "relative"}} className='hovermouse' onClick={() => UpdateComponent()}>
             
             <h1 className={"titlebody " + (position() % 2 == 0? "" : "sub") + "background" + tableItem.Colour + " no-padding itemlisttext softpad"}>
-            <Form.Check className="packtitlebase"
+            <Form.Check className="colordefault packtitlebase"
                 inline
                 disabled
                 name="group1"

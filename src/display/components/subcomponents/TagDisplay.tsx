@@ -12,7 +12,7 @@ const TagDisplay = (props: any) => {
 
     return (
         <ErrorBoundary fallback={<div>Something went wrong with TagDisplay.tsx</div>}>
-            <div className="tagItem tagText">
+            <div className="tagItem colorgrey tagText">
                 &#x2b9e; {(key.toString() || "")} {makestringpresentable(((val)? val : '').toString() || "")}
             </div>
         </ErrorBoundary>

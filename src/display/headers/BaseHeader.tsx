@@ -33,19 +33,19 @@ const BaseHeader = (prop: any) => {
         <ErrorBoundary fallback={<div>Something went wrong with BaseHeader.tsx</div>}>
             <div className='topbarCompendiumBase topbarCompendiumStructure hstack softpad gap-3 justify-center'>
                 <span className="droppaddingleft"/>
-                <h1 className='headertext d-none d-md-flex'>COMPENDIUM</h1>
-                <p className='headersubtext d-none d-md-flex'>v0.0.1</p>
-                <div className="vr headertext d-none d-md-flex"></div>
+                <h1 className='colorWhite headertext d-none d-md-flex'>COMPENDIUM</h1>
+                <p className='colorWhite headersubtext d-none d-md-flex'>v0.0.1</p>
+                <div className="vr colorWhite headertext d-none d-md-flex"></div>
                 <Button className="no-padding" variant="" onClick={() => NavigateHome()}>
                     <FontAwesomeIcon icon={faHouse} className="contentpacklabel colorWhite no-margin"/>
                 </Button>
-                <div className="vr headertext"></div>
+                <div className="vr colorWhite headertext"></div>
                 <PalleteSwap/>
-                <div className="vr headertext"></div>
+                <div className="vr colorWhite headertext"></div>
                 <LanguageSwap/>
-                <div className="vr headertext  d-none d-md-flex"></div>
+                <div className="vr colorWhite headertext  d-none d-md-flex"></div>
                 <div className="ms-lg-auto ms-md-auto  d-none d-md-flex">
-                    <h1 className="headertext">
+                    <h1 className="colorWhite headertext">
                         {getRouteName(useLocation().pathname).toUpperCase()}
                     </h1>
                 </div>

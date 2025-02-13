@@ -11,7 +11,7 @@ const ItemStat = (props: any) => {
         
         <ErrorBoundary fallback={<div>Something went wrong with ItemStat.tsx</div>}>
             <div className="col">
-                <div className="stattitle">{Title}</div>
+                <div className="colorgrey stattitle">{Title}</div>
                 <div className="statbody">{Content}</div>
                 <div className="verticalspacerbig"/>
             </div>

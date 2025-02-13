@@ -74,7 +74,7 @@ const SaveItemDisplay = (prop: any) => {
                     <div className="filterbox contentpackbasecontainer contentpackcontainer subborderstyler subborderdefault" >
                         <span className="contentsubnamecontainer">
                             <span/>
-                            <h1 className="packtitlebase packtitlelarge">
+                            <h1 className="colordefault packtitlebase packtitlelarge">
                                 {ItemItem.Title}
                             </h1>
                             <span/>
@@ -105,7 +105,7 @@ const SaveItemDisplay = (prop: any) => {
                     <div className="filterbox contentpackbasecontainer subborderstyler subborderdefault" >
                         
                         <div className="row textmaxwidth">
-                                <h1 className="packtitlebase packtitlelarge widecentertext" >
+                                <h1 className="colordefault packtitlebase packtitlelarge widecentertext" >
                                     {ItemItem.Title}
                                 </h1>
                         </div>

@@ -1,5 +1,7 @@
 @import './_variables';
 
+// Spacing and Padding --------------------------------------
+
 .addonbox {
     padding: 1rem;
     padding-left: 0.25rem;
@@ -26,6 +28,47 @@
     margin: 0rem;
 }
 
+.small-side-margin {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.tagboxpad {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.tagpad {
+    margin-left: 0.5rem;
+}
+
+.quartermargin {
+    margin : 0.25rem;
+}
+
+.droppaddingleft {
+    padding-left: 0 !important;
+}
+
+.softpad {
+  padding: 0.25em !important
+}
+
+.floatingButton {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+
+.titleShape {
+  padding: 0%;
+  margin: 0%;
+  text-align: left;
+}
+
+// Alignment and Flex -----------------------------------------
+
 .centerPosition {
     display: flex;
     align-items: center;
@@ -37,23 +80,10 @@
     justify-content: center;
 }
 
-.tagboxpad {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-}
-
-.shorten {
-    max-width: 4rem;
-}
-
-.tagpad {
-    margin-left: 0.5rem;
-}
-
-// Empty Space
-
-.quartermargin {
-    margin : 0.25rem;
+.packvrbox {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .filterbox {
@@ -61,24 +91,10 @@
     flex-wrap: wrap;
 }
 
-.droppaddingleft {
-    padding-left: 0 !important;
-}
-
 .tagboxtitle {
-    
-	/* Use a flexbox layout */
 	display: flex;
-	
-	/* Make a horizontal flexbox (the default) */
 	flex-direction: row;
-	
-	/* The important part: vertically center the items */
 	align-items: center;
-}
-
-.inputbox input {
-    height: 50%;
 }
 
 .topbarCompendiumStructure {
@@ -100,26 +116,10 @@
     padding: 0.75rem;
 }
 
-.smallcontentpackrow {
-    width: 100%;
-    justify-content: space-between;
-}
-
 .contentsubnamecontainer {
     display: flex; /* make element size relative to content */
     align-items: center;
     align-content: center;
-    width: fit-content;
-}
-
-.floatingButton {
-    margin: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-}
-
-.fit-to-content{
     width: fit-content;
 }
 

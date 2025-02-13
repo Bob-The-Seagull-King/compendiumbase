@@ -50,7 +50,7 @@ const SaveItemViewDisplay = (prop: any) => {
             </div>
 
             <div className="row">
-                <div className="largefonttext centerPosition">
+                <div className="colordefault largefonttext centerPosition">
                         <div className="widecentertext">
                             {ItemItem.Title} 
                         </div>
